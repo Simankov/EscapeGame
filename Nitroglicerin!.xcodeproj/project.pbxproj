@@ -1,0 +1,430 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		84E960EE1A7D1D4000E3312D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E960ED1A7D1D4000E3312D /* AppDelegate.swift */; };
+		84E960F01A7D1D4000E3312D /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 84E960EF1A7D1D4000E3312D /* GameScene.sks */; };
+		84E960F21A7D1D4000E3312D /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E960F11A7D1D4000E3312D /* GameScene.swift */; };
+		84E960F41A7D1D4000E3312D /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E960F31A7D1D4000E3312D /* GameViewController.swift */; };
+		84E960F71A7D1D4100E3312D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E960F51A7D1D4100E3312D /* Main.storyboard */; };
+		84E960F91A7D1D4100E3312D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84E960F81A7D1D4100E3312D /* Images.xcassets */; };
+		84E960FC1A7D1D4100E3312D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84E960FA1A7D1D4100E3312D /* LaunchScreen.xib */; };
+		84E961081A7D1D4100E3312D /* Nitroglicerin_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E961071A7D1D4100E3312D /* Nitroglicerin_Tests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		84E961021A7D1D4100E3312D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84E960E01A7D1D4000E3312D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 84E960E71A7D1D4000E3312D;
+			remoteInfo = "Nitroglicerin!";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		84E960E81A7D1D4000E3312D /* Nitroglicerin!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Nitroglicerin!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		84E960EC1A7D1D4000E3312D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84E960ED1A7D1D4000E3312D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		84E960EF1A7D1D4000E3312D /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		84E960F11A7D1D4000E3312D /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		84E960F31A7D1D4000E3312D /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		84E960F61A7D1D4100E3312D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		84E960F81A7D1D4100E3312D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		84E960FB1A7D1D4100E3312D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		84E961011A7D1D4100E3312D /* Nitroglicerin!Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Nitroglicerin!Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		84E961061A7D1D4100E3312D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84E961071A7D1D4100E3312D /* Nitroglicerin_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nitroglicerin_Tests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		84E960E51A7D1D4000E3312D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84E960FE1A7D1D4100E3312D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		84E960DF1A7D1D4000E3312D = {
+			isa = PBXGroup;
+			children = (
+				84E960EA1A7D1D4000E3312D /* Nitroglicerin! */,
+				84E961041A7D1D4100E3312D /* Nitroglicerin!Tests */,
+				84E960E91A7D1D4000E3312D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		84E960E91A7D1D4000E3312D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				84E960E81A7D1D4000E3312D /* Nitroglicerin!.app */,
+				84E961011A7D1D4100E3312D /* Nitroglicerin!Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		84E960EA1A7D1D4000E3312D /* Nitroglicerin! */ = {
+			isa = PBXGroup;
+			children = (
+				84E960ED1A7D1D4000E3312D /* AppDelegate.swift */,
+				84E960EF1A7D1D4000E3312D /* GameScene.sks */,
+				84E960F11A7D1D4000E3312D /* GameScene.swift */,
+				84E960F31A7D1D4000E3312D /* GameViewController.swift */,
+				84E960F51A7D1D4100E3312D /* Main.storyboard */,
+				84E960F81A7D1D4100E3312D /* Images.xcassets */,
+				84E960FA1A7D1D4100E3312D /* LaunchScreen.xib */,
+				84E960EB1A7D1D4000E3312D /* Supporting Files */,
+			);
+			path = "Nitroglicerin!";
+			sourceTree = "<group>";
+		};
+		84E960EB1A7D1D4000E3312D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				84E960EC1A7D1D4000E3312D /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		84E961041A7D1D4100E3312D /* Nitroglicerin!Tests */ = {
+			isa = PBXGroup;
+			children = (
+				84E961071A7D1D4100E3312D /* Nitroglicerin_Tests.swift */,
+				84E961051A7D1D4100E3312D /* Supporting Files */,
+			);
+			path = "Nitroglicerin!Tests";
+			sourceTree = "<group>";
+		};
+		84E961051A7D1D4100E3312D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				84E961061A7D1D4100E3312D /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		84E960E71A7D1D4000E3312D /* Nitroglicerin! */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84E9610B1A7D1D4100E3312D /* Build configuration list for PBXNativeTarget "Nitroglicerin!" */;
+			buildPhases = (
+				84E960E41A7D1D4000E3312D /* Sources */,
+				84E960E51A7D1D4000E3312D /* Frameworks */,
+				84E960E61A7D1D4000E3312D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Nitroglicerin!";
+			productName = "Nitroglicerin!";
+			productReference = 84E960E81A7D1D4000E3312D /* Nitroglicerin!.app */;
+			productType = "com.apple.product-type.application";
+		};
+		84E961001A7D1D4100E3312D /* Nitroglicerin!Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84E9610E1A7D1D4100E3312D /* Build configuration list for PBXNativeTarget "Nitroglicerin!Tests" */;
+			buildPhases = (
+				84E960FD1A7D1D4100E3312D /* Sources */,
+				84E960FE1A7D1D4100E3312D /* Frameworks */,
+				84E960FF1A7D1D4100E3312D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				84E961031A7D1D4100E3312D /* PBXTargetDependency */,
+			);
+			name = "Nitroglicerin!Tests";
+			productName = "Nitroglicerin!Tests";
+			productReference = 84E961011A7D1D4100E3312D /* Nitroglicerin!Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		84E960E01A7D1D4000E3312D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = "Sergey Simankov";
+				TargetAttributes = {
+					84E960E71A7D1D4000E3312D = {
+						CreatedOnToolsVersion = 6.2;
+					};
+					84E961001A7D1D4100E3312D = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = 84E960E71A7D1D4000E3312D;
+					};
+				};
+			};
+			buildConfigurationList = 84E960E31A7D1D4000E3312D /* Build configuration list for PBXProject "Nitroglicerin!" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 84E960DF1A7D1D4000E3312D;
+			productRefGroup = 84E960E91A7D1D4000E3312D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				84E960E71A7D1D4000E3312D /* Nitroglicerin! */,
+				84E961001A7D1D4100E3312D /* Nitroglicerin!Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		84E960E61A7D1D4000E3312D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84E960FC1A7D1D4100E3312D /* LaunchScreen.xib in Resources */,
+				84E960F91A7D1D4100E3312D /* Images.xcassets in Resources */,
+				84E960F01A7D1D4000E3312D /* GameScene.sks in Resources */,
+				84E960F71A7D1D4100E3312D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84E960FF1A7D1D4100E3312D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		84E960E41A7D1D4000E3312D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84E960F21A7D1D4000E3312D /* GameScene.swift in Sources */,
+				84E960F41A7D1D4000E3312D /* GameViewController.swift in Sources */,
+				84E960EE1A7D1D4000E3312D /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84E960FD1A7D1D4100E3312D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84E961081A7D1D4100E3312D /* Nitroglicerin_Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		84E961031A7D1D4100E3312D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 84E960E71A7D1D4000E3312D /* Nitroglicerin! */;
+			targetProxy = 84E961021A7D1D4100E3312D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		84E960F51A7D1D4100E3312D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84E960F61A7D1D4100E3312D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		84E960FA1A7D1D4100E3312D /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84E960FB1A7D1D4100E3312D /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		84E961091A7D1D4100E3312D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		84E9610A1A7D1D4100E3312D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		84E9610C1A7D1D4100E3312D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Nitroglicerin!/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		84E9610D1A7D1D4100E3312D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Nitroglicerin!/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		84E9610F1A7D1D4100E3312D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Nitroglicerin!Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Nitroglicerin!.app/Nitroglicerin!";
+			};
+			name = Debug;
+		};
+		84E961101A7D1D4100E3312D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Nitroglicerin!Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Nitroglicerin!.app/Nitroglicerin!";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		84E960E31A7D1D4000E3312D /* Build configuration list for PBXProject "Nitroglicerin!" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84E961091A7D1D4100E3312D /* Debug */,
+				84E9610A1A7D1D4100E3312D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84E9610B1A7D1D4100E3312D /* Build configuration list for PBXNativeTarget "Nitroglicerin!" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84E9610C1A7D1D4100E3312D /* Debug */,
+				84E9610D1A7D1D4100E3312D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		84E9610E1A7D1D4100E3312D /* Build configuration list for PBXNativeTarget "Nitroglicerin!Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84E9610F1A7D1D4100E3312D /* Debug */,
+				84E961101A7D1D4100E3312D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 84E960E01A7D1D4000E3312D /* Project object */;
+}
