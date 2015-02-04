@@ -15,6 +15,14 @@
 		84E960F91A7D1D4100E3312D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84E960F81A7D1D4100E3312D /* Images.xcassets */; };
 		84E960FC1A7D1D4100E3312D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84E960FA1A7D1D4100E3312D /* LaunchScreen.xib */; };
 		84E961081A7D1D4100E3312D /* Nitroglicerin_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E961071A7D1D4100E3312D /* Nitroglicerin_Tests.swift */; };
+		84E961131A7D264C00E3312D /* background2.png in Resources */ = {isa = PBXBuildFile; fileRef = 84E961121A7D264C00E3312D /* background2.png */; };
+		84E961151A7D287F00E3312D /* BOTTLE.png in Resources */ = {isa = PBXBuildFile; fileRef = 84E961141A7D287F00E3312D /* BOTTLE.png */; };
+		84E961171A7D2F5600E3312D /* mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 84E961161A7D2F5600E3312D /* mask.png */; };
+		84E9611A1A7D320100E3312D /* MyParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 84E961181A7D320100E3312D /* MyParticle.sks */; };
+		84E9611B1A7D320100E3312D /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 84E961191A7D320100E3312D /* spark.png */; };
+		84E9611D1A7D3CCF00E3312D /* wood_horiz1.png in Resources */ = {isa = PBXBuildFile; fileRef = 84E9611C1A7D3CCF00E3312D /* wood_horiz1.png */; };
+		84E961201A7D668B00E3312D /* ring.png in Resources */ = {isa = PBXBuildFile; fileRef = 84E9611E1A7D668B00E3312D /* ring.png */; };
+		84E961211A7D668B00E3312D /* body.png in Resources */ = {isa = PBXBuildFile; fileRef = 84E9611F1A7D668B00E3312D /* body.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +48,14 @@
 		84E961011A7D1D4100E3312D /* Nitroglicerin!Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Nitroglicerin!Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84E961061A7D1D4100E3312D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84E961071A7D1D4100E3312D /* Nitroglicerin_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nitroglicerin_Tests.swift; sourceTree = "<group>"; };
+		84E961121A7D264C00E3312D /* background2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background2.png; sourceTree = "<group>"; };
+		84E961141A7D287F00E3312D /* BOTTLE.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BOTTLE.png; sourceTree = "<group>"; };
+		84E961161A7D2F5600E3312D /* mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mask.png; sourceTree = "<group>"; };
+		84E961181A7D320100E3312D /* MyParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyParticle.sks; sourceTree = "<group>"; };
+		84E961191A7D320100E3312D /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		84E9611C1A7D3CCF00E3312D /* wood_horiz1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wood_horiz1.png; sourceTree = "<group>"; };
+		84E9611E1A7D668B00E3312D /* ring.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ring.png; sourceTree = "<group>"; };
+		84E9611F1A7D668B00E3312D /* body.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = body.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,9 +97,12 @@
 		84E960EA1A7D1D4000E3312D /* Nitroglicerin! */ = {
 			isa = PBXGroup;
 			children = (
+				84E961111A7D264C00E3312D /* Images */,
 				84E960ED1A7D1D4000E3312D /* AppDelegate.swift */,
 				84E960EF1A7D1D4000E3312D /* GameScene.sks */,
 				84E960F11A7D1D4000E3312D /* GameScene.swift */,
+				84E961181A7D320100E3312D /* MyParticle.sks */,
+				84E961191A7D320100E3312D /* spark.png */,
 				84E960F31A7D1D4000E3312D /* GameViewController.swift */,
 				84E960F51A7D1D4100E3312D /* Main.storyboard */,
 				84E960F81A7D1D4100E3312D /* Images.xcassets */,
@@ -116,6 +135,19 @@
 				84E961061A7D1D4100E3312D /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		84E961111A7D264C00E3312D /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				84E9611E1A7D668B00E3312D /* ring.png */,
+				84E9611F1A7D668B00E3312D /* body.png */,
+				84E9611C1A7D3CCF00E3312D /* wood_horiz1.png */,
+				84E961161A7D2F5600E3312D /* mask.png */,
+				84E961141A7D287F00E3312D /* BOTTLE.png */,
+				84E961121A7D264C00E3312D /* background2.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,10 +230,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84E961171A7D2F5600E3312D /* mask.png in Resources */,
+				84E9611B1A7D320100E3312D /* spark.png in Resources */,
+				84E961201A7D668B00E3312D /* ring.png in Resources */,
 				84E960FC1A7D1D4100E3312D /* LaunchScreen.xib in Resources */,
+				84E961151A7D287F00E3312D /* BOTTLE.png in Resources */,
+				84E961211A7D668B00E3312D /* body.png in Resources */,
+				84E961131A7D264C00E3312D /* background2.png in Resources */,
+				84E9611D1A7D3CCF00E3312D /* wood_horiz1.png in Resources */,
 				84E960F91A7D1D4100E3312D /* Images.xcassets in Resources */,
 				84E960F01A7D1D4000E3312D /* GameScene.sks in Resources */,
 				84E960F71A7D1D4100E3312D /* Main.storyboard in Resources */,
+				84E9611A1A7D320100E3312D /* MyParticle.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
