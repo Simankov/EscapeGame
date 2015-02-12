@@ -37,7 +37,7 @@ var joints : [SKPhysicsJoint] = [SKPhysicsJoint]()
         firstChain.setScale(scale)
         firstChain.zPosition = 0.5
         firstChain.physicsBody = SKPhysicsBody(circleOfRadius: firstChain.frame.size.height/2)
-        firstChain.physicsBody!.dynamic = false
+        
         firstChain.physicsBody!.categoryBitMask = PhysicsCategory.Chain
         firstChain.physicsBody!.collisionBitMask =  PhysicsCategory.Edge  | PhysicsCategory.Build
         self.addChild(firstChain)

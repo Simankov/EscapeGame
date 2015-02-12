@@ -71,7 +71,10 @@ var playableArea: CGRect = CGRect()
     
    
     chain.runAction(SKAction.sequence([SKAction.moveTo(convertPoint(CGPoint(x: 100, y: 1600), toNode: backgroundLayer), duration: 1), SKAction.waitForDuration(1) , SKAction.runBlock({
-        self.chain.hookNode.position = self.hero.position
+        self.chain.hookNode.position =
+           self.convertPoint(
+            self.convertPoint(self.hero.position, fromNode: self.hero),
+            toNode: self.backgroundLayer)
         self.chain.firstChain.position = self.convertPoint(self.convertPoint(self.hero.position,fromNode: self.backgroundLayer) , toNode: self.chain)})]))
     
     backgroundLayer.addChild(chain)
