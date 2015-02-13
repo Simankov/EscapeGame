@@ -23,10 +23,15 @@ class Hero : SKSpriteNode
     var state : State = .Stand
     override init()
     {
-        super.init(texture: SKTexture(imageNamed: "hero"), color: UIColor.clearColor(), size: CGSize(width: 150, height: 150))
+        super.init(texture: SKTexture(imageNamed: "hero"), color: UIColor.clearColor(), size: CGSize(width: 90, height: 90))
+       
         self.physicsBody = SKPhysicsBody(rectangleOfSize: size)
         self.physicsBody!.categoryBitMask = PhysicsCategory.Hero
         self.physicsBody!.collisionBitMask = PhysicsCategory.Build | PhysicsCategory.Edge
+        self.physicsBody!.contactTestBitMask = PhysicsCategory.Edge | PhysicsCategory.Build
+        self.physicsBody!.allowsRotation = false
+        self.physicsBody!.mass = 1999
+        self.physicsBody!.friction = 0
         cannon.position = self.position
         cannon.zPosition = 3
         self.setScale(2)
@@ -41,10 +46,7 @@ class Hero : SKSpriteNode
         let pinJoint = SKPhysicsJointPin.jointWithBodyA(self.physicsBody, bodyB: cannon.physicsBody, anchor: gameScene.convertPoint(self.position, fromNode: gameScene.backgroundLayer))
         scene?.physicsWorld.addJoint(pinJoint)
     }
-    func updatePosition()
-    {
-        cannon.position = self.position
-    }
+    
     func climb(target: CGPoint)
     {
         self.runAction(SKAction.moveTo(target, duration: 0.5))
@@ -59,7 +61,26 @@ class Hero : SKSpriteNode
     }
     func jump(target: CGPoint)
     {
-        self.physicsBody!.velocity = CGVectorMake(200, 200)
+    if self.physicsBody!.velocity.length() < 0.1
+    {
+        let g : CGFloat = 9.8
+        let x1 = self.position.x
+        let y1 = self.position.y
+        let timeOfJump : CGFloat = 1
+        let x2 = target.x
+        let y2 = target.y + self.frame.height/2
+        
+        if (x2-x1) + (y1-y2) < 0
+        {
+            return
+        }
+        
+         
+       let time = sqrt(( (x2-x1)/150 + (y1-y2)/150 ) * 2 / g )
+       let Vox = (x2 - x1) / time
+      
+        self.physicsBody!.velocity = CGVectorMake(Vox, Vox)
+        }
     }
 
     required init?(coder aDecoder: NSCoder) {

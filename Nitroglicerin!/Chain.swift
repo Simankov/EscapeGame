@@ -37,7 +37,7 @@ var joints : [SKPhysicsJoint] = [SKPhysicsJoint]()
         firstChain.setScale(scale)
         firstChain.zPosition = 0.5
         firstChain.physicsBody = SKPhysicsBody(circleOfRadius: firstChain.frame.size.height/2)
-        
+        firstChain.physicsBody!.dynamic = true
         firstChain.physicsBody!.categoryBitMask = PhysicsCategory.Chain
         firstChain.physicsBody!.collisionBitMask =  PhysicsCategory.Edge  | PhysicsCategory.Build
         self.addChild(firstChain)
@@ -95,14 +95,14 @@ func createHook(position: CGPoint)
         
         hookNode.position = CGPoint(x: position.x, y: position.y )
         
-        hookNode.zPosition = 2
+        hookNode.zPosition = 134
         hookNode.physicsBody = SKPhysicsBody(circleOfRadius: hookNode.frame.height/2)
         hookNode.physicsBody!.categoryBitMask = PhysicsCategory.Hook
         hookNode.physicsBody!.collisionBitMask = PhysicsCategory.Edge | PhysicsCategory.Cannon | PhysicsCategory.Build | PhysicsCategory.Fire | PhysicsCategory.Antenna
         hookNode.physicsBody!.density = 15;
         hookNode.physicsBody!.friction = 8999
-        
-        hookNode.setScale(0.98)
+        hookNode.physicsBody!.contactTestBitMask = PhysicsCategory.Build | PhysicsCategory.Edge
+        hookNode.setScale(0.8)
         
         self.addChild(hookNode)
         chains.append(hookNode)
@@ -173,6 +173,7 @@ func getInScene(point: CGPoint) -> CGPoint
     
 func updateState()
 {
+    println(self.hookNode.physicsBody!.angularVelocity)
     if hookNode.physicsBody!.dynamic == false
     {
         currentState = .UnderControll
@@ -180,9 +181,9 @@ func updateState()
     else
     {
         let gameScene = scene as GameScene
-        let inScene = gameScene.convertPoint(hookNode.position, fromNode: self)
-        let inHero = gameScene.convertPoint(inScene, toNode: gameScene.hero)
-        let rect = gameScene.hero.cannon.frame
+        let inScene = gameScene.convertPoint(hookNode.position, fromNode: gameScene.chain)
+        let inHero = gameScene.convertPoint(inScene, toNode: gameScene.backgroundLayer)
+        
         if gameScene.hero.cannon.frame.contains(inHero)
         {
             currentState  = .InCannon
@@ -190,13 +191,26 @@ func updateState()
         }
         else
         {
-            if self.hookNode.physicsBody!.velocity.length() < 10
+            if self.hookNode.physicsBody!.velocity.length() < 3 && abs(hookNode.physicsBody!.angularVelocity) < 0.1 
+                
             {
                 currentState = .Stopped
+                let position = gameScene.convertPoint(CGPointMake(0,hookNode.frame.minY), fromNode: gameScene.chain)
                 
+                if gameScene.convertPoint(position, toNode: gameScene.backgroundLayer).y !=
+                   gameScene.hero.frame.minY
+                    
+                    // this is method which define "win" step. Hook and player differents at its y-coordinates when they are on different buildings
+                {
+                   let targetPosition =
+                        gameScene.convertPoint(gameScene.convertPoint(hookNode.position, fromNode: gameScene.chain), toNode: gameScene.backgroundLayer)
+                    
+                    gameScene.hero.jump(targetPosition)
+                }
             }
             else
             {
+                
                 currentState = .InFly
             }
         }

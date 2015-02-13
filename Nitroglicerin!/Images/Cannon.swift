@@ -76,11 +76,12 @@ class Cannon: SKSpriteNode{
        powerMultiple = powerMultiple * powerMultiple
        
         fire.physicsBody!.applyImpulse(CGVectorMake(direction.x * power * powerMultiple, direction.y * power * powerMultiple))
-              fire.runAction(SKAction.sequence([SKAction.waitForDuration(0.5), SKAction.runBlock({
+              fire.runAction(SKAction.sequence([SKAction.waitForDuration(0.3), SKAction.runBlock({
             
-           self.fire.removeFromParent()
+            self.fire.removeFromParent()
             self.fire.position = self.firePosition
-           self.addChild(self.fire)
+            self.addChild(self.fire)
+           
         })]))
     
        

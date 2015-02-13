@@ -41,6 +41,7 @@ var playableArea: CGRect = CGRect()
     let hero = Hero()
     let swipeRecognizer  = UISwipeGestureRecognizer()
     var flagMovedObjects: Bool = false;
+    var targetPosition : CGPoint = CGPointZero
     
    override func didMoveToView(view: SKView) {
     prepareScene()
@@ -49,8 +50,10 @@ var playableArea: CGRect = CGRect()
     backgroundLayer.zPosition = -1
    
     swipeRecognizer.addTarget(self, action: "swipe")
-    background = childNodeWithName("background") as SKSpriteNode
-    
+    background = SKSpriteNode(imageNamed: "background")
+    background.position = CGPointMake(2048, 768)
+    background.size = CGSizeMake(4096, 1536)
+    background.zPosition = -2
     view.addGestureRecognizer(swipeRecognizer)
     
     view.userInteractionEnabled = true
@@ -67,20 +70,15 @@ var playableArea: CGRect = CGRect()
     view.showsPhysics = false
    
 //    backgroundLayer.setScale(2)
-    chain = Chain(countChains: 25, scale : 4.5) as Chain
+    chain = Chain(countChains: 23, scale : 4.5) as Chain
     
    
-    chain.runAction(SKAction.sequence([SKAction.moveTo(convertPoint(CGPoint(x: 100, y: 1600), toNode: backgroundLayer), duration: 1), SKAction.waitForDuration(1) , SKAction.runBlock({
-        self.chain.hookNode.position =
-           self.convertPoint(
-            self.convertPoint(self.hero.position, fromNode: self.hero),
-            toNode: self.backgroundLayer)
-        self.chain.firstChain.position = self.convertPoint(self.convertPoint(self.hero.position,fromNode: self.backgroundLayer) , toNode: self.chain)})]))
+ 
     
     backgroundLayer.addChild(chain)
     chain.addAdditionalJoints();
+    chain.position = CGPointMake(400, 2000)
     backgroundLayer.addChild(hero.cannon)
-    
   
     background.name = "background"
     }
@@ -114,10 +112,7 @@ var playableArea: CGRect = CGRect()
         
        touchedNode  = nodeAtPoint(startPosition) as SKNode
 
-    if touchedNode?.name == "fire"
-        {
-//            cannon.shot()
-        }
+   
         if touchedNode?.name == "background" || touchedNode?.name == "layer"
         {
               timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "increaseCounter", userInfo: nil, repeats: true)
@@ -127,14 +122,22 @@ var playableArea: CGRect = CGRect()
         if touchedNode?.name == "button"
         {
             flagMovedObjects = true
-           chain.hookNode.physicsBody!.dynamic = true
-        chain.hookNode.physicsBody!.affectedByGravity = true
+                      chain.hookNode.physicsBody!.dynamic = true
+            
+                   chain.hookNode.physicsBody!.affectedByGravity = true
+        
             
         }
         if touchedNode?.name == "hook"
         {
             flagMovedObjects = true
+            chain.firstChain.position =
+                convertPoint(
+                    convertPoint(hero.position, fromNode: backgroundLayer),
+                    toNode : chain
+                    )
             
+            chain.firstChain.physicsBody!.dynamic = false
             chain.hookNode.physicsBody!.dynamic = false
             
                    }
@@ -226,7 +229,7 @@ var playableArea: CGRect = CGRect()
     lastUpdateTime = CGFloat(currentTime)
     let positionHook = convertPoint(chain.hookNode.position , fromNode: chain)
     
-        let offset = convertPoint(positionHook, toNode: backgroundLayer).x - convertPoint( CGPoint(x:CGRectGetMaxX(frame)-600, y:0), toNode: backgroundLayer).x
+        let offset = convertPoint(positionHook, toNode: backgroundLayer).x - convertPoint( CGPoint(x:CGRectGetMaxX(frame)-900, y:0), toNode: backgroundLayer).x
         
     if offset > 0
         {
@@ -257,22 +260,60 @@ var playableArea: CGRect = CGRect()
    {
     currentTouchPosition = CGPointZero
   }
-    
+  
+   
    chain.updateState()
-   hero.updatePosition()
+   updatePosition()
         
     }
     
     
-    
-   
     func didBeginContact(contact: SKPhysicsContact) {
-        if contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask == PhysicsCategory.Build | PhysicsCategory.Hook
+        if (contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask) == (PhysicsCategory.Build | PhysicsCategory.Hook)
         {
-            println("azaza")
+            chain.hookNode.physicsBody!.velocity = CGVectorMake(0, 0)
+            
+        }
+        
+        if (contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask) == (PhysicsCategory.Build |
+        PhysicsCategory.Hero)
+        {
+            if contact.bodyA.categoryBitMask == PhysicsCategory.Hero
+            {
+                contact.bodyA.node!.physicsBody?.velocity = CGVectorMake(0, 0)
+            }
+            else
+            
+            {
+                contact.bodyB.node!.physicsBody?.velocity = CGVectorMake(0, 0)
+            }
+        }
+        
+        if contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask == PhysicsCategory.Edge | PhysicsCategory.Hook
+        {
+            self.restart()
         }
     }
     
+   func restart()
+   {
+    
+    removeAllChildren()
+    let gameScene = GameScene(fileNamed: "GameScene")
+    gameScene.scaleMode = .AspectFill
+    gameScene.view?.showsFPS = true
+    self.view?.presentScene(gameScene)
+    
+    }
+    
+    func updatePosition()
+    {
+        hero.cannon.position = hero.position
+        chain.firstChain.position =
+          convertPoint(
+            convertPoint(hero.position, fromNode: backgroundLayer),
+         toNode: chain)
+    }
    func swipe()
 
     {
@@ -282,7 +323,7 @@ var playableArea: CGRect = CGRect()
       let count = swipeRecognizer.numberOfTouches()
         currentTouchPosition =  convertPoint(swipeRecognizer.locationOfTouch(count-1, inView: view), toNode: backgroundLayer)
        }
-    
+     
     }
     
     func increaseCounter()
