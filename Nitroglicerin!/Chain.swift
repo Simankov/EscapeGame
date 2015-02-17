@@ -24,6 +24,8 @@ var hookNode : SKSpriteNode = SKSpriteNode(imageNamed: "shape")
 var firstChain : SKSpriteNode = SKSpriteNode();
 var lastChain  : SKSpriteNode = SKSpriteNode()
 var joints : [SKPhysicsJoint] = [SKPhysicsJoint]()
+var build = Build()
+
     convenience init (countChains : Int, scale : CGFloat)
     {
         self.init()
@@ -37,9 +39,9 @@ var joints : [SKPhysicsJoint] = [SKPhysicsJoint]()
         firstChain.setScale(scale)
         firstChain.zPosition = 0.5
         firstChain.physicsBody = SKPhysicsBody(circleOfRadius: firstChain.frame.size.height/2)
-        firstChain.physicsBody!.dynamic = true
+        firstChain.physicsBody!.dynamic = false
         firstChain.physicsBody!.categoryBitMask = PhysicsCategory.Chain
-        firstChain.physicsBody!.collisionBitMask =  PhysicsCategory.Edge  | PhysicsCategory.Build
+        firstChain.physicsBody!.collisionBitMask =  PhysicsCategory.Build
         self.addChild(firstChain)
         chains.append(firstChain)
         
@@ -57,7 +59,7 @@ var joints : [SKPhysicsJoint] = [SKPhysicsJoint]()
             chainNode.physicsBody = SKPhysicsBody(circleOfRadius: chainNode.frame.size.height/2)
             chainNode.physicsBody!.restitution = 0.1
             chainNode.physicsBody!.categoryBitMask = PhysicsCategory.Chain
-            chainNode.physicsBody!.collisionBitMask =  PhysicsCategory.Edge  | PhysicsCategory.Build | PhysicsCategory.Antenna
+            chainNode.physicsBody!.collisionBitMask =   PhysicsCategory.Build | PhysicsCategory.Antenna
             
             self.addChild(chainNode)
             
@@ -98,11 +100,11 @@ func createHook(position: CGPoint)
         hookNode.zPosition = 134
         hookNode.physicsBody = SKPhysicsBody(circleOfRadius: hookNode.frame.height/2)
         hookNode.physicsBody!.categoryBitMask = PhysicsCategory.Hook
-        hookNode.physicsBody!.collisionBitMask = PhysicsCategory.Edge | PhysicsCategory.Cannon | PhysicsCategory.Build | PhysicsCategory.Fire | PhysicsCategory.Antenna
-        hookNode.physicsBody!.density = 15;
+        hookNode.physicsBody!.collisionBitMask =  PhysicsCategory.Cannon | PhysicsCategory.Build | PhysicsCategory.Fire | PhysicsCategory.Antenna
+        hookNode.physicsBody!.density = 40;
         hookNode.physicsBody!.friction = 8999
         hookNode.physicsBody!.contactTestBitMask = PhysicsCategory.Build | PhysicsCategory.Edge
-        hookNode.setScale(0.8)
+        hookNode.setScale(1.4)
         
         self.addChild(hookNode)
         chains.append(hookNode)
@@ -173,7 +175,7 @@ func getInScene(point: CGPoint) -> CGPoint
     
 func updateState()
 {
-    println(self.hookNode.physicsBody!.angularVelocity)
+   
     if hookNode.physicsBody!.dynamic == false
     {
         currentState = .UnderControll
@@ -184,28 +186,21 @@ func updateState()
         let inScene = gameScene.convertPoint(hookNode.position, fromNode: gameScene.chain)
         let inHero = gameScene.convertPoint(inScene, toNode: gameScene.backgroundLayer)
         
-        if gameScene.hero.cannon.frame.contains(inHero)
-        {
-            currentState  = .InCannon
-            
-        }
-        else
-        {
+       
             if self.hookNode.physicsBody!.velocity.length() < 3 && abs(hookNode.physicsBody!.angularVelocity) < 0.1 
                 
             {
                 currentState = .Stopped
-                let position = gameScene.convertPoint(CGPointMake(0,hookNode.frame.minY), fromNode: gameScene.chain)
                 
-                if gameScene.convertPoint(position, toNode: gameScene.backgroundLayer).y !=
-                   gameScene.hero.frame.minY
+                if self.build.number != gameScene.hero.build.number && gameScene.status  != .Wait
                     
-                    // this is method which define "win" step. Hook and player differents at its y-coordinates when they are on different buildings
+                    // this is method which define "win" step. 
                 {
                    let targetPosition =
                         gameScene.convertPoint(gameScene.convertPoint(hookNode.position, fromNode: gameScene.chain), toNode: gameScene.backgroundLayer)
                     
                     gameScene.hero.jump(targetPosition)
+                    gameScene.runOneTime = false
                 }
             }
             else
@@ -217,7 +212,6 @@ func updateState()
         
         
         
-    }
     }
     
 

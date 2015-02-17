@@ -9,6 +9,8 @@
 import Foundation
 import SpriteKit
 
+
+
 func randomFloat(lowerLimit: CGFloat, upperLimit: CGFloat) -> CGFloat
 {
     return  ( CGFloat(arc4random()) / CGFloat(UInt32.max) ) * (upperLimit - lowerLimit) + lowerLimit
@@ -16,10 +18,12 @@ func randomFloat(lowerLimit: CGFloat, upperLimit: CGFloat) -> CGFloat
 }
 
 
+var i = 0;
+
 class Build: SKSpriteNode
  {
      var antenna : SKSpriteNode = SKSpriteNode(imageNamed: "antenna")
-    
+     var number: Int = 0
   override init()
   {
     super.init(texture: SKTexture(imageNamed: "build"),color : UIColor.clearColor(), size: SKTexture(imageNamed: "build").size())
@@ -55,11 +59,17 @@ class Build: SKSpriteNode
 //        antenna.physicsBody!.categoryBitMask = PhysicsCategory.Antenna
 //        antenna.physicsBody!.collisionBitMask = PhysicsCategory.Hook | PhysicsCategory.Build
 //        antenna.physicsBody!.mass = 999999999
-       
+        number = i
+        i++
         self.addChild(antenna)
         
         
         
+    }
+    
+    func end() -> CGPoint
+    {
+        return CGPoint(x: self.position.x + size.width/2, y: self.position.y + size.height/2)
     }
     
     func fixJointAntenn()

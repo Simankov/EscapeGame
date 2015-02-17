@@ -24,7 +24,7 @@ class Cannon: SKSpriteNode{
     
     enum Status
     {
-        case onPosition, inMove
+        case onPosition, inMove, Shot
     }
     
     var firePosition : CGPoint = CGPointZero
@@ -74,15 +74,22 @@ class Cannon: SKSpriteNode{
     {
        powerMultiple += 1
        powerMultiple = powerMultiple * powerMultiple
-       
-        fire.physicsBody!.applyImpulse(CGVectorMake(direction.x * power * powerMultiple, direction.y * power * powerMultiple))
-              fire.runAction(SKAction.sequence([SKAction.waitForDuration(0.3), SKAction.runBlock({
+      
             
-            self.fire.removeFromParent()
-            self.fire.position = self.firePosition
-            self.addChild(self.fire)
-           
-        })]))
+                
+        
+            
+        self.status = .Shot
+        (scene as GameScene).chain.hookNode.physicsBody!.applyImpulse(CGVectorMake(1700/1.4, 1700/1.4))
+//        fire.physicsBody!.applyImpulse(CGVectorMake(direction.x * power * powerMultiple, direction.y * power * powerMultiple))
+//        println((self.scene as GameScene).chain.hookNode.physicsBody!.velocity.length())
+//              fire.runAction(SKAction.sequence([SKAction.waitForDuration(0.3), SKAction.runBlock({
+//            println((self.scene as GameScene).chain.hookNode.physicsBody!.velocity.length())
+//            self.fire.removeFromParent()
+//            self.fire.position = self.firePosition
+//            self.addChild(self.fire)
+//           
+//        })]))
     
        
     
@@ -115,7 +122,7 @@ class Cannon: SKSpriteNode{
         direction = normalaized(offset)
         var angleDirection = acos(direction.x )
         let sign : CGFloat = (targetDirection.y > direction.y) ? 1 : -1
-        println(sign)
+        
         var angle = acos(targetDirection.x ) * sign
         if angle <= 0 && angle >= -3 * CGFloat(M_PI / 4)  || angle >= 5 * CGFloat(M_PI / 4)
         {
@@ -131,9 +138,9 @@ class Cannon: SKSpriteNode{
         }
         let angleBetween = abs(acos(targetDirection.x * direction.x + targetDirection.y * direction.y))
 //        let angleBetween = abs(angle - angleDirection)
-        println(gameScene.dt)
+        
         let amount = gameScene.dt * rotationSpeed * sign
-        println(amount)
+       
         if abs(amount) >= angleBetween
         {
             self.zRotation = angle

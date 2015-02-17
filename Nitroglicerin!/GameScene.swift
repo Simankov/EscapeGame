@@ -21,10 +21,15 @@ struct PhysicsCategory
     static var Fire : UInt32 = 128
 }
 
-class GameScene: SKScene, SKPhysicsContactDelegate{
-var playableArea: CGRect = CGRect()
-
-
+class GameScene: SKScene, SKPhysicsContactDelegate
+    {
+    enum Status
+    {
+        case Wait
+        case Playable
+    }
+    
+    var playableArea: CGRect = CGRect()
     var touchedNode : SKNode? = SKNode()
     var timer: NSTimer = NSTimer()
     let backgroundLayer = SKNode()
@@ -39,9 +44,11 @@ var playableArea: CGRect = CGRect()
     var counter : CGFloat = 0;
     var lastUpdateTime : CGFloat = 0;
     let hero = Hero()
+    var status: Status = .Wait
     let swipeRecognizer  = UISwipeGestureRecognizer()
     var flagMovedObjects: Bool = false;
     var targetPosition : CGPoint = CGPointZero
+    var runOneTime : Bool = false
     
    override func didMoveToView(view: SKView) {
     prepareScene()
@@ -61,7 +68,7 @@ var playableArea: CGRect = CGRect()
    
     backgroundLayer.physicsBody = SKPhysicsBody(circleOfRadius: 3)
     backgroundLayer.physicsBody?.dynamic = false
-    hero.position = CGPoint(x: 400, y: 900)
+    hero.position = CGPoint(x: hero.frame.width/2, y: 900)
     
     backgroundLayer.addChild(hero)
     
@@ -70,17 +77,26 @@ var playableArea: CGRect = CGRect()
     view.showsPhysics = false
    
 //    backgroundLayer.setScale(2)
-    chain = Chain(countChains: 23, scale : 4.5) as Chain
+    chain = Chain(countChains: 29, scale : 6) as Chain
     
    
  
     
     backgroundLayer.addChild(chain)
     chain.addAdditionalJoints();
-    chain.position = CGPointMake(400, 2000)
-    backgroundLayer.addChild(hero.cannon)
-  
+    chain.position = CGPointMake(70, 3000)
+//    backgroundLayer.addChild(hero.cannon)
+    chain.firstChain.position =
+        convertPoint(
+            convertPoint(hero.position, fromNode: backgroundLayer),
+            toNode : chain
+    )
+    hero.chain = chain
+    hero.addJointWithChain()
     background.name = "background"
+    
+    
+   
     }
     
     func prepareScene()
@@ -111,7 +127,7 @@ var playableArea: CGRect = CGRect()
         startPosition = (touches.anyObject() as UITouch).locationInNode(self)
         
        touchedNode  = nodeAtPoint(startPosition) as SKNode
-
+       status = .Playable
    
         if touchedNode?.name == "background" || touchedNode?.name == "layer"
         {
@@ -131,14 +147,7 @@ var playableArea: CGRect = CGRect()
         if touchedNode?.name == "hook"
         {
             flagMovedObjects = true
-            chain.firstChain.position =
-                convertPoint(
-                    convertPoint(hero.position, fromNode: backgroundLayer),
-                    toNode : chain
-                    )
             
-            chain.firstChain.physicsBody!.dynamic = false
-            chain.hookNode.physicsBody!.dynamic = false
             
                    }
         
@@ -170,7 +179,7 @@ var playableArea: CGRect = CGRect()
 }
     func spawnBuild(point : CGFloat)
     {
-        let build = Build(posY: CGRectGetMinY(playableArea), minHeight : 400, maxHeight: 600, minWidth: 600, maxWidth: 700)
+        let build = Build(posY: CGRectGetMinY(playableArea), minHeight : 400, maxHeight: 600, minWidth: 100, maxWidth: 700)
 
        build.position.x = point + build.size.width/2
        build.zPosition = 1
@@ -185,7 +194,7 @@ var playableArea: CGRect = CGRect()
     }
     override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
         
-    if !flagMovedObjects{
+    if !flagMovedObjects {
         let count = touches.count
         let position = (touches.anyObject() as UITouch).locationInNode(backgroundLayer)
         
@@ -193,8 +202,9 @@ var playableArea: CGRect = CGRect()
         timer.invalidate()
         
         counter = 0;
-        hero.cannon.powerMultiple = timeOfTouch
-        hero.cannon.shot(position)
+        hero.powerMultiple = timeOfTouch
+       
+        hero.shot(position)
         
     }
         
@@ -226,44 +236,54 @@ var playableArea: CGRect = CGRect()
     {
         dt = 0
     }
+        
+        
     lastUpdateTime = CGFloat(currentTime)
+        
+    
+        
     let positionHook = convertPoint(chain.hookNode.position , fromNode: chain)
     
-        let offset = convertPoint(positionHook, toNode: backgroundLayer).x - convertPoint( CGPoint(x:CGRectGetMaxX(frame)-900, y:0), toNode: backgroundLayer).x
+        let offset = convertPoint(positionHook, toNode: backgroundLayer).x - convertPoint( CGPoint(x:CGRectGetMaxX(frame)-300, y:0), toNode: backgroundLayer).x
         
     if offset > 0
         {
-            
+        
             backgroundLayer.position.x -= offset
         }
+        
+        
+        if convertPoint(hero.position, fromNode: backgroundLayer).x > 100 && hero.physicsBody!.velocity == CGVectorMake(0, 0) && !runOneTime
+    {
+        let speed : Double = 480
+        let delta : Double = Double(convertPoint(hero.position, fromNode: backgroundLayer).x - 100)
+        let time = delta / speed as Double
+        
+        backgroundLayer.runAction(SKAction.moveByX(-CGFloat(delta), y: backgroundLayer.position.y, duration: time))
+        runOneTime = true
+     
+    }
         
     let endScreen = convertPoint(CGPointMake(self.size.width,0), toNode: backgroundLayer)
    
     if lastBuildPosition + lenghtBetweenBuildes < endScreen.x    {
         spawnBuild(lastBuildPosition + lenghtBetweenBuildes)
-        lenghtBetweenBuildes = randomFloat(600, 650)
+        lenghtBetweenBuildes = randomFloat(800, 1200)
     }
         else if
         lenghtBetweenBuildes == 0
     {
-        lenghtBetweenBuildes = randomFloat(600, 650)
+        lenghtBetweenBuildes = randomFloat(800, 1200)
 
      }
-            
-    if currentTouchPosition != CGPointZero && hero.parent != nil
-    {
-    hero.cannon.rotateToPosition(currentTouchPosition)
     
-        
-     }
-   if hero.cannon.status == .onPosition
-   {
-    currentTouchPosition = CGPointZero
-  }
+     
+
+
   
-   
+   println(hero.state.rawValue)
    chain.updateState()
-   updatePosition()
+  
         
     }
     
@@ -272,27 +292,46 @@ var playableArea: CGRect = CGRect()
         if (contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask) == (PhysicsCategory.Build | PhysicsCategory.Hook)
         {
             chain.hookNode.physicsBody!.velocity = CGVectorMake(0, 0)
-            
+           if contact.bodyB.categoryBitMask == PhysicsCategory.Build
+           {
+               chain.build = (contact.bodyB.node as Build)
+           }
+            else
+           {
+               chain.build = (contact.bodyA.node as Build)
+           }
         }
         
         if (contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask) == (PhysicsCategory.Build |
         PhysicsCategory.Hero)
         {
+            hero.state = .Stand
+            
             if contact.bodyA.categoryBitMask == PhysicsCategory.Hero
             {
                 contact.bodyA.node!.physicsBody?.velocity = CGVectorMake(0, 0)
+                
+                hero.build = (contact.bodyB.node as Build)
             }
             else
             
             {
                 contact.bodyB.node!.physicsBody?.velocity = CGVectorMake(0, 0)
+                 hero.build = (contact.bodyA.node as Build)
             }
         }
         
         if contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask == PhysicsCategory.Edge | PhysicsCategory.Hook
         {
+            
+            hero.jump(CGPoint(x: chain.hookNode.position.x + hero.size.width/2 , y: chain.build.end().y))
+            
+        }
+         if contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask == PhysicsCategory.Hero | PhysicsCategory.Edge
+         {
             self.restart()
         }
+        
     }
     
    func restart()
@@ -306,14 +345,7 @@ var playableArea: CGRect = CGRect()
     
     }
     
-    func updatePosition()
-    {
-        hero.cannon.position = hero.position
-        chain.firstChain.position =
-          convertPoint(
-            convertPoint(hero.position, fromNode: backgroundLayer),
-         toNode: chain)
-    }
+    
    func swipe()
 
     {
@@ -329,6 +361,6 @@ var playableArea: CGRect = CGRect()
     func increaseCounter()
     {
         counter += CGFloat(timer.timeInterval);
-       
+       println(counter)
     }
 }
