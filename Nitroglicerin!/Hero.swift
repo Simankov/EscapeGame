@@ -18,12 +18,19 @@ class Hero : SKSpriteNode
         case Fly = "Fly"
         case OnBlock = "OnBlock"
     }
+    enum Animate
+    {
+        case BeginJump
+        case EndJump
+    }
     let jumpPover : CGFloat = 50
     var chain = Chain()
     var powerMultiple : CGFloat = 0
     var state : State = .Stand
     var blockNumber = 0
     var build: Build = Build()
+    var animationBreath: [SKTexture] = [SKTexture]()
+    
     override init()
     {
         super.init(texture: SKTexture(imageNamed: "hero"), color: UIColor.clearColor(), size: CGSize(width: 90, height: 90))
@@ -35,7 +42,8 @@ class Hero : SKSpriteNode
         self.physicsBody!.allowsRotation = false
         self.physicsBody!.mass = 1999999
         self.physicsBody!.friction = 0
-      
+      self.animationBreath.append(SKTexture(imageNamed: "heroStand"))
+      self.animationBreath.append(SKTexture(imageNamed: "heroBreath"))
         self.setScale(3)
         
         
@@ -86,7 +94,20 @@ class Hero : SKSpriteNode
         //        fire.physicsBody!.applyImpulse(CGVectorMake(direction.x * power * powerMultiple, direction.y * power * powerMultiple))
         powerMultiple = 0;
     }
-    
+    func animate(current: Animate)
+    {
+        if current == .BeginJump
+        {
+            self.texture = SKTexture(imageNamed: "heroJump")
+            self.removeActionForKey("breath")
+        }
+        else {
+            var action = SKAction.repeatActionForever((SKAction.animateWithTextures(self.animationBreath, timePerFrame: 0.5)))
+            self.texture = SKTexture(imageNamed: "heroStand")
+            self.runAction(action, withKey : "breath")
+            
+        }
+    }
     
     func jump(target: CGPoint)
     {
@@ -109,6 +130,8 @@ class Hero : SKSpriteNode
        let Vox = (x2 - x1) / time
        
         self.physicsBody!.velocity = CGVectorMake(Vox, Vox)
+        self.animate(.BeginJump)
+        
     }
     else
     {

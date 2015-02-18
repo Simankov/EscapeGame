@@ -52,17 +52,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate
     
    override func didMoveToView(view: SKView) {
     prepareScene()
-    
+
+        backgroundColor = UIColor.whiteColor()
     backgroundLayer.name = "layer"
     backgroundLayer.zPosition = -1
    
     swipeRecognizer.addTarget(self, action: "swipe")
-    background = SKSpriteNode(imageNamed: "background")
-    background.position = CGPointMake(2048, 768)
-    background.size = CGSizeMake(4096, 1536)
+//    background = SKSpriteNode(imageNamed: "3")
+//    background.position = CGPointMake(1024, 768)
+//    background.size = CGSizeMake(4096, 1536)
+    
     background.zPosition = -2
     view.addGestureRecognizer(swipeRecognizer)
-    
+    addChild(background)
     view.userInteractionEnabled = true
     addChild(backgroundLayer)
    
@@ -137,10 +139,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         }
         if touchedNode?.name == "button"
         {
-            flagMovedObjects = true
-                      chain.hookNode.physicsBody!.dynamic = true
-            
-                   chain.hookNode.physicsBody!.affectedByGravity = true
+            self.restart()
         
             
         }
@@ -253,13 +252,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         }
         
         
-        if convertPoint(hero.position, fromNode: backgroundLayer).x > 100 && hero.physicsBody!.velocity == CGVectorMake(0, 0) && !runOneTime
+        if convertPoint(hero.position, fromNode: backgroundLayer).x > 400 && hero.physicsBody!.velocity == CGVectorMake(0, 0) && !runOneTime
     {
         let speed : Double = 480
-        let delta : Double = Double(convertPoint(hero.position, fromNode: backgroundLayer).x - 100)
+        let delta : Double = Double(convertPoint(hero.position, fromNode: backgroundLayer).x - 400)
         let time = delta / speed as Double
-        
-        backgroundLayer.runAction(SKAction.moveByX(-CGFloat(delta), y: backgroundLayer.position.y, duration: time))
+        backgroundLayer.removeActionForKey("move")
+        backgroundLayer.runAction(SKAction.moveByX(-CGFloat(delta), y: backgroundLayer.position.y, duration: time), withKey: "move")
         runOneTime = true
      
     }
@@ -306,12 +305,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         PhysicsCategory.Hero)
         {
             hero.state = .Stand
-            
+            hero.animate(.EndJump)
             if contact.bodyA.categoryBitMask == PhysicsCategory.Hero
             {
                 contact.bodyA.node!.physicsBody?.velocity = CGVectorMake(0, 0)
                 
                 hero.build = (contact.bodyB.node as Build)
+                
             }
             else
             

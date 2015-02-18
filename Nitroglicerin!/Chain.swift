@@ -18,7 +18,7 @@ class Chain : SKNode{
         case Stopped = "stopped"
     }
 var currentState: State = .Stopped
-let imageName : String = "rope2"
+let imageName : String = "rope3"
 var chains : [SKSpriteNode] = [SKSpriteNode]()
 var hookNode : SKSpriteNode = SKSpriteNode(imageNamed: "shape")
 var firstChain : SKSpriteNode = SKSpriteNode();
