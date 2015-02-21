@@ -182,6 +182,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate
 
        build.position.x = point + build.size.width/2
        build.zPosition = 1
+        build.name = "build"
        lastBuildPosition = build.position.x
         backgroundLayer.addChild(build)
         build.fixJointAntenn()
@@ -280,7 +281,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate
 
 
   
-   println(hero.state.rawValue)
+   
    chain.updateState()
   
         
@@ -323,7 +324,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         
         if contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask == PhysicsCategory.Edge | PhysicsCategory.Hook
         {
-            
+            intersectHeroAndBuild()
             hero.jump(CGPoint(x: chain.hookNode.position.x + hero.size.width/2 , y: chain.build.end().y))
             
         }
@@ -358,9 +359,37 @@ class GameScene: SKScene, SKPhysicsContactDelegate
      
     }
     
+    func intersectHeroAndBuild()
+    {
+         let inScene = convertPoint(self.chain.hookNode.position, fromNode: chain)
+        let origin = CGPoint(x: inScene.x - self.hero.size.width/2, y : inScene.y - self.hero.size.height/2)
+        var count = 0;
+        enumerateChildNodesWithName("//build"){
+            node, _ in
+            println("sefegergrt")
+   if CGRect(origin: origin, size: self.hero.size).intersects((node as SKSpriteNode).frame)
+                {
+                    count++
+                    if CGRect(origin: origin, size: CGSize(width: self.hero.size.width/2-1, height: self.hero.size.height)).intersects((node as SKSpriteNode).frame)
+                    {
+                        self.hero.intersect = .Left
+                    }
+                    else
+                    {
+                        self.hero.intersect = .Right
+                    }
+                }
+        }
+        
+        if count == 0
+        {
+           hero.intersect = .None
+        }
+    }
+    
     func increaseCounter()
     {
         counter += CGFloat(timer.timeInterval);
-       println(counter)
+     
     }
 }

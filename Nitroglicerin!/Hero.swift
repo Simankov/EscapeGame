@@ -23,6 +23,13 @@ class Hero : SKSpriteNode
         case BeginJump
         case EndJump
     }
+    
+    enum Intersect: Int
+    {
+        case None = 1;
+        case Left = 2;
+        case Right = 3;
+    }
     let jumpPover : CGFloat = 50
     var chain = Chain()
     var powerMultiple : CGFloat = 0
@@ -30,7 +37,7 @@ class Hero : SKSpriteNode
     var blockNumber = 0
     var build: Build = Build()
     var animationBreath: [SKTexture] = [SKTexture]()
-    
+    var intersect : Intersect = .None
     override init()
     {
         super.init(texture: SKTexture(imageNamed: "hero"), color: UIColor.clearColor(), size: CGSize(width: 90, height: 90))
@@ -113,23 +120,36 @@ class Hero : SKSpriteNode
     {
     if self.physicsBody!.velocity.length() < 0.1
     {
+        var amount: CGFloat = 0;
+        switch(self.intersect){
+        case .None :
+           amount = 0
+        case .Left :
+            amount = size.width/2
+        case .Right :
+            amount = -size.height/2
+        default:
+            amount = 0
+        }
+        
         let g : CGFloat = 9.8
         let x1 = self.position.x
         let y1 = self.position.y
         let timeOfJump : CGFloat = 1
-        let x2 = target.x
+        let x2 = target.x + amount
         let y2 = target.y + self.frame.height/2
-        
+        var sign : CGFloat = 1
         if (x2-x1) + (y1-y2) < 0
         {
-            return
+            sign = -1
         }
+        let distance = (x2-x1)/150 + (y1-y2)/150
         
          
-       let time = sqrt(( (x2-x1)/150 + (y1-y2)/150 ) * 2 / g )
+       let time = sqrt(( sign * distance * 2 / g ))
        let Vox = (x2 - x1) / time
        
-        self.physicsBody!.velocity = CGVectorMake(Vox, Vox)
+        self.physicsBody!.velocity = CGVectorMake(Vox, sign * Vox)
         self.animate(.BeginJump)
         
     }
