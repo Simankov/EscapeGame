@@ -31,11 +31,9 @@ class Hero : SKSpriteNode
         case Right = 3;
     }
     
-    let jumpPover : CGFloat = 50
     var chain = Chain()
     var powerMultiple : CGFloat = 0
     var state : State = .Stand
-    var blockNumber = 0
     var build: Build = Build()
     var animationBreath: [SKTexture] = [SKTexture]()
     var intersect : Intersect = .None
@@ -93,9 +91,9 @@ class Hero : SKSpriteNode
             toNode: gameScene.backgroundLayer)
 //        powerMultiple from 16000 to 4000
         
-        let targetVector = CGPointMake(target.x - hookPosition.x, target.y - hookPosition.y)
-        let targetDirection = normalaized(targetVector)
-        let impulse = CGVectorMake(targetDirection.x * powerMultiple * 4000, targetDirection.y * powerMultiple * 4000)
+        let targetVector = CGVectorMake(target.x - hookPosition.x, target.y - hookPosition.y)
+        let targetDirection = targetVector.normalize()
+        let impulse = CGVectorMake(targetDirection.dx * powerMultiple * 4000, targetDirection.dy * powerMultiple * 4000)
         (scene as GameScene).chain.hookNode.physicsBody!.applyImpulse(impulse)
         //        fire.physicsBody!.applyImpulse(CGVectorMake(direction.x * power * powerMultiple, direction.y * power * powerMultiple))
         powerMultiple = 0;

@@ -28,7 +28,6 @@ class Cannon: SKSpriteNode{
     }
     
     var firePosition : CGPoint = CGPointZero
-    let power: CGFloat = 2000000
     let rotationSpeed : CGFloat = 4 * CGFloat(M_PI)
     var direction: CGPoint = CGPointZero
     var fire = SKSpriteNode(imageNamed: "wood_horiz1")

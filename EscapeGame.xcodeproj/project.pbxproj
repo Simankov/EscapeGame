@@ -10,8 +10,6 @@
 		840D4DF71A82589400B639CC /* rope.png in Resources */ = {isa = PBXBuildFile; fileRef = 840D4DF61A82589400B639CC /* rope.png */; };
 		840D4E0B1A82D1C600B639CC /* shape.png in Resources */ = {isa = PBXBuildFile; fileRef = 840D4E0A1A82D1C600B639CC /* shape.png */; };
 		840D4E0D1A838EAF00B639CC /* Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840D4E0C1A838EAF00B639CC /* Build.swift */; };
-		840D4E151A83C02500B639CC /* Cannon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840D4E141A83C02500B639CC /* Cannon.swift */; };
-		842E8E201A87AE260082E95B /* Convertation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842E8E1F1A87AE260082E95B /* Convertation.swift */; };
 		842E8E221A87B10E0082E95B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842E8E211A87B10E0082E95B /* Extensions.swift */; };
 		849628E41A8602ED00131520 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849628E31A8602ED00131520 /* Hero.swift */; };
 		849628E61A86188900131520 /* antenna.png in Resources */ = {isa = PBXBuildFile; fileRef = 849628E51A86188900131520 /* antenna.png */; };
@@ -49,8 +47,6 @@
 		840D4DF61A82589400B639CC /* rope.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rope.png; sourceTree = "<group>"; };
 		840D4E0A1A82D1C600B639CC /* shape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shape.png; sourceTree = "<group>"; };
 		840D4E0C1A838EAF00B639CC /* Build.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Build.swift; sourceTree = "<group>"; };
-		840D4E141A83C02500B639CC /* Cannon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Cannon.swift; path = Images/Cannon.swift; sourceTree = "<group>"; };
-		842E8E1F1A87AE260082E95B /* Convertation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Convertation.swift; sourceTree = "<group>"; };
 		842E8E211A87B10E0082E95B /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = ../Extensions.swift; sourceTree = "<group>"; };
 		849628E31A8602ED00131520 /* Hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
 		849628E51A86188900131520 /* antenna.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = antenna.png; sourceTree = "<group>"; };
@@ -122,10 +118,8 @@
 				84E960EF1A7D1D4000E3312D /* GameScene.sks */,
 				849628E71A86259300131520 /* Chain.swift */,
 				84E960F11A7D1D4000E3312D /* GameScene.swift */,
-				842E8E1F1A87AE260082E95B /* Convertation.swift */,
 				849628E31A8602ED00131520 /* Hero.swift */,
 				840D4E0C1A838EAF00B639CC /* Build.swift */,
-				840D4E141A83C02500B639CC /* Cannon.swift */,
 				84E961191A7D320100E3312D /* spark.png */,
 				84E960F31A7D1D4000E3312D /* GameViewController.swift */,
 				842E8E211A87B10E0082E95B /* Extensions.swift */,
@@ -295,12 +289,10 @@
 			files = (
 				84E960F21A7D1D4000E3312D /* GameScene.swift in Sources */,
 				842E8E221A87B10E0082E95B /* Extensions.swift in Sources */,
-				842E8E201A87AE260082E95B /* Convertation.swift in Sources */,
 				84E960F41A7D1D4000E3312D /* GameViewController.swift in Sources */,
 				849628E81A86259300131520 /* Chain.swift in Sources */,
 				84E960EE1A7D1D4000E3312D /* AppDelegate.swift in Sources */,
 				849628E41A8602ED00131520 /* Hero.swift in Sources */,
-				840D4E151A83C02500B639CC /* Cannon.swift in Sources */,
 				840D4E0D1A838EAF00B639CC /* Build.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -212,6 +212,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             backgroundLayer.position.x -= offset
         }
         
+        // fix bug with hook out of screen
+        if convertPoint(chain.hookNode.position, fromNode: chain).y < CGRectGetMinY(playableArea)
+        {
+            hero.jump(convertPoint(convertPoint(chain.hookNode.position, fromNode: chain), toNode: backgroundLayer))
+        }
+        
+        if convertPoint(hero.position, fromNode: backgroundLayer).x + hero.size.width/2 < 0
+        {
+            restart()
+        }
         
         if convertPoint(hero.position, fromNode: backgroundLayer).x > 400 && hero.physicsBody!.velocity == CGVectorMake(0, 0) && !runOneTime
         {

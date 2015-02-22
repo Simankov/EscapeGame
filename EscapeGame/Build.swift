@@ -26,7 +26,7 @@ class Build: SKSpriteNode
      var number: Int = 0
   override init()
   {
-    super.init(texture: SKTexture(imageNamed: "build2"),color : UIColor.clearColor(), size: SKTexture(imageNamed: "build").size())
+    super.init(texture: SKTexture(imageNamed: "build2"),color : UIColor.clearColor(), size: SKTexture(imageNamed: "build2").size())
     
   }
 

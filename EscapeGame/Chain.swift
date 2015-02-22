@@ -168,7 +168,8 @@ class Chain : SKNode{
             
         }else{
             
-            let gameScene = scene as GameScene
+           if var gameScene = scene as GameScene?
+           {
             let inScene = gameScene.convertPoint(hookNode.position, fromNode: gameScene.chain)
             let inHero = gameScene.convertPoint(inScene, toNode: gameScene.backgroundLayer)
            
@@ -188,6 +189,11 @@ class Chain : SKNode{
             }else{
                 
                 currentState = .InFly
+            }
+            }
+            else
+           {
+            return
             }
         }
         

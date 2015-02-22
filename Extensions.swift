@@ -15,5 +15,13 @@ extension CGVector
     {
         return sqrt(self.dx * self.dx + self.dy * self.dy)
     }
+    
+    func normalize() -> CGVector
+    {
+        return CGVectorMake(self.dx/self.length(), self.dy/self.length())
+    }
+    
 }
+
+
 
