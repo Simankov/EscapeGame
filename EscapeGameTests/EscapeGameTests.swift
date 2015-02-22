@@ -9,7 +9,7 @@
 import UIKit
 import XCTest
 
-class Nitroglicerin_Tests: XCTestCase {
+class EscapeGameTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

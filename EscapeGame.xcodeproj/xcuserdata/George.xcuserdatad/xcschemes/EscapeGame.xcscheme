@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "84E960E71A7D1D4000E3312D"
-               BuildableName = "Nitroglicerin!.app"
-               BlueprintName = "Nitroglicerin!"
-               ReferencedContainer = "container:Nitroglicerin!.xcodeproj">
+               BuildableName = "EscapeGame.app"
+               BlueprintName = "EscapeGame"
+               ReferencedContainer = "container:EscapeGame.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "84E961001A7D1D4100E3312D"
-               BuildableName = "Nitroglicerin!Tests.xctest"
-               BlueprintName = "Nitroglicerin!Tests"
-               ReferencedContainer = "container:Nitroglicerin!.xcodeproj">
+               BuildableName = "EscapeGameTests.xctest"
+               BlueprintName = "EscapeGameTests"
+               ReferencedContainer = "container:EscapeGame.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "84E961001A7D1D4100E3312D"
-               BuildableName = "Nitroglicerin!Tests.xctest"
-               BlueprintName = "Nitroglicerin!Tests"
-               ReferencedContainer = "container:Nitroglicerin!.xcodeproj">
+               BuildableName = "EscapeGameTests.xctest"
+               BlueprintName = "EscapeGameTests"
+               ReferencedContainer = "container:EscapeGame.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "84E960E71A7D1D4000E3312D"
-            BuildableName = "Nitroglicerin!.app"
-            BlueprintName = "Nitroglicerin!"
-            ReferencedContainer = "container:Nitroglicerin!.xcodeproj">
+            BuildableName = "EscapeGame.app"
+            BlueprintName = "EscapeGame"
+            ReferencedContainer = "container:EscapeGame.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "84E960E71A7D1D4000E3312D"
-            BuildableName = "Nitroglicerin!.app"
-            BlueprintName = "Nitroglicerin!"
-            ReferencedContainer = "container:Nitroglicerin!.xcodeproj">
+            BuildableName = "EscapeGame.app"
+            BlueprintName = "EscapeGame"
+            ReferencedContainer = "container:EscapeGame.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -94,9 +94,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "84E960E71A7D1D4000E3312D"
-            BuildableName = "Nitroglicerin!.app"
-            BlueprintName = "Nitroglicerin!"
-            ReferencedContainer = "container:Nitroglicerin!.xcodeproj">
+            BuildableName = "EscapeGame.app"
+            BlueprintName = "EscapeGame"
+            ReferencedContainer = "container:EscapeGame.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
