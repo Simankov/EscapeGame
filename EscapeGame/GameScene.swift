@@ -87,7 +87,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         view.addGestureRecognizer(swipeRecognizer)
         view.userInteractionEnabled = true
         
-        view.showsPhysics = true
+        view.showsPhysics = false
         physicsWorld.gravity = CGVectorMake(0, -9.8)
     }
     
@@ -239,7 +239,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if hero.state == .Stand
         {
-            checkHeroPositionOnBlock()
+//            checkHeroPositionOnBlock()
         }
         
         let endScreen = convertPoint(CGPointMake(self.size.width,0), toNode: backgroundLayer)

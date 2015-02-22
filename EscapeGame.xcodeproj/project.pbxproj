@@ -7,19 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		840D4DF71A82589400B639CC /* rope.png in Resources */ = {isa = PBXBuildFile; fileRef = 840D4DF61A82589400B639CC /* rope.png */; };
 		840D4E0B1A82D1C600B639CC /* shape.png in Resources */ = {isa = PBXBuildFile; fileRef = 840D4E0A1A82D1C600B639CC /* shape.png */; };
 		840D4E0D1A838EAF00B639CC /* Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840D4E0C1A838EAF00B639CC /* Build.swift */; };
 		842E8E221A87B10E0082E95B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842E8E211A87B10E0082E95B /* Extensions.swift */; };
 		849628E41A8602ED00131520 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849628E31A8602ED00131520 /* Hero.swift */; };
-		849628E61A86188900131520 /* antenna.png in Resources */ = {isa = PBXBuildFile; fileRef = 849628E51A86188900131520 /* antenna.png */; };
 		849628E81A86259300131520 /* Chain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849628E71A86259300131520 /* Chain.swift */; };
 		84B9FFB91A950D1E0067236A /* rope3.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B9FFB71A950D1E0067236A /* rope3.png */; };
 		84B9FFBD1A9513DC0067236A /* hero.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B9FFBC1A9513DC0067236A /* hero.png */; };
 		84B9FFBF1A95181A0067236A /* build2.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B9FFBE1A95181A0067236A /* build2.png */; };
-		84C39CED1A98FA8600595F05 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 84C39CEA1A98FA8600595F05 /* 3.png */; };
 		84CEB58C1A951E0A0040B95F /* heroStand.png in Resources */ = {isa = PBXBuildFile; fileRef = 84CEB5891A951E0A0040B95F /* heroStand.png */; };
-		84CEB58D1A951E0A0040B95F /* heroLightJump.png in Resources */ = {isa = PBXBuildFile; fileRef = 84CEB58A1A951E0A0040B95F /* heroLightJump.png */; };
 		84CEB58E1A951E0A0040B95F /* heroJump.png in Resources */ = {isa = PBXBuildFile; fileRef = 84CEB58B1A951E0A0040B95F /* heroJump.png */; };
 		84CEB5921A95269A0040B95F /* heroBreath.png in Resources */ = {isa = PBXBuildFile; fileRef = 84CEB5911A95269A0040B95F /* heroBreath.png */; };
 		84E960EE1A7D1D4000E3312D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E960ED1A7D1D4000E3312D /* AppDelegate.swift */; };
@@ -30,7 +26,6 @@
 		84E960F91A7D1D4100E3312D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84E960F81A7D1D4100E3312D /* Images.xcassets */; };
 		84E960FC1A7D1D4100E3312D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84E960FA1A7D1D4100E3312D /* LaunchScreen.xib */; };
 		84E961081A7D1D4100E3312D /* EscapeGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E961071A7D1D4100E3312D /* EscapeGameTests.swift */; };
-		84E9611B1A7D320100E3312D /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 84E961191A7D320100E3312D /* spark.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,19 +39,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		840D4DF61A82589400B639CC /* rope.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rope.png; sourceTree = "<group>"; };
 		840D4E0A1A82D1C600B639CC /* shape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shape.png; sourceTree = "<group>"; };
 		840D4E0C1A838EAF00B639CC /* Build.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Build.swift; sourceTree = "<group>"; };
 		842E8E211A87B10E0082E95B /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = ../Extensions.swift; sourceTree = "<group>"; };
 		849628E31A8602ED00131520 /* Hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
-		849628E51A86188900131520 /* antenna.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = antenna.png; sourceTree = "<group>"; };
 		849628E71A86259300131520 /* Chain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chain.swift; sourceTree = "<group>"; };
 		84B9FFB71A950D1E0067236A /* rope3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rope3.png; sourceTree = "<group>"; };
 		84B9FFBC1A9513DC0067236A /* hero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hero.png; sourceTree = "<group>"; };
 		84B9FFBE1A95181A0067236A /* build2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = build2.png; sourceTree = "<group>"; };
-		84C39CEA1A98FA8600595F05 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
 		84CEB5891A951E0A0040B95F /* heroStand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heroStand.png; sourceTree = "<group>"; };
-		84CEB58A1A951E0A0040B95F /* heroLightJump.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heroLightJump.png; sourceTree = "<group>"; };
 		84CEB58B1A951E0A0040B95F /* heroJump.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heroJump.png; sourceTree = "<group>"; };
 		84CEB5911A95269A0040B95F /* heroBreath.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heroBreath.png; sourceTree = "<group>"; };
 		84E960E81A7D1D4000E3312D /* EscapeGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EscapeGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,7 +62,6 @@
 		84E961011A7D1D4100E3312D /* EscapeGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EscapeGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84E961061A7D1D4100E3312D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84E961071A7D1D4100E3312D /* EscapeGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EscapeGameTests.swift; sourceTree = "<group>"; };
-		84E961191A7D320100E3312D /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,7 +110,6 @@
 				84E960F11A7D1D4000E3312D /* GameScene.swift */,
 				849628E31A8602ED00131520 /* Hero.swift */,
 				840D4E0C1A838EAF00B639CC /* Build.swift */,
-				84E961191A7D320100E3312D /* spark.png */,
 				84E960F31A7D1D4000E3312D /* GameViewController.swift */,
 				842E8E211A87B10E0082E95B /* Extensions.swift */,
 				84E960F51A7D1D4100E3312D /* Main.storyboard */,
@@ -159,17 +148,13 @@
 		84E961111A7D264C00E3312D /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				84C39CEA1A98FA8600595F05 /* 3.png */,
 				84CEB5911A95269A0040B95F /* heroBreath.png */,
 				84CEB5891A951E0A0040B95F /* heroStand.png */,
-				84CEB58A1A951E0A0040B95F /* heroLightJump.png */,
 				84CEB58B1A951E0A0040B95F /* heroJump.png */,
 				84B9FFBE1A95181A0067236A /* build2.png */,
 				84B9FFBC1A9513DC0067236A /* hero.png */,
 				84B9FFB71A950D1E0067236A /* rope3.png */,
-				849628E51A86188900131520 /* antenna.png */,
 				840D4E0A1A82D1C600B639CC /* shape.png */,
-				840D4DF61A82589400B639CC /* rope.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -254,15 +239,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				849628E61A86188900131520 /* antenna.png in Resources */,
-				84E9611B1A7D320100E3312D /* spark.png in Resources */,
-				84C39CED1A98FA8600595F05 /* 3.png in Resources */,
 				84B9FFB91A950D1E0067236A /* rope3.png in Resources */,
 				84B9FFBD1A9513DC0067236A /* hero.png in Resources */,
 				84E960FC1A7D1D4100E3312D /* LaunchScreen.xib in Resources */,
 				840D4E0B1A82D1C600B639CC /* shape.png in Resources */,
-				84CEB58D1A951E0A0040B95F /* heroLightJump.png in Resources */,
-				840D4DF71A82589400B639CC /* rope.png in Resources */,
 				84CEB5921A95269A0040B95F /* heroBreath.png in Resources */,
 				84E960F91A7D1D4100E3312D /* Images.xcassets in Resources */,
 				84E960F01A7D1D4000E3312D /* GameScene.sks in Resources */,
