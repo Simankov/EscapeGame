@@ -46,7 +46,7 @@ class Hero : SKSpriteNode
         self.physicsBody!.collisionBitMask = PhysicsCategory.Build | PhysicsCategory.Edge
         self.physicsBody!.contactTestBitMask = PhysicsCategory.Edge | PhysicsCategory.Build
         self.physicsBody!.allowsRotation = true
-        self.physicsBody!.mass = 1999999
+        self.physicsBody!.mass = 199
         
         self.xScale = 1.3
         self.yScale = 1.2
