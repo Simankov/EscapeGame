@@ -27,6 +27,7 @@ class Hero : SKSpriteNode
         case None = 1;
         case Left = 2;
         case Right = 3;
+        case In = 4;
     }
     
     var chain = Chain()
@@ -112,6 +113,8 @@ class Hero : SKSpriteNode
                     amount = size.width
                 case .Right :
                     amount = -size.height/2
+                case .In:
+                    amount = abs(self.position.x - CGRectGetMaxX(build.frame))
                 default:
                     amount = 0
             }

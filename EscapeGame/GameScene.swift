@@ -66,7 +66,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addChild(backgroundLayer)
         
         // setup chain
-        chain = Chain(countChains: 29, scale : 6) as Chain
+        chain = Chain(countChains: 34, scale : 6) as Chain
         backgroundLayer.addChild(chain)
         
         chain.addAdditionalJoints();
@@ -205,19 +205,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
         lastUpdateTime = CGFloat(currentTime)
         hero.updateState()
-        println(hero.position)
         let positionHook = convertPoint(chain.hookNode.position , fromNode: chain)
-        let offset = convertPoint(positionHook, toNode: backgroundLayer).x - convertPoint( CGPoint(x:CGRectGetMaxX(frame)-300, y:0), toNode: backgroundLayer).x
-            
-        if offset > 0
-        {
-            backgroundLayer.position.x -= offset
-        }
+//        let offset = convertPoint(positionHook, toNode: backgroundLayer).x - convertPoint( CGPoint(x:CGRectGetMaxX(frame)-300, y:0), toNode: backgroundLayer).x
+//            
+//        if offset > 0
+//        {
+//            backgroundLayer.position.x -= offset
+//        }
         
         // fix bug with hook out of screen
         if convertPoint(chain.hookNode.position, fromNode: chain).y < CGRectGetMinY(playableArea)
         {
+            intersectHeroAndBuild()
             hero.jump(convertPoint(convertPoint(chain.hookNode.position, fromNode: chain), toNode: backgroundLayer))
+           
         }
         
         if convertPoint(hero.position, fromNode: backgroundLayer).x + hero.size.width/2 < 0 || convertPoint(hero.position, fromNode: backgroundLayer).x - hero.size.width/2 > CGRectGetMaxX(playableArea)
@@ -345,18 +346,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func intersectHeroAndBuild(){
         let inScene = convertPoint(self.chain.hookNode.position, fromNode: chain)
-        let origin = CGPoint(x: inScene.x - self.hero.size.width/2, y : inScene.y - self.hero.size.height/2)
+        let inBackground = convertPoint(inScene, toNode: backgroundLayer)
+        let origin = CGPoint(x: inBackground.x - self.hero.size.width/2, y : inBackground.y - self.hero.size.height/2)
         var count = 0;
         
         enumerateChildNodesWithName("//build"){
             node, _ in
             
             println("sefegergrt")
-            
-            if CGRect(origin: origin, size: self.hero.size).intersects((node as SKSpriteNode).frame)
+            let distance = abs(inBackground.x - self.hero.build.position.x)
+            if distance <= self.hero.size.width/2 + self.hero.build.size.width/2
             {
+                if distance <= self.hero.build.size.width/2
+                {
+                    self.hero.intersect = .In
+                }
                     count++
-                    if CGRect(origin: origin, size: CGSize(width: self.hero.size.width/2-1, height: self.hero.size.height)).intersects((node as SKSpriteNode).frame)
+                    if inBackground.x - self.hero.build.position.x <= self.hero.size.width/2 + self.hero.build.size.width/2 && inBackground.x >= self.hero.position.x
                     {
                         self.hero.intersect = .Left
                     }
@@ -370,6 +376,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if count == 0
         {
            hero.intersect = .None
+          
         }
     }
     
