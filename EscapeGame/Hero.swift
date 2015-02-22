@@ -13,10 +13,8 @@ class Hero : SKSpriteNode
 {
     enum State: String{
         case Stand = "Stand"
-        case Run = "Run"
-        case Shot = "Shot"
         case Fly = "Fly"
-        case OnBlock = "OnBlock"
+      
     }
     enum Animate
     {
@@ -40,18 +38,21 @@ class Hero : SKSpriteNode
     
     override init()
     {
-        super.init(texture: SKTexture(imageNamed: "hero"), color: UIColor.clearColor(), size: CGSize(width: 90, height: 90))
+        super.init(texture: SKTexture(imageNamed: "hero"), color: UIColor.clearColor(), size: SKTexture(imageNamed: "hero").size())
        
-        self.physicsBody = SKPhysicsBody(rectangleOfSize: size)
+        self.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(size.width*0.85, size.height))
         self.physicsBody!.categoryBitMask = PhysicsCategory.Hero
         self.physicsBody!.collisionBitMask = PhysicsCategory.Build | PhysicsCategory.Edge
         self.physicsBody!.contactTestBitMask = PhysicsCategory.Edge | PhysicsCategory.Build
         self.physicsBody!.allowsRotation = false
         self.physicsBody!.mass = 1999999
-        self.physicsBody!.friction = 0
+        
+        self.xScale = 1.3
+        self.yScale = 1.2
+    
         self.animationBreath.append(SKTexture(imageNamed: "heroStand"))
         self.animationBreath.append(SKTexture(imageNamed: "heroBreath"))
-        self.setScale(3)
+       
     }
     
     
@@ -65,19 +66,7 @@ class Hero : SKSpriteNode
         let pinJoint = SKPhysicsJointFixed.jointWithBodyA(self.physicsBody, bodyB: gameScene.chain.firstChain.physicsBody, anchor: gameScene.convertPoint(CGPointMake(self.position.x, self.position.y - self.frame.height/2 + 30), fromNode: gameScene.backgroundLayer))
         scene?.physicsWorld.addJoint(pinJoint)
     }
-    
-    func climb(target: CGPoint)
-    {
-        self.runAction(SKAction.moveTo(target, duration: 0.5))
-    }
-    
-    func run(target: CGPoint)
-    {
-        if self.state == .Fly {
-            self.runAction(SKAction.moveTo(target, duration: 0.5))
-            state = .Run
-        }
-    }
+   
 
     
     func shot(target: CGPoint)
@@ -120,7 +109,7 @@ class Hero : SKSpriteNode
                 case .None :
                    amount = 0
                 case .Left :
-                    amount = size.width/2
+                    amount = size.width
                 case .Right :
                     amount = -size.height/2
                 default:
@@ -132,7 +121,7 @@ class Hero : SKSpriteNode
             let y1 = self.position.y
             let timeOfJump : CGFloat = 1
             let x2 = target.x + amount
-            let y2 = target.y + self.frame.height/2
+            let y2 = target.y + self.size.height/2
             var sign : CGFloat = 1
             
             if (x2-x1) + (y1-y2) < 0
@@ -140,7 +129,7 @@ class Hero : SKSpriteNode
                 sign = -1
             }
             
-            let distance = (x2-x1)/150 + (y1-y2)/150
+            let distance = (x2-x1)/157 + (y1-y2)/157
             
              
             let time = sqrt(( sign * distance * 2 / g ))
@@ -149,13 +138,22 @@ class Hero : SKSpriteNode
             self.physicsBody!.velocity = CGVectorMake(Vox, sign * Vox)
             self.animate(.BeginJump)
         }
-        else
-        {
-            self.state = .Fly
-        }
     
     }
 
+    func updateState()
+    {
+        if physicsBody!.velocity.length() > 0.1
+        {
+            self.state = .Fly
+            
+        }
+        else
+        {
+            self.state = .Stand
+        }
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

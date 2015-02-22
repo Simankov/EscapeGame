@@ -49,6 +49,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var flagMovedObjects: Bool = false;
     var targetPosition : CGPoint = CGPointZero
     var runOneTime : Bool = false
+    var heroFall: Bool = false
     
     override func didMoveToView(view: SKView) {
         prepareScene()
@@ -86,8 +87,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         view.addGestureRecognizer(swipeRecognizer)
         view.userInteractionEnabled = true
         
-        view.showsPhysics = false
-
+        view.showsPhysics = true
+        physicsWorld.gravity = CGVectorMake(0, -9.8)
     }
     
     func prepareScene()
@@ -105,7 +106,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.physicsBody = SKPhysicsBody(edgeChainFromPath: playableAreaPath)
         self.physicsBody!.categoryBitMask = PhysicsCategory.Edge
         self.physicsBody!.collisionBitMask = PhysicsCategory.Chain | PhysicsCategory.Edge | PhysicsCategory.Hook | PhysicsCategory.Hero
-        self.view?.showsPhysics = false
+        
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
@@ -203,7 +204,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
             
         lastUpdateTime = CGFloat(currentTime)
-            
+        hero.updateState()
+        println(hero.position)
         let positionHook = convertPoint(chain.hookNode.position , fromNode: chain)
         let offset = convertPoint(positionHook, toNode: backgroundLayer).x - convertPoint( CGPoint(x:CGRectGetMaxX(frame)-300, y:0), toNode: backgroundLayer).x
             
@@ -218,20 +220,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             hero.jump(convertPoint(convertPoint(chain.hookNode.position, fromNode: chain), toNode: backgroundLayer))
         }
         
-        if convertPoint(hero.position, fromNode: backgroundLayer).x + hero.size.width/2 < 0
+        if convertPoint(hero.position, fromNode: backgroundLayer).x + hero.size.width/2 < 0 || convertPoint(hero.position, fromNode: backgroundLayer).x - hero.size.width/2 > CGRectGetMaxX(playableArea)
         {
             restart()
         }
         
-        if convertPoint(hero.position, fromNode: backgroundLayer).x > 400 && hero.physicsBody!.velocity == CGVectorMake(0, 0) && !runOneTime
+        if convertPoint(hero.position, fromNode: backgroundLayer).x > 400 && hero.physicsBody!.velocity == CGVectorMake(0, 0) && !runOneTime && !heroFall
         {
-            let speed : Double = 480
+            let speed : Double = 1000
             let delta : Double = Double(convertPoint(hero.position, fromNode: backgroundLayer).x - 400)
             let time = delta / speed as Double
             backgroundLayer.removeActionForKey("move")
             backgroundLayer.runAction(SKAction.moveByX(-CGFloat(delta), y: backgroundLayer.position.y, duration: time), withKey: "move")
             runOneTime = true
          
+        }
+        
+        if hero.state == .Stand
+        {
+            checkHeroPositionOnBlock()
         }
         
         let endScreen = convertPoint(CGPointMake(self.size.width,0), toNode: backgroundLayer)
@@ -270,9 +277,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             if contact.bodyA.categoryBitMask == PhysicsCategory.Hero
             {
                 contact.bodyA.node!.physicsBody?.velocity = CGVectorMake(0, 0)
+                
                 hero.build = (contact.bodyB.node as Build)
             } else {
                 contact.bodyB.node!.physicsBody?.velocity = CGVectorMake(0, 0)
+                
                 hero.build = (contact.bodyA.node as Build)
             }
         }
@@ -296,6 +305,33 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         gameScene.view?.showsFPS = true
         self.view?.presentScene(gameScene)
     
+    }
+    func checkHeroPositionOnBlock()
+    {
+         if !heroFall && status == .Playable
+         {
+            
+              if hero.position.x < CGRectGetMinX(hero.build.frame) {
+            
+            hero.physicsBody!.angularVelocity = 2.5;
+            heroFall = true
+            
+               }
+            else
+               {
+             if hero.position.x > CGRectGetMaxX(hero.build.frame)
+               {
+                let max = CGRectGetMaxX(hero.build.frame)
+
+                let safsf = hero.position.x;
+                    hero.physicsBody!.angularVelocity = -2.5;
+                    heroFall = true
+                }
+                }
+        }
+        
+
+        
     }
     
     
