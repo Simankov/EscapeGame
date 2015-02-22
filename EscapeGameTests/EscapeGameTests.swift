@@ -1,6 +1,6 @@
 //
 //  Nitroglicerin_Tests.swift
-//  Nitroglicerin!Tests
+//  EscapeGameTests
 //
 //  Created by admin on 31.01.15.
 //  Copyright (c) 2015 Sergey Simankov. All rights reserved.
