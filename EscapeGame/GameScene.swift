@@ -87,7 +87,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         view.addGestureRecognizer(swipeRecognizer)
         view.userInteractionEnabled = true
         
-        view.showsPhysics = false
+        view.showsPhysics = true
         physicsWorld.gravity = CGVectorMake(0, -9.8)
     }
     

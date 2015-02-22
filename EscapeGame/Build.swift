@@ -50,7 +50,7 @@ class Build: SKSpriteNode
         self.physicsBody!.collisionBitMask = PhysicsCategory.Chain | PhysicsCategory.Hook
         self.physicsBody!.affectedByGravity = true
         self.physicsBody!.mass = 999999999
-        self.physicsBody!.friction = 999
+        self.physicsBody!.friction = 0.2
         self.physicsBody!.contactTestBitMask = PhysicsCategory.Edge
         antenna.position = CGPoint(x: 0, y: self.size.height/2 + self.antenna.size.height/2)
         antenna.setScale(3.5)
