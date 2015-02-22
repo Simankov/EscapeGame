@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		840D4DF71A82589400B639CC /* rope.png in Resources */ = {isa = PBXBuildFile; fileRef = 840D4DF61A82589400B639CC /* rope.png */; };
-		840D4DFF1A827BE700B639CC /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 840D4DFE1A827BE700B639CC /* Storyboard.storyboard */; };
 		840D4E0B1A82D1C600B639CC /* shape.png in Resources */ = {isa = PBXBuildFile; fileRef = 840D4E0A1A82D1C600B639CC /* shape.png */; };
 		840D4E0D1A838EAF00B639CC /* Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840D4E0C1A838EAF00B639CC /* Build.swift */; };
 		840D4E151A83C02500B639CC /* Cannon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840D4E141A83C02500B639CC /* Cannon.swift */; };
@@ -48,7 +47,6 @@
 
 /* Begin PBXFileReference section */
 		840D4DF61A82589400B639CC /* rope.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rope.png; sourceTree = "<group>"; };
-		840D4DFE1A827BE700B639CC /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		840D4E0A1A82D1C600B639CC /* shape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shape.png; sourceTree = "<group>"; };
 		840D4E0C1A838EAF00B639CC /* Build.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Build.swift; sourceTree = "<group>"; };
 		840D4E141A83C02500B639CC /* Cannon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Cannon.swift; path = Images/Cannon.swift; sourceTree = "<group>"; };
@@ -178,7 +176,6 @@
 				849628E51A86188900131520 /* antenna.png */,
 				840D4E0A1A82D1C600B639CC /* shape.png */,
 				840D4DF61A82589400B639CC /* rope.png */,
-				840D4DFE1A827BE700B639CC /* Storyboard.storyboard */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -270,7 +267,6 @@
 				84B9FFBD1A9513DC0067236A /* hero.png in Resources */,
 				84E960FC1A7D1D4100E3312D /* LaunchScreen.xib in Resources */,
 				840D4E0B1A82D1C600B639CC /* shape.png in Resources */,
-				840D4DFF1A827BE700B639CC /* Storyboard.storyboard in Resources */,
 				84CEB58D1A951E0A0040B95F /* heroLightJump.png in Resources */,
 				840D4DF71A82589400B639CC /* rope.png in Resources */,
 				84CEB5921A95269A0040B95F /* heroBreath.png in Resources */,

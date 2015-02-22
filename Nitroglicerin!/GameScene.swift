@@ -21,8 +21,8 @@ struct PhysicsCategory
     static var Fire : UInt32 = 128
 }
 
-class GameScene: SKScene, SKPhysicsContactDelegate
-    {
+class GameScene: SKScene, SKPhysicsContactDelegate {
+    
     enum Status
     {
         case Wait
@@ -36,7 +36,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate
     var chain = Chain()
     var startPosition : CGPoint = CGPointZero;
     var endPosition: CGPoint = CGPointZero
-    var background: SKSpriteNode = SKSpriteNode()
+  
     var lastBuildPosition: CGFloat = 0
     var currentTouchPosition: CGPoint = CGPointZero
     var lenghtBetweenBuildes :CGFloat = 0
@@ -50,55 +50,44 @@ class GameScene: SKScene, SKPhysicsContactDelegate
     var targetPosition : CGPoint = CGPointZero
     var runOneTime : Bool = false
     
-   override func didMoveToView(view: SKView) {
-    prepareScene()
-
+    override func didMoveToView(view: SKView) {
+        prepareScene()
+        
+        // setup background
         backgroundColor = UIColor.whiteColor()
-    backgroundLayer.name = "layer"
-    backgroundLayer.zPosition = -1
-   
-    swipeRecognizer.addTarget(self, action: "swipe")
-//    background = SKSpriteNode(imageNamed: "3")
-//    background.position = CGPointMake(1024, 768)
-//    background.size = CGSizeMake(4096, 1536)
-    
-    background.zPosition = -2
-    view.addGestureRecognizer(swipeRecognizer)
-    addChild(background)
-    view.userInteractionEnabled = true
-    addChild(backgroundLayer)
-   
-    backgroundLayer.physicsBody = SKPhysicsBody(circleOfRadius: 3)
-    backgroundLayer.physicsBody?.dynamic = false
-    hero.position = CGPoint(x: hero.frame.width/2, y: 900)
-    
-    backgroundLayer.addChild(hero)
-    
+        backgroundLayer.name = "backgroundLayer"
+        backgroundLayer.zPosition = -1
+        backgroundLayer.physicsBody = SKPhysicsBody(circleOfRadius: 3)
+        backgroundLayer.physicsBody?.dynamic = false
+        
+        backgroundLayer.addChild(hero)
+        
+        addChild(backgroundLayer)
+        
+        // setup chain
+        chain = Chain(countChains: 29, scale : 6) as Chain
+        backgroundLayer.addChild(chain)
+        
+        chain.addAdditionalJoints();
+        chain.position = CGPointMake(150, 3000)
+        chain.firstChain.position =
+            convertPoint(
+                convertPoint(hero.position, fromNode: backgroundLayer),
+                toNode : chain
+        )
+        
+        // setup hero
+        hero.position = CGPoint(x: hero.frame.width/2, y: 900)
+        hero.chain = chain
+        hero.addJointWithChain()
+        
+        // gestures
+        swipeRecognizer.addTarget(self, action: "swipe")
+        view.addGestureRecognizer(swipeRecognizer)
+        view.userInteractionEnabled = true
+        
+        view.showsPhysics = false
 
-    
-    view.showsPhysics = false
-   
-//    backgroundLayer.setScale(2)
-    chain = Chain(countChains: 29, scale : 6) as Chain
-    
-   
- 
-    
-    backgroundLayer.addChild(chain)
-    chain.addAdditionalJoints();
-    chain.position = CGPointMake(70, 3000)
-//    backgroundLayer.addChild(hero.cannon)
-    chain.firstChain.position =
-        convertPoint(
-            convertPoint(hero.position, fromNode: backgroundLayer),
-            toNode : chain
-    )
-    hero.chain = chain
-    hero.addJointWithChain()
-    background.name = "background"
-    
-    
-   
     }
     
     func prepareScene()
@@ -107,9 +96,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         let maximumHeight = size.width / maxAspectRatio
         let margin = (size.height - maximumHeight) / 2
         self.physicsWorld.contactDelegate = self
-        playableArea = CGRect(x: 0, y: margin+100, width: size.width, height: maximumHeight)
-        let playableAreaPath = CGPathCreateMutable()
+        playableArea = CGRect(x: 0, y: margin, width: size.width, height: maximumHeight)
         
+        let playableAreaPath = CGPathCreateMutable()
         CGPathMoveToPoint(playableAreaPath, nil, playableArea.size.width, CGRectGetMinY(playableArea))
         CGPathAddLineToPoint(playableAreaPath, nil, 0, CGRectGetMinY(playableArea))
       
@@ -117,96 +106,77 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         self.physicsBody!.categoryBitMask = PhysicsCategory.Edge
         self.physicsBody!.collisionBitMask = PhysicsCategory.Chain | PhysicsCategory.Edge | PhysicsCategory.Hook | PhysicsCategory.Hero
         self.view?.showsPhysics = false
-        
-       
-    
-
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         
-        
-        startPosition = (touches.anyObject() as UITouch).locationInNode(self)
+       startPosition = (touches.anyObject() as UITouch).locationInNode(self)
         
        touchedNode  = nodeAtPoint(startPosition) as SKNode
        status = .Playable
    
-        if touchedNode?.name == "background" || touchedNode?.name == "layer"
+        if touchedNode?.name == "backgroundLayer"
         {
-              timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "increaseCounter", userInfo: nil, repeats: true)
+             timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "increaseCounter", userInfo: nil, repeats: true)
              currentTouchPosition = (touches.anyObject() as UITouch).locationInNode(backgroundLayer)
-            
         }
+        
         if touchedNode?.name == "button"
         {
             self.restart()
-        
-            
         }
+        
         if touchedNode?.name == "hook"
         {
             flagMovedObjects = true
-            
-            
-                   }
-        
-
+        }
+    
     }
     
 
     override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
         
         if !flagMovedObjects {
-        
-        
-        currentTouchPosition = (touches.anyObject() as UITouch).locationInNode(backgroundLayer)
-        }
-        
-        else
-        {
-        if touchedNode?.name != "hook"
-        {
-            touchedNode?.position = convertPoint((touches.anyObject() as UITouch).locationInNode(self), toNode: backgroundLayer)
+            currentTouchPosition = (touches.anyObject() as UITouch).locationInNode(backgroundLayer)
+        }else{
+            
+            if touchedNode?.name != "hook"
+            {
+                touchedNode?.position = convertPoint((touches.anyObject() as UITouch).locationInNode(self), toNode: backgroundLayer)
+            }else{
+                touchedNode?.position = convertPoint((touches.anyObject() as UITouch).locationInNode(self), toNode: chain)
             }
-            else
-        {
-            touchedNode?.position = convertPoint((touches.anyObject() as UITouch).locationInNode(self), toNode: chain)
-            }
-
         }
-
-}
+    }
+    
     func spawnBuild(point : CGFloat)
     {
-        let build = Build(posY: CGRectGetMinY(playableArea), minHeight : 400, maxHeight: 600, minWidth: 100, maxWidth: 700)
+        let build = Build(posY: CGRectGetMinY(playableArea), minHeight : 400, maxHeight: 600, minWidth: 150, maxWidth: 700)
 
-       build.position.x = point + build.size.width/2
-       build.zPosition = 1
+        build.position.x = point + build.size.width/2
+        build.zPosition = 1
         build.name = "build"
-       lastBuildPosition = build.position.x
+        lastBuildPosition = build.position.x
         backgroundLayer.addChild(build)
         build.fixJointAntenn()
       
-  let fixJoint = SKPhysicsJointFixed.jointWithBodyA(backgroundLayer.physicsBody, bodyB: build.physicsBody, anchor: CGPointZero)
-     
-     physicsWorld.addJoint(fixJoint)
-        
+        let fixJoint = SKPhysicsJointFixed.jointWithBodyA(backgroundLayer.physicsBody, bodyB: build.physicsBody, anchor: CGPointZero)
+        physicsWorld.addJoint(fixJoint)
     }
+    
     override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
         
-    if !flagMovedObjects {
-        let count = touches.count
-        let position = (touches.anyObject() as UITouch).locationInNode(backgroundLayer)
-        
-        let timeOfTouch = counter
-        timer.invalidate()
-        
-        counter = 0;
-        hero.powerMultiple = timeOfTouch
-       
-        hero.shot(position)
-        
-    }
+        if !flagMovedObjects {
+            let count = touches.count
+            let position = (touches.anyObject() as UITouch).locationInNode(backgroundLayer)
+            
+            let timeOfTouch = counter
+            timer.invalidate()
+            
+            counter = 0;
+            hero.powerMultiple = timeOfTouch
+            hero.shot(position)
+        }
         
         flagMovedObjects = false
     }
@@ -218,107 +188,82 @@ class GameScene: SKScene, SKPhysicsContactDelegate
             if contact.bodyA.categoryBitMask == PhysicsCategory.Build
             {
                 contact.bodyA.node?.removeFromParent()
-                            }
-            else
-            {
+            }else{
                 contact.bodyB.node?.removeFromParent()
-                
             }
         }
     }
     
     override func update(currentTime: NSTimeInterval) {
-    if lastUpdateTime > 0
-    {
-        dt = CGFloat(currentTime) - lastUpdateTime
-    }
-        else
-    {
-        dt = 0
-    }
-        
-        
-    lastUpdateTime = CGFloat(currentTime)
-        
-    
-        
-    let positionHook = convertPoint(chain.hookNode.position , fromNode: chain)
-    
-        let offset = convertPoint(positionHook, toNode: backgroundLayer).x - convertPoint( CGPoint(x:CGRectGetMaxX(frame)-300, y:0), toNode: backgroundLayer).x
-        
-    if offset > 0
+        if lastUpdateTime > 0
         {
-        
+            dt = CGFloat(currentTime) - lastUpdateTime
+        }else{
+            dt = 0
+        }
+            
+        lastUpdateTime = CGFloat(currentTime)
+            
+        let positionHook = convertPoint(chain.hookNode.position , fromNode: chain)
+        let offset = convertPoint(positionHook, toNode: backgroundLayer).x - convertPoint( CGPoint(x:CGRectGetMaxX(frame)-300, y:0), toNode: backgroundLayer).x
+            
+        if offset > 0
+        {
             backgroundLayer.position.x -= offset
         }
         
         
         if convertPoint(hero.position, fromNode: backgroundLayer).x > 400 && hero.physicsBody!.velocity == CGVectorMake(0, 0) && !runOneTime
-    {
-        let speed : Double = 480
-        let delta : Double = Double(convertPoint(hero.position, fromNode: backgroundLayer).x - 400)
-        let time = delta / speed as Double
-        backgroundLayer.removeActionForKey("move")
-        backgroundLayer.runAction(SKAction.moveByX(-CGFloat(delta), y: backgroundLayer.position.y, duration: time), withKey: "move")
-        runOneTime = true
-     
-    }
+        {
+            let speed : Double = 480
+            let delta : Double = Double(convertPoint(hero.position, fromNode: backgroundLayer).x - 400)
+            let time = delta / speed as Double
+            backgroundLayer.removeActionForKey("move")
+            backgroundLayer.runAction(SKAction.moveByX(-CGFloat(delta), y: backgroundLayer.position.y, duration: time), withKey: "move")
+            runOneTime = true
+         
+        }
         
-    let endScreen = convertPoint(CGPointMake(self.size.width,0), toNode: backgroundLayer)
-   
-    if lastBuildPosition + lenghtBetweenBuildes < endScreen.x    {
-        spawnBuild(lastBuildPosition + lenghtBetweenBuildes)
-        lenghtBetweenBuildes = randomFloat(800, 1200)
-    }
-        else if
-        lenghtBetweenBuildes == 0
-    {
-        lenghtBetweenBuildes = randomFloat(800, 1200)
-
-     }
-    
-     
-
-
-  
-   
-   chain.updateState()
-  
+        let endScreen = convertPoint(CGPointMake(self.size.width,0), toNode: backgroundLayer)
+       
+        if lastBuildPosition + lenghtBetweenBuildes < endScreen.x    {
+            spawnBuild(lastBuildPosition + lenghtBetweenBuildes)
+            lenghtBetweenBuildes = randomFloat(800, 1200)
+        } else if lenghtBetweenBuildes == 0 {
+            lenghtBetweenBuildes = randomFloat(800, 1200)
+        }
         
+        chain.updateState()
     }
     
     
     func didBeginContact(contact: SKPhysicsContact) {
+        
         if (contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask) == (PhysicsCategory.Build | PhysicsCategory.Hook)
         {
             chain.hookNode.physicsBody!.velocity = CGVectorMake(0, 0)
-           if contact.bodyB.categoryBitMask == PhysicsCategory.Build
-           {
-               chain.build = (contact.bodyB.node as Build)
-           }
+            
+            if contact.bodyB.categoryBitMask == PhysicsCategory.Build
+            {
+                chain.build = (contact.bodyB.node as Build)
+            }
             else
-           {
-               chain.build = (contact.bodyA.node as Build)
-           }
+            {
+                chain.build = (contact.bodyA.node as Build)
+            }
         }
         
-        if (contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask) == (PhysicsCategory.Build |
-        PhysicsCategory.Hero)
+        if (contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask) == (PhysicsCategory.Build | PhysicsCategory.Hero)
         {
             hero.state = .Stand
             hero.animate(.EndJump)
             if contact.bodyA.categoryBitMask == PhysicsCategory.Hero
             {
                 contact.bodyA.node!.physicsBody?.velocity = CGVectorMake(0, 0)
-                
                 hero.build = (contact.bodyB.node as Build)
-                
-            }
-            else
-            
-            {
+            } else {
                 contact.bodyB.node!.physicsBody?.velocity = CGVectorMake(0, 0)
-                 hero.build = (contact.bodyA.node as Build)
+                hero.build = (contact.bodyA.node as Build)
             }
         }
         
@@ -326,49 +271,44 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         {
             intersectHeroAndBuild()
             hero.jump(CGPoint(x: chain.hookNode.position.x + hero.size.width/2 , y: chain.build.end().y))
-            
         }
-         if contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask == PhysicsCategory.Hero | PhysicsCategory.Edge
-         {
+        
+        if contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask == PhysicsCategory.Hero | PhysicsCategory.Edge
+        {
             self.restart()
         }
-        
     }
     
-   func restart()
-   {
-    
-    removeAllChildren()
-    let gameScene = GameScene(fileNamed: "GameScene")
-    gameScene.scaleMode = .AspectFill
-    gameScene.view?.showsFPS = true
-    self.view?.presentScene(gameScene)
+    func restart(){
+        removeAllChildren()
+        let gameScene = GameScene(fileNamed: "GameScene")
+        gameScene.scaleMode = .AspectFill
+        gameScene.view?.showsFPS = true
+        self.view?.presentScene(gameScene)
     
     }
     
     
-   func swipe()
-
-    {
-      if !flagMovedObjects
-      {
-        
-      let count = swipeRecognizer.numberOfTouches()
-        currentTouchPosition =  convertPoint(swipeRecognizer.locationOfTouch(count-1, inView: view), toNode: backgroundLayer)
-       }
-     
+    func swipe(){
+        if !flagMovedObjects
+        {
+            let count = swipeRecognizer.numberOfTouches()
+            currentTouchPosition =  convertPoint(swipeRecognizer.locationOfTouch(count-1, inView: view), toNode: backgroundLayer)
+        }
     }
     
-    func intersectHeroAndBuild()
-    {
-         let inScene = convertPoint(self.chain.hookNode.position, fromNode: chain)
+    func intersectHeroAndBuild(){
+        let inScene = convertPoint(self.chain.hookNode.position, fromNode: chain)
         let origin = CGPoint(x: inScene.x - self.hero.size.width/2, y : inScene.y - self.hero.size.height/2)
         var count = 0;
+        
         enumerateChildNodesWithName("//build"){
             node, _ in
+            
             println("sefegergrt")
-   if CGRect(origin: origin, size: self.hero.size).intersects((node as SKSpriteNode).frame)
-                {
+            
+            if CGRect(origin: origin, size: self.hero.size).intersects((node as SKSpriteNode).frame)
+            {
                     count++
                     if CGRect(origin: origin, size: CGSize(width: self.hero.size.width/2-1, height: self.hero.size.height)).intersects((node as SKSpriteNode).frame)
                     {
@@ -378,7 +318,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate
                     {
                         self.hero.intersect = .Right
                     }
-                }
+            }
         }
         
         if count == 0

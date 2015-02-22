@@ -13,18 +13,18 @@ class Chain : SKNode{
     
     enum State: String{
         case UnderControll = "controlled"
-        case InCannon = "incannon"
         case InFly = "flyihg"
         case Stopped = "stopped"
     }
-var currentState: State = .Stopped
-let imageName : String = "rope3"
-var chains : [SKSpriteNode] = [SKSpriteNode]()
-var hookNode : SKSpriteNode = SKSpriteNode(imageNamed: "shape")
-var firstChain : SKSpriteNode = SKSpriteNode();
-var lastChain  : SKSpriteNode = SKSpriteNode()
-var joints : [SKPhysicsJoint] = [SKPhysicsJoint]()
-var build = Build()
+    
+    var currentState: State = .Stopped
+    let imageName : String = "rope3"
+    var chains : [SKSpriteNode] = [SKSpriteNode]()
+    var hookNode : SKSpriteNode = SKSpriteNode(imageNamed: "shape")
+    var firstChain : SKSpriteNode = SKSpriteNode();
+    var lastChain  : SKSpriteNode = SKSpriteNode()
+    var joints : [SKPhysicsJoint] = [SKPhysicsJoint]()
+    var build = Build()
 
     convenience init (countChains : Int, scale : CGFloat)
     {
@@ -48,7 +48,6 @@ var build = Build()
         lastChain = firstChain
         for i in 1...countChains {
             
-            
             let chainNode = SKSpriteNode(imageNamed: imageName)
             
             chainNode.position = CGPoint(x: lastChain.position.x, y: CGRectGetMinY(lastChain.frame) - lastChain.frame.height/2)
@@ -69,31 +68,23 @@ var build = Build()
           
             chains.append(chainNode)
             lastChain = chainNode
-            
-           
-
+        }
+        
+        createHook(CGPoint(x:lastChain.position.x, y: CGRectGetMinY(lastChain.frame)))
     }
-         createHook(CGPoint(x:lastChain.position.x, y: CGRectGetMinY(lastChain.frame)))
-  
     
-   
-
-}
-override init()
+    override init()
     {
         super.init()
     }
 
-required init?(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-func createHook(position: CGPoint)
-    {
-        
+    func createHook(position: CGPoint){
         
         hookNode.name = "hook"
-        
         
         hookNode.position = CGPoint(x: position.x, y: position.y )
         
@@ -108,11 +99,9 @@ func createHook(position: CGPoint)
         
         self.addChild(hookNode)
         chains.append(hookNode)
-        
-}
+    }
     
-    func addAdditionalJoints()
-    {
+    func addAdditionalJoints(){
     
         for i in 0 ... chains.count-1
         {
@@ -124,41 +113,37 @@ func createHook(position: CGPoint)
                   anchorA: getInScene(hookNode.position),
                   anchorB: getInScene(chains[i].position)
                 )
+                
                 limJointWithHook.maxLength = chains[i].position.y - hookNode.position.y;
                 
                 let pinJointWithOther = SKPhysicsJointPin.jointWithBodyA(chains[i].physicsBody!, bodyB: chains[i-1].physicsBody!,
-                    
                     anchor: getInScene(CGPoint(x: chains[i].position.x, y: chains[i-1].position.y - chains[i-1].size.height/2 )
                     ))
                 
                 let aaa = getInScene(CGPoint(x: chains[i].position.x, y: chains[i-1].position.y + chains[i-1].size.height/2))
-                    let fsdffa = 0 ;
+
                 
                 let limJointWithFirst = SKPhysicsJointLimit.jointWithBodyA(firstChain.physicsBody!, bodyB: chains[i].physicsBody!,
-                    
                     anchorA: getInScene(firstChain.position),
                     anchorB: getInScene(chains[i].position))
+                
                 limJointWithFirst.maxLength = firstChain.position.y - chains[i].position.y;
                 
-               scene?.physicsWorld.addJoint(limJointWithHook)
-               scene?.physicsWorld.addJoint(pinJointWithOther)
-               scene?.physicsWorld.addJoint(limJointWithFirst)
+                scene?.physicsWorld.addJoint(limJointWithHook)
+                scene?.physicsWorld.addJoint(pinJointWithOther)
+                scene?.physicsWorld.addJoint(limJointWithFirst)
             }
             
             
             if chains[i].name == "hook"
             {
                 let limJoint = SKPhysicsJointLimit.jointWithBodyA(firstChain.physicsBody, bodyB: hookNode.physicsBody,
-                    
-                    
                     anchorA: getInScene(CGPoint(x: firstChain.position.x, y: CGRectGetMaxY(firstChain.frame))),
                     anchorB: getInScene(CGPoint(x:position.x, y: CGRectGetMinY(lastChain.frame))))
                 
                 limJoint.maxLength = CGRectGetMaxY(firstChain.frame) - CGRectGetMinY(lastChain.frame)
                 
-                
                 let fixJoint = SKPhysicsJointPin.jointWithBodyA(lastChain.physicsBody, bodyB: hookNode.physicsBody,
-                    
                     anchor: getInScene(CGPoint(x: position.x, y: lastChain.position.y - lastChain.size.height/2 )))
                 
                 scene?.physicsWorld.addJoint(fixJoint)
@@ -166,35 +151,32 @@ func createHook(position: CGPoint)
             }
         }
     }
-func getInScene(point: CGPoint) -> CGPoint
+    
+    func getInScene(point: CGPoint) -> CGPoint
     {
         let one =  convertPoint(point, fromNode: self)
         return one
     }
 
     
-func updateState()
-{
+    func updateState()
+    {
    
-    if hookNode.physicsBody!.dynamic == false
-    {
-        currentState = .UnderControll
-    }
-    else
-    {
-        let gameScene = scene as GameScene
-        let inScene = gameScene.convertPoint(hookNode.position, fromNode: gameScene.chain)
-        let inHero = gameScene.convertPoint(inScene, toNode: gameScene.backgroundLayer)
-        
-       
-            if self.hookNode.physicsBody!.velocity.length() < 3 && abs(hookNode.physicsBody!.angularVelocity) < 0.1 
-                
+        if hookNode.physicsBody!.dynamic == false
+        {
+            currentState = .UnderControll
+            
+        }else{
+            
+            let gameScene = scene as GameScene
+            let inScene = gameScene.convertPoint(hookNode.position, fromNode: gameScene.chain)
+            let inHero = gameScene.convertPoint(inScene, toNode: gameScene.backgroundLayer)
+           
+            if self.hookNode.physicsBody!.velocity.length() < 3 && abs(hookNode.physicsBody!.angularVelocity) < 0.1
             {
                 currentState = .Stopped
                 
                 if self.build.number != gameScene.hero.build.number && gameScene.status  != .Wait
-                    
-                    // this is method which define "win" step. 
                 {
                    let targetPosition =
                         gameScene.convertPoint(gameScene.convertPoint(hookNode.position, fromNode: gameScene.chain), toNode: gameScene.backgroundLayer)
@@ -202,17 +184,13 @@ func updateState()
                     gameScene.hero.jump(targetPosition)
                     gameScene.runOneTime = false
                 }
-            }
-            else
-            {
+                
+            }else{
                 
                 currentState = .InFly
             }
         }
         
-        
-        
     }
-    
 
-}
+} // class end
