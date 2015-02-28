@@ -97,8 +97,18 @@ class Hero : SKSpriteNode
         
         let targetVector = CGVectorMake(target.x - hookPosition.x, target.y - hookPosition.y)
         let targetDirection = targetVector.normalize()
+        
+        
+        
         let impulse = CGVectorMake(targetDirection.dx * powerMultiple * 4000000, targetDirection.dy * powerMultiple * 4000000)
-        (scene as GameScene).chain.hookNode.physicsBody!.applyImpulse(impulse)
+        
+        
+        (scene as GameScene).enumerateChildNodesWithName("//hook"){
+            node, _ in
+        (node as SKSpriteNode).physicsBody!.applyImpulse(impulse)
+                
+        }
+//        (scene as GameScene).chain.hookNode.physicsBody!.applyImpulse(impulse)
         //        fire.physicsBody!.applyImpulse(CGVectorMake(direction.x * power * powerMultiple, direction.y * power * powerMultiple))
         powerMultiple = 0;
     }
