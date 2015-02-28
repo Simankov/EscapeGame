@@ -18,6 +18,7 @@
 		84CEB58C1A951E0A0040B95F /* heroStand.png in Resources */ = {isa = PBXBuildFile; fileRef = 84CEB5891A951E0A0040B95F /* heroStand.png */; };
 		84CEB58E1A951E0A0040B95F /* heroJump.png in Resources */ = {isa = PBXBuildFile; fileRef = 84CEB58B1A951E0A0040B95F /* heroJump.png */; };
 		84CEB5921A95269A0040B95F /* heroBreath.png in Resources */ = {isa = PBXBuildFile; fileRef = 84CEB5911A95269A0040B95F /* heroBreath.png */; };
+		84E6B5C61AA1F2C1007DAD72 /* maskForBasket.png in Resources */ = {isa = PBXBuildFile; fileRef = 84E6B5C51AA1F2C1007DAD72 /* maskForBasket.png */; };
 		84E960EE1A7D1D4000E3312D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E960ED1A7D1D4000E3312D /* AppDelegate.swift */; };
 		84E960F01A7D1D4000E3312D /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 84E960EF1A7D1D4000E3312D /* GameScene.sks */; };
 		84E960F21A7D1D4000E3312D /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E960F11A7D1D4000E3312D /* GameScene.swift */; };
@@ -50,6 +51,7 @@
 		84CEB5891A951E0A0040B95F /* heroStand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heroStand.png; sourceTree = "<group>"; };
 		84CEB58B1A951E0A0040B95F /* heroJump.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heroJump.png; sourceTree = "<group>"; };
 		84CEB5911A95269A0040B95F /* heroBreath.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heroBreath.png; sourceTree = "<group>"; };
+		84E6B5C51AA1F2C1007DAD72 /* maskForBasket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maskForBasket.png; sourceTree = "<group>"; };
 		84E960E81A7D1D4000E3312D /* EscapeGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EscapeGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84E960EC1A7D1D4000E3312D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84E960ED1A7D1D4000E3312D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 		84E961111A7D264C00E3312D /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				84E6B5C51AA1F2C1007DAD72 /* maskForBasket.png */,
 				84CEB5911A95269A0040B95F /* heroBreath.png */,
 				84CEB5891A951E0A0040B95F /* heroStand.png */,
 				84CEB58B1A951E0A0040B95F /* heroJump.png */,
@@ -248,6 +251,7 @@
 				84E960F01A7D1D4000E3312D /* GameScene.sks in Resources */,
 				84E960F71A7D1D4100E3312D /* Main.storyboard in Resources */,
 				84CEB58C1A951E0A0040B95F /* heroStand.png in Resources */,
+				84E6B5C61AA1F2C1007DAD72 /* maskForBasket.png in Resources */,
 				84B9FFBF1A95181A0067236A /* build2.png in Resources */,
 				84CEB58E1A951E0A0040B95F /* heroJump.png in Resources */,
 			);

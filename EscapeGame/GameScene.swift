@@ -19,6 +19,8 @@ struct PhysicsCategory
     static var Hero : UInt32 = 32
     static var Antenna : UInt32 = 64
     static var Fire : UInt32 = 128
+    static var Busket: UInt32 = 256
+    
 }
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
@@ -50,6 +52,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var targetPosition : CGPoint = CGPointZero
     var runOneTime : Bool = false
     var heroFall: Bool = false
+    var spawnChainOneTime : Bool = false
     
     override func didMoveToView(view: SKView) {
         prepareScene()
@@ -66,21 +69,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addChild(backgroundLayer)
         
         // setup chain
-        chain = Chain(countChains: 34, scale : 6) as Chain
+        chain = Chain(countChains: 34, scale : 6)
         backgroundLayer.addChild(chain)
         
         chain.addAdditionalJoints();
         chain.position = CGPointMake(150, 3000)
+        
+        // setup hero
+        hero.position = CGPoint(x: hero.frame.width/2, y: 900)
+        hero.chain = chain
         chain.firstChain.position =
             convertPoint(
                 convertPoint(hero.position, fromNode: backgroundLayer),
                 toNode : chain
         )
         
-        // setup hero
-        hero.position = CGPoint(x: hero.frame.width/2, y: 900)
-        hero.chain = chain
         hero.addJointWithChain()
+        hero.addBasket()
+        
+        physicsWorld.addJoint(SKPhysicsJointFixed.jointWithBodyA(hero.physicsBody, bodyB: hero.basket.physicsBody, anchor: CGPointZero))
         
         // gestures
         swipeRecognizer.addTarget(self, action: "swipe")
@@ -89,6 +96,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         view.showsPhysics = true
         physicsWorld.gravity = CGVectorMake(0, -9.8)
+        
     }
     
     func prepareScene()
@@ -202,7 +210,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }else{
             dt = 0
         }
-            
+        
+
+        
         lastUpdateTime = CGFloat(currentTime)
         hero.updateState()
         let positionHook = convertPoint(chain.hookNode.position , fromNode: chain)
@@ -221,9 +231,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
            
         }
         
-        if convertPoint(hero.position, fromNode: backgroundLayer).x + hero.size.width/2 < 0 || convertPoint(hero.position, fromNode: backgroundLayer).x - hero.size.width/2 > CGRectGetMaxX(playableArea)
+        if convertPoint(hero.position, fromNode: backgroundLayer).x + hero.size.width/2 < 0 || convertPoint(hero.position, fromNode: backgroundLayer).x - hero.size.width/2 > CGRectGetMaxX(playableArea) || convertPoint(hero.position, fromNode: backgroundLayer).y < CGRectGetMinY(playableArea)
         {
             restart()
+        }
+        
+        if convertPoint(convertPoint(chain.hookNode.position, fromNode: chain), toNode: backgroundLayer).y < convertPoint(playableArea.origin, toNode: backgroundLayer).y
+        {
+//            jumpToLoose()
         }
         
         if convertPoint(hero.position, fromNode: backgroundLayer).x > 400 && hero.physicsBody!.velocity == CGVectorMake(0, 0) && !runOneTime && !heroFall
@@ -251,7 +266,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             lenghtBetweenBuildes = randomFloat(800, 1200)
         }
         
+        if chain.parent != nil{
         chain.updateState()
+        }
     }
     
     
@@ -271,10 +288,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
         }
         
-        if (contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask) == (PhysicsCategory.Build | PhysicsCategory.Hero)
+        if (contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask) == (PhysicsCategory.Build | PhysicsCategory.Hero) && spawnChainOneTime
         {
             hero.state = .Stand
             hero.animate(.EndJump)
+            increaseScore()
+            println("toot")
+            spawnChainOneTime = false
+            restartChain()
             if contact.bodyA.categoryBitMask == PhysicsCategory.Hero
             {
                 contact.bodyA.node!.physicsBody?.velocity = CGVectorMake(0, 0)
@@ -289,14 +310,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask == PhysicsCategory.Edge | PhysicsCategory.Hook
         {
-            intersectHeroAndBuild()
-            hero.jump(CGPoint(x: chain.hookNode.position.x + hero.size.width/2 , y: chain.build.end().y))
+            jumpToLoose()
         }
         
-        if contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask == PhysicsCategory.Hero | PhysicsCategory.Edge
-        {
-            self.restart()
-        }
+        
+    }
+    
+    func jumpToLoose()
+    {
+        intersectHeroAndBuild()
+        hero.jump(CGPoint(x: chain.hookNode.position.x + hero.size.width/2 , y: chain.build.end().y))
+        hero.state = .Loose
+        hero.physicsBody!.collisionBitMask = PhysicsCategory.None
+        hero.physicsBody!.contactTestBitMask = PhysicsCategory.None
+    }
+    
+    func increaseScore()
+    {
+        
     }
     
     func restart(){
@@ -306,6 +337,33 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         gameScene.view?.showsFPS = true
         self.view?.presentScene(gameScene)
     
+    }
+    
+    func restartChain()
+    {
+       
+        if status == .Playable
+        {
+            var chain2 = Chain()
+            chain.runAction(SKAction.sequence([SKAction.runBlock({
+                
+                chain2 = Chain(countChains: 34, scale : 6)
+               self.chain = chain2
+                self.hero.chain = chain2
+                self.backgroundLayer.addChild(chain2)
+                chain2.addAdditionalJoints();
+                chain2.position = CGPointMake(self.hero.position.x, 3000)
+                
+               chain2.firstChain.position = self.convertPoint(
+                        self.convertPoint(self.hero.position, fromNode: self.backgroundLayer),
+                        toNode : chain2)
+                self.hero.addJointWithChain()
+                }
+                )
+            ]))
+           
+            
+        }
     }
     func checkHeroPositionOnBlock()
     {
@@ -353,7 +411,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         enumerateChildNodesWithName("//build"){
             node, _ in
             
-            println("sefegergrt")
+            
             let distance = abs(inBackground.x - self.hero.build.position.x)
             if distance <= self.hero.size.width/2 + self.hero.build.size.width/2
             {

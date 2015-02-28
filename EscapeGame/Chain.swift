@@ -37,9 +37,11 @@ class Chain : SKNode{
         firstChain.position = CGPointZero
         firstChain.name = "firstChain"
         firstChain.setScale(scale)
+      
         firstChain.zPosition = 0.5
         firstChain.physicsBody = SKPhysicsBody(circleOfRadius: firstChain.frame.size.height/2)
-        firstChain.physicsBody!.dynamic = false
+        firstChain.physicsBody!.dynamic = true
+        firstChain.physicsBody!.density = 12;
         firstChain.physicsBody!.categoryBitMask = PhysicsCategory.Chain
         firstChain.physicsBody!.collisionBitMask =  PhysicsCategory.Build
         self.addChild(firstChain)
@@ -54,12 +56,11 @@ class Chain : SKNode{
             chainNode.setScale(scale)
             
             chainNode.zPosition = 0.5
-            
             chainNode.physicsBody = SKPhysicsBody(circleOfRadius: chainNode.frame.size.height/2)
             chainNode.physicsBody!.restitution = 0.1
+             chainNode.physicsBody!.density = 122;
             chainNode.physicsBody!.categoryBitMask = PhysicsCategory.Chain
-            chainNode.physicsBody!.collisionBitMask =   PhysicsCategory.Build | PhysicsCategory.Antenna
-            
+            chainNode.physicsBody!.collisionBitMask =   PhysicsCategory.Build | PhysicsCategory.Antenna 
             self.addChild(chainNode)
             
             //            pinJoint.upperAngleLimit = 5 * CGFloat( M_PI / 6 )
@@ -91,8 +92,8 @@ class Chain : SKNode{
         hookNode.zPosition = 134
         hookNode.physicsBody = SKPhysicsBody(circleOfRadius: hookNode.frame.height/2)
         hookNode.physicsBody!.categoryBitMask = PhysicsCategory.Hook
-        hookNode.physicsBody!.collisionBitMask =  PhysicsCategory.Cannon | PhysicsCategory.Build | PhysicsCategory.Fire | PhysicsCategory.Antenna
-        hookNode.physicsBody!.density = 40;
+        hookNode.physicsBody!.collisionBitMask =  PhysicsCategory.Cannon | PhysicsCategory.Build | PhysicsCategory.Fire | PhysicsCategory.Busket
+        hookNode.physicsBody!.density = 40000;
         hookNode.physicsBody!.friction = 8999
         hookNode.physicsBody!.contactTestBitMask = PhysicsCategory.Build | PhysicsCategory.Edge
         hookNode.setScale(1.4)
@@ -119,8 +120,6 @@ class Chain : SKNode{
                 let pinJointWithOther = SKPhysicsJointPin.jointWithBodyA(chains[i].physicsBody!, bodyB: chains[i-1].physicsBody!,
                     anchor: getInScene(CGPoint(x: chains[i].position.x, y: chains[i-1].position.y - chains[i-1].size.height/2 )
                     ))
-                
-                let aaa = getInScene(CGPoint(x: chains[i].position.x, y: chains[i-1].position.y + chains[i-1].size.height/2))
 
                 
                 let limJointWithFirst = SKPhysicsJointLimit.jointWithBodyA(firstChain.physicsBody!, bodyB: chains[i].physicsBody!,
@@ -128,8 +127,8 @@ class Chain : SKNode{
                     anchorB: getInScene(chains[i].position))
                 
                 limJointWithFirst.maxLength = firstChain.position.y - chains[i].position.y;
-                
-                scene?.physicsWorld.addJoint(limJointWithHook)
+                               
+                scene!.physicsWorld.addJoint(limJointWithHook)
                 scene?.physicsWorld.addJoint(pinJointWithOther)
                 scene?.physicsWorld.addJoint(limJointWithFirst)
             }
@@ -154,8 +153,9 @@ class Chain : SKNode{
     
     func getInScene(point: CGPoint) -> CGPoint
     {
-        let one =  convertPoint(point, fromNode: self)
-        return one
+        let gameScene = scene as GameScene
+        let pointInScene =  gameScene.convertPoint(point, fromNode: self)
+        return pointInScene
     }
 
     
@@ -184,6 +184,7 @@ class Chain : SKNode{
                     
                     gameScene.hero.jump(targetPosition)
                     gameScene.runOneTime = false
+                    gameScene.spawnChainOneTime = true
                 }
                 
             }else{

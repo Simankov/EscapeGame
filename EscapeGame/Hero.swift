@@ -14,6 +14,7 @@ class Hero : SKSpriteNode
     enum State: String{
         case Stand = "Stand"
         case Fly = "Fly"
+        case Loose = "Loose"
       
     }
     enum Animate
@@ -36,6 +37,7 @@ class Hero : SKSpriteNode
     var build: Build = Build()
     var animationBreath: [SKTexture] = [SKTexture]()
     var intersect : Intersect = .None
+    var basket = SKSpriteNode()
     
     override init()
     {
@@ -46,7 +48,8 @@ class Hero : SKSpriteNode
         self.physicsBody!.collisionBitMask = PhysicsCategory.Build | PhysicsCategory.Edge
         self.physicsBody!.contactTestBitMask = PhysicsCategory.Edge | PhysicsCategory.Build
         self.physicsBody!.allowsRotation = true
-        self.physicsBody!.mass = 19999
+        self.physicsBody!.mass = 199999
+        self.zPosition = 1000
         
         self.xScale = 1.3
         self.yScale = 1.2
@@ -67,7 +70,18 @@ class Hero : SKSpriteNode
         let pinJoint = SKPhysicsJointFixed.jointWithBodyA(self.physicsBody, bodyB: gameScene.chain.firstChain.physicsBody, anchor: gameScene.convertPoint(CGPointMake(self.position.x, self.position.y - self.frame.height/2 + 30), fromNode: gameScene.backgroundLayer))
         scene?.physicsWorld.addJoint(pinJoint)
     }
-   
+    
+    func addBasket()
+    {
+        
+        basket.physicsBody = SKPhysicsBody(texture: SKTexture(imageNamed: "maskForBasket"), size: self.size)
+        basket.physicsBody!.categoryBitMask = PhysicsCategory.Busket
+        
+        self.addChild(basket)
+        
+        
+        
+    }
 
     
     func shot(target: CGPoint)
@@ -83,7 +97,7 @@ class Hero : SKSpriteNode
         
         let targetVector = CGVectorMake(target.x - hookPosition.x, target.y - hookPosition.y)
         let targetDirection = targetVector.normalize()
-        let impulse = CGVectorMake(targetDirection.dx * powerMultiple * 4000, targetDirection.dy * powerMultiple * 4000)
+        let impulse = CGVectorMake(targetDirection.dx * powerMultiple * 4000000, targetDirection.dy * powerMultiple * 4000000)
         (scene as GameScene).chain.hookNode.physicsBody!.applyImpulse(impulse)
         //        fire.physicsBody!.applyImpulse(CGVectorMake(direction.x * power * powerMultiple, direction.y * power * powerMultiple))
         powerMultiple = 0;
