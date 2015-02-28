@@ -38,6 +38,8 @@ class Hero : SKSpriteNode
     var animationBreath: [SKTexture] = [SKTexture]()
     var intersect : Intersect = .None
     var basket = SKSpriteNode()
+    var power : CGFloat = 300
+   
     
     override init()
     {
@@ -47,7 +49,7 @@ class Hero : SKSpriteNode
         self.physicsBody!.categoryBitMask = PhysicsCategory.Hero
         self.physicsBody!.collisionBitMask = PhysicsCategory.Build | PhysicsCategory.Edge
         self.physicsBody!.contactTestBitMask = PhysicsCategory.Edge | PhysicsCategory.Build
-        self.physicsBody!.allowsRotation = true
+        self.physicsBody!.allowsRotation = false
         self.physicsBody!.mass = 199999
         self.zPosition = 1000
         
@@ -73,7 +75,7 @@ class Hero : SKSpriteNode
     
     func addBasket()
     {
-        
+      
         basket.physicsBody = SKPhysicsBody(texture: SKTexture(imageNamed: "maskForBasket"), size: self.size)
         basket.physicsBody!.categoryBitMask = PhysicsCategory.Busket
         
@@ -86,7 +88,16 @@ class Hero : SKSpriteNode
     
     func shot(target: CGPoint)
     {
-        powerMultiple += 1
+        
+        powerMultiple = powerMultiple * powerMultiple
+        if powerMultiple > _maxTimeOfPress
+        {
+            powerMultiple = _maxTimeOfPress
+        }
+        powerMultiple += 0.7
+        
+        println(powerMultiple)
+        let minDistance = _minLenghtBetweenBuilds - _minWidthBuild + 10 // 40 for epsilon
         
         let gameScene = scene as GameScene
         let hookPosition =
@@ -97,10 +108,14 @@ class Hero : SKSpriteNode
         
         let targetVector = CGVectorMake(target.x - hookPosition.x, target.y - hookPosition.y)
         let targetDirection = targetVector.normalize()
+        let min = 400 * chain.hookNode.physicsBody!.mass
+        let max = 1000 * chain.hookNode.physicsBody!.mass
+        
+        let perTime = min/0.7
         
         
         
-        let impulse = CGVectorMake(targetDirection.dx * powerMultiple * 4000000, targetDirection.dy * powerMultiple * 4000000)
+        let impulse = CGVectorMake(targetDirection.dx * perTime * powerMultiple , targetDirection.dy * perTime * powerMultiple)
         
         
         (scene as GameScene).enumerateChildNodesWithName("//hook"){
@@ -143,30 +158,43 @@ class Hero : SKSpriteNode
                     amount = 0
             }
             
-            let g : CGFloat = 9.8
+            let g : CGFloat = abs((scene as GameScene).physicsWorld.gravity.dy)
             let x1 = self.position.x
             let y1 = self.position.y
             let timeOfJump : CGFloat = 1
-            let x2 = target.x + amount
+            let x2 = target.x
             let y2 = target.y + self.size.height/2
-            var sign : CGFloat = 1
-            
-            if (x2-x1) + (y1-y2) < 0
-            {
-                sign = -1
-            }
-            
-            let distance = (x2-x1)/157 + (y1-y2)/157
-            
-             
-            let time = sqrt(( sign * distance * 2 / g ))
-            let Vox = (x2 - x1) / time
            
-            self.physicsBody!.velocity = CGVectorMake(Vox, sign * Vox)
+           
+            self.physicsBody!.velocity = calculateSpeed(CGPointMake(x1, y1), target: CGPointMake(x2, y2))
             self.animate(.BeginJump)
         }
     
     }
+    
+    func calculateSpeed(start: CGPoint, target: CGPoint) -> CGVector
+    {
+        let g : CGFloat = abs((scene as GameScene).physicsWorld.gravity.dy)
+        let x1 = start.x
+        let y1 = start.y
+        let x2 = target.x
+        let y2 = target.y
+        var sign : CGFloat = 1
+        
+        if (x2-x1) + (y1-y2) < 0
+        {
+            sign = -1
+        }
+        
+        let distance = (x2-x1)/_pointsInMeter + (y1-y2)/_pointsInMeter
+        
+        
+        let time = sqrt(( sign * distance * 2 / g ))
+        let Vox = (x2 - x1) / time
+        
+        return CGVectorMake(Vox, sign * Vox)
+    }
+
 
     func updateState()
     {

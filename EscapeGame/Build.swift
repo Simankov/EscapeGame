@@ -18,7 +18,7 @@ func randomFloat(lowerLimit: CGFloat, upperLimit: CGFloat) -> CGFloat
 }
 
 
-var i = 0;
+var _countOfBuilds = 0;
 
 class Build: SKSpriteNode
  {
@@ -35,11 +35,10 @@ class Build: SKSpriteNode
   }
     
 
-  convenience init(posY: CGFloat, minHeight: CGFloat, maxHeight: CGFloat, minWidth: CGFloat, maxWidth: CGFloat)
+    convenience init(posY: CGFloat, size: CGSize)
     {
         self.init()
-        let randSize = CGSize(width: randomFloat(minWidth, maxWidth), height: randomFloat(minHeight, maxHeight))
-        self.size = randSize
+        self.size = size
        
         
         self.position = CGPoint(x: 0, y: posY + self.size.height/2 )
@@ -50,17 +49,15 @@ class Build: SKSpriteNode
         self.physicsBody!.collisionBitMask = PhysicsCategory.Chain | PhysicsCategory.Hook
         self.physicsBody!.affectedByGravity = true
         self.physicsBody!.mass = 999999999
-        self.physicsBody!.friction = 0.2
+        self.physicsBody!.friction = 0.6
         self.physicsBody!.contactTestBitMask = PhysicsCategory.Edge
-        antenna.position = CGPoint(x: 0, y: self.size.height/2 + self.antenna.size.height/2)
-        antenna.setScale(3.5)
         
 //        antenna.physicsBody = SKPhysicsBody(texture: SKTexture(imageNamed: "antenna"), size: antenna.size)
 //        antenna.physicsBody!.categoryBitMask = PhysicsCategory.Antenna
 //        antenna.physicsBody!.collisionBitMask = PhysicsCategory.Hook | PhysicsCategory.Build
 //        antenna.physicsBody!.mass = 999999999
-        number = i
-        i++
+        number = _countOfBuilds
+        _countOfBuilds++
 //        self.addChild(antenna)
         
         
@@ -72,9 +69,5 @@ class Build: SKSpriteNode
         return CGPoint(x: self.position.x + size.width/2, y: self.position.y + size.height/2)
     }
     
-    func fixJointAntenn()
-    {
-//         let fixJoint = SKPhysicsJointFixed.jointWithBodyA(self.antenna.physicsBody, bodyB: self.physicsBody, anchor: CGPointZero)
-//        scene?.physicsWorld.addJoint(fixJoint)
-}
+
 }

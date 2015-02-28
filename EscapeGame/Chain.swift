@@ -41,7 +41,7 @@ class Chain : SKNode{
         firstChain.zPosition = 0.5
         firstChain.physicsBody = SKPhysicsBody(circleOfRadius: firstChain.frame.size.height/2)
         firstChain.physicsBody!.dynamic = true
-        firstChain.physicsBody!.density = 12;
+        firstChain.physicsBody!.density = 122;
         firstChain.physicsBody!.categoryBitMask = PhysicsCategory.Chain
         firstChain.physicsBody!.collisionBitMask =  PhysicsCategory.Build
         self.addChild(firstChain)
@@ -55,12 +55,12 @@ class Chain : SKNode{
             chainNode.position = CGPoint(x: lastChain.position.x, y: CGRectGetMinY(lastChain.frame) - lastChain.frame.height/2)
             chainNode.setScale(scale)
             
-            chainNode.zPosition = 0.5
+            chainNode.zPosition = 1001
             chainNode.physicsBody = SKPhysicsBody(circleOfRadius: chainNode.frame.size.height/2)
             chainNode.physicsBody!.restitution = 0.1
              chainNode.physicsBody!.density = 122;
             chainNode.physicsBody!.categoryBitMask = PhysicsCategory.Chain
-            chainNode.physicsBody!.collisionBitMask =   PhysicsCategory.Build | PhysicsCategory.Antenna 
+            chainNode.physicsBody!.collisionBitMask =   PhysicsCategory.Build | PhysicsCategory.Antenna | PhysicsCategory.Busket
             self.addChild(chainNode)
             
             //            pinJoint.upperAngleLimit = 5 * CGFloat( M_PI / 6 )
@@ -93,10 +93,10 @@ class Chain : SKNode{
         hookNode.physicsBody = SKPhysicsBody(circleOfRadius: hookNode.frame.height/2)
         hookNode.physicsBody!.categoryBitMask = PhysicsCategory.Hook
         hookNode.physicsBody!.collisionBitMask =  PhysicsCategory.Cannon | PhysicsCategory.Build | PhysicsCategory.Fire | PhysicsCategory.Busket
-        hookNode.physicsBody!.density = 40000;
-        hookNode.physicsBody!.friction = 8999
+        hookNode.physicsBody!.density = _hookNodeDensity
+        hookNode.physicsBody!.friction = 1
         hookNode.physicsBody!.contactTestBitMask = PhysicsCategory.Build | PhysicsCategory.Edge
-        hookNode.setScale(1.4)
+        hookNode.setScale(_hookNodeScale)
         
         self.addChild(hookNode)
         chains.append(hookNode)
@@ -173,7 +173,7 @@ class Chain : SKNode{
             let inScene = gameScene.convertPoint(hookNode.position, fromNode: gameScene.chain)
             let inHero = gameScene.convertPoint(inScene, toNode: gameScene.backgroundLayer)
            
-            if self.hookNode.physicsBody!.velocity.length() < 3 && abs(hookNode.physicsBody!.angularVelocity) < 0.1
+            if self.hookNode.physicsBody!.velocity.length() < _maxVelocityHook && abs(hookNode.physicsBody!.angularVelocity) < _maxAngularVelocityHook
             {
                 currentState = .Stopped
                 
