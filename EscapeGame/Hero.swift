@@ -53,9 +53,10 @@ class Hero : SKSpriteNode
         self.physicsBody!.mass = 199999
         self.zPosition = 1000
         
-        self.xScale = 1.3
-        self.yScale = 1.2
-    
+        self.size = SKTexture(imageNamed: "heroStand").size()
+       
+        
+   
         self.animationBreath.append(SKTexture(imageNamed: "heroStand"))
         self.animationBreath.append(SKTexture(imageNamed: "heroBreath"))
        
@@ -76,8 +77,9 @@ class Hero : SKSpriteNode
     func addBasket()
     {
       
-        basket.physicsBody = SKPhysicsBody(texture: SKTexture(imageNamed: "maskForBasket"), size: self.size)
+        basket.physicsBody = SKPhysicsBody(texture: SKTexture(imageNamed: "maskForBasket"), size: CGSize(width: self.size.width*1.3, height: self.size.height * 1.5))
         basket.physicsBody!.categoryBitMask = PhysicsCategory.Busket
+        
         
         self.addChild(basket)
         
@@ -88,15 +90,18 @@ class Hero : SKSpriteNode
     
     func shot(target: CGPoint)
     {
-        
-        powerMultiple = powerMultiple * powerMultiple
         if powerMultiple > _maxTimeOfPress
         {
             powerMultiple = _maxTimeOfPress
         }
-        powerMultiple += 0.7
+        powerMultiple = powerMultiple * powerMultiple
+//        if powerMultiple > _maxTimeOfPress
+//        {
+//            powerMultiple = _maxTimeOfPress
+//        }
+//        powerMultiple += 0.9
         
-        println(powerMultiple)
+//        println(powerMultiple)
         let minDistance = _minLenghtBetweenBuilds - _minWidthBuild + 10 // 40 for epsilon
         
         let gameScene = scene as GameScene
@@ -108,19 +113,20 @@ class Hero : SKSpriteNode
         
         let targetVector = CGVectorMake(target.x - hookPosition.x, target.y - hookPosition.y)
         let targetDirection = targetVector.normalize()
-        let min = 400 * chain.hookNode.physicsBody!.mass
-        let max = 1000 * chain.hookNode.physicsBody!.mass
+        let min = 350 * chain.hookNode.physicsBody!.mass
+        let max = 1200 * chain.hookNode.physicsBody!.mass
         
-        let perTime = min/0.7
+        let perTime = ( max ) 
         
         
         
         let impulse = CGVectorMake(targetDirection.dx * perTime * powerMultiple , targetDirection.dy * perTime * powerMultiple)
         
-        
+        chain.changeCollisionMaskForChains()
         (scene as GameScene).enumerateChildNodesWithName("//hook"){
             node, _ in
         (node as SKSpriteNode).physicsBody!.applyImpulse(impulse)
+            
                 
         }
 //        (scene as GameScene).chain.hookNode.physicsBody!.applyImpulse(impulse)
@@ -201,6 +207,7 @@ class Hero : SKSpriteNode
         if physicsBody!.velocity.length() > 0.1
         {
             self.state = .Fly
+//            println(frame.size)
             
         }
         else

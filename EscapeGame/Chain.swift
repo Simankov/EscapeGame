@@ -59,6 +59,8 @@ class Chain : SKNode{
             chainNode.physicsBody = SKPhysicsBody(circleOfRadius: chainNode.frame.size.height/2)
             chainNode.physicsBody!.restitution = 0.1
              chainNode.physicsBody!.density = 122;
+            chainNode.physicsBody!.friction = 0
+            chainNode.physicsBody!.usesPreciseCollisionDetection = false
             chainNode.physicsBody!.categoryBitMask = PhysicsCategory.Chain
             chainNode.physicsBody!.collisionBitMask =   PhysicsCategory.Build | PhysicsCategory.Antenna | PhysicsCategory.Busket
             self.addChild(chainNode)
@@ -89,7 +91,7 @@ class Chain : SKNode{
         
         hookNode.position = CGPoint(x: position.x, y: position.y )
         
-        hookNode.zPosition = 134
+        hookNode.zPosition = 1334
         hookNode.physicsBody = SKPhysicsBody(circleOfRadius: hookNode.frame.height/2)
         hookNode.physicsBody!.categoryBitMask = PhysicsCategory.Hook
         hookNode.physicsBody!.collisionBitMask =  PhysicsCategory.Cannon | PhysicsCategory.Build | PhysicsCategory.Fire | PhysicsCategory.Busket
@@ -100,6 +102,17 @@ class Chain : SKNode{
         
         self.addChild(hookNode)
         chains.append(hookNode)
+    }
+    
+    func changeCollisionMaskForChains()
+    {
+ 
+        for chain in chains
+        {
+            chain.physicsBody!.collisionBitMask = PhysicsCategory.Build 
+        }
+
+       
     }
     
     func addAdditionalJoints(){
@@ -181,10 +194,12 @@ class Chain : SKNode{
                 {
                    let targetPosition =
                         gameScene.convertPoint(gameScene.convertPoint(hookNode.position, fromNode: gameScene.chain), toNode: gameScene.backgroundLayer)
-                    
+                    if build.number != (scene as GameScene).hero.build.number
+                    {
                     gameScene.hero.jump(targetPosition)
                     gameScene.runOneTime = false
                     gameScene.spawnChainOneTime = true
+                    }
                 }
                 
             }else{

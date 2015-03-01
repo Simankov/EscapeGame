@@ -13,19 +13,19 @@ let _minHeightBuild : CGFloat = 100
 let _maxWidthBuild: CGFloat  = 600
 let _minWidthBuild: CGFloat =  256
 
-let _hookNodeDensity: CGFloat  =   40000
-let _hookNodeScale: CGFloat  = 1.6
+let _hookNodeDensity: CGFloat  =  30000 //40000
+let _hookNodeScale: CGFloat  = 1.4
 let _DistanceFromEdge: CGFloat  =  400
 let _backgroundMoveSpeed: CGFloat =  1300
-let _maxLenghtBetweenBuilds: CGFloat = 1600  //1500
+let _maxLenghtBetweenBuilds: CGFloat = 1300  //1500
 let _minLenghtBetweenBuilds: CGFloat = 900   //900
 let _pointsInMeter: CGFloat = 157
-let _maxVelocityHook: CGFloat = 7
-let _maxAngularVelocityHook: CGFloat = 0.2
+let _maxVelocityHook: CGFloat = 13
+let _maxAngularVelocityHook: CGFloat = 2
 let _buildMass: CGFloat  = 999999
 let _buildFriction: CGFloat  = 0.4
-let _maxTimeOfPress: CGFloat = 1.3
-let _countOfChains : Int = 34
+let _maxTimeOfPress: CGFloat = 1
+let _countOfChains : Int = 40 //34
 let _scaleOfChain : CGFloat = 6
 
 
@@ -43,3 +43,4 @@ struct PhysicsCategory
     static var Busket: UInt32 = 256
     
 }
+
