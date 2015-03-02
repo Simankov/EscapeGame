@@ -90,11 +90,12 @@ class Hero : SKSpriteNode
     
     func shot(target: CGPoint)
     {
+        powerMultiple += 0.4
+        powerMultiple = powerMultiple * powerMultiple
         if powerMultiple > _maxTimeOfPress
         {
             powerMultiple = _maxTimeOfPress
         }
-        powerMultiple = powerMultiple * powerMultiple
 //        if powerMultiple > _maxTimeOfPress
 //        {
 //            powerMultiple = _maxTimeOfPress
@@ -116,7 +117,7 @@ class Hero : SKSpriteNode
         let min = 350 * chain.hookNode.physicsBody!.mass
         let max = 1200 * chain.hookNode.physicsBody!.mass
         
-        let perTime = ( max ) 
+        let perTime = ( max / 1.5 )
         
         
         
@@ -150,6 +151,7 @@ class Hero : SKSpriteNode
     {
         if self.physicsBody!.velocity.length() < 0.1
         {
+            (scene as GameScene).sound(.Jump)
             var amount: CGFloat = 0;
             switch(self.intersect){
                 case .None :
@@ -168,8 +170,21 @@ class Hero : SKSpriteNode
             let x1 = self.position.x
             let y1 = self.position.y
             let timeOfJump : CGFloat = 1
-            let x2 = target.x
-            let y2 = target.y + self.size.height/2
+            var x2 = target.x
+            var y2 = target.y + self.size.height/2
+            
+        if self.state != .Loose
+        {
+            if target.x > chain.build.position.x + chain.build.size.width/2 - self.size.width/2
+            {
+                x2 = chain.build.position.x + chain.build.size.width/2 - self.size.width/2
+            }
+            
+            if target.x < chain.build.position.x - chain.build.size.width/2 + self.size.width/2
+            {
+                x2 = chain.build.position.x - chain.build.size.width/2 + self.size.width/2
+            }
+        }
            
            
             self.physicsBody!.velocity = calculateSpeed(CGPointMake(x1, y1), target: CGPointMake(x2, y2))

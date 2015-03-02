@@ -8,8 +8,9 @@
 
 import Foundation
 import SpriteKit
+import AVFoundation
 
-class Chain : SKNode{
+class Chain : SKNode, AVAudioPlayerDelegate{
     
     enum State: String{
         case UnderControll = "controlled"
@@ -185,28 +186,38 @@ class Chain : SKNode{
            {
             let inScene = gameScene.convertPoint(hookNode.position, fromNode: gameScene.chain)
             let inHero = gameScene.convertPoint(inScene, toNode: gameScene.backgroundLayer)
+            
            
-            if self.hookNode.physicsBody!.velocity.length() < _maxVelocityHook && abs(hookNode.physicsBody!.angularVelocity) < _maxAngularVelocityHook
+           
+                    if self.hookNode.physicsBody!.velocity.length() < _maxVelocityHook && abs(hookNode.physicsBody!.angularVelocity) < _maxAngularVelocityHook
+                        {
+                                currentState = .Stopped
+               
+                
+                            
+                                if self.build.number != gameScene.hero.build.number && gameScene.status  != .Wait
+                                    {
+                                            let targetPosition =
+                                        gameScene.convertPoint(gameScene.convertPoint(hookNode.position, fromNode: gameScene.chain), toNode: gameScene.backgroundLayer)
+                                            if build.number != (scene as GameScene).hero.build.number
+                                                {
+                                                        gameScene.hero.jump(targetPosition)
+                                                        
+                                                    
+                                                        gameScene.runOneTime = false
+                                                        gameScene.spawnChainOneTime = true
+                                                }
+                                    }
+                
+                        }
+            
+
+            
+            else
             {
-                currentState = .Stopped
-                
-                if self.build.number != gameScene.hero.build.number && gameScene.status  != .Wait
-                {
-                   let targetPosition =
-                        gameScene.convertPoint(gameScene.convertPoint(hookNode.position, fromNode: gameScene.chain), toNode: gameScene.backgroundLayer)
-                    if build.number != (scene as GameScene).hero.build.number
-                    {
-                    gameScene.hero.jump(targetPosition)
-                    gameScene.runOneTime = false
-                    gameScene.spawnChainOneTime = true
-                    }
-                }
-                
-            }else{
-                
                 currentState = .InFly
             }
-            }
+        }
             else
            {
             return

@@ -7,27 +7,41 @@
 //
 
 import SpriteKit
+import AVFoundation
+
+protocol viewEndGameDelegate: class
+{
+    func viewDidEndGame(score: Int, highScore: Int)
+}
 
 
-
-class GameScene: SKScene, SKPhysicsContactDelegate {
+class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate {
     
     enum Status
     {
         case Wait
         case Playable
     }
+    enum Sound
+    {
+        case Loose
+        case Jump
+    }
+    var viewDelegate : viewEndGameDelegate?
     
-    
-    
+    var score =  SKLabelNode()
     var playableArea: CGRect = CGRect()
     var touchedNode : SKNode? = SKNode()
     var timer: NSTimer = NSTimer()
-    let backgroundLayer = SKNode()
+    var backgroundLayer = SKNode()
     var chain = Chain()
     var startPosition : CGPoint = CGPointZero;
     var endPosition: CGPoint = CGPointZero
-  
+    var scorePoint = 0
+    var player : AVAudioPlayer?
+    var sounded: Bool = false
+    
+    
     var lastBuildPosition: CGFloat = 0
     var currentTouchPosition: CGPoint = CGPointZero
     var lenghtBetweenBuildes :CGFloat = 0
@@ -43,13 +57,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var heroFall: Bool = false
     var spawnChainOneTime : Bool = false
      var lastBuild =  Build()
+    var jumpSoundPath = NSBundle.mainBundle().pathForResource("jump", ofType: "wav")
+    var loseSoundPath = NSBundle.mainBundle().pathForResource("lose", ofType: "wav")
+    var isEffectsEnabled : Bool = true
+var isRestarted : Bool = false
     
     
     override func didMoveToView(view: SKView) {
         prepareScene()
-        
+       
+
         // setup background
+        
+        var background = SKSpriteNode()
+        background.size = CGSize(width: 2048, height: 1536)
+        background.position = CGPointMake( 1024,  768)
+        background.zPosition = -1
         backgroundColor = UIColor.whiteColor()
+        
+//        backgroundLayer.addChild(background)
         backgroundLayer.name = "backgroundLayer"
         backgroundLayer.zPosition = -1
         backgroundLayer.physicsBody = SKPhysicsBody(circleOfRadius: 3)
@@ -73,7 +99,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         view.userInteractionEnabled = true
         println(hero.size)
         view.showsPhysics = false
-        physicsWorld.gravity = CGVectorMake(0, -13.8)
+        physicsWorld.gravity = CGVectorMake(0, -14.8)
+        
+        score.position = CGPointMake(CGRectGetMidX(playableArea), CGRectGetMaxY(playableArea) - 400)
+        score.fontName = "HiraMinProN-W"
+        score.fontSize = 120
+        
+        score.fontColor = UIColor.blackColor()
+        addChild(score)
         
     }
     
@@ -97,6 +130,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
  override  func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+    
     
        startPosition = (touches.anyObject() as UITouch).locationInNode(self)
         
@@ -239,7 +273,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
            
         }
         
-        if convertPoint(hero.position, fromNode: backgroundLayer).x + hero.size.width/2 < 0 || convertPoint(hero.position, fromNode: backgroundLayer).x - hero.size.width/2 > CGRectGetMaxX(playableArea) || convertPoint(hero.position, fromNode: backgroundLayer).y < CGRectGetMinY(playableArea)
+        if convertPoint(hero.position, fromNode: backgroundLayer).x + hero.size.width/2 < 0 || convertPoint(hero.position, fromNode: backgroundLayer).x - hero.size.width/2 > CGRectGetMaxX(playableArea) || convertPoint(hero.position, fromNode: backgroundLayer).y  < CGRectGetMinY(playableArea)
         {
             restart()
         }
@@ -260,9 +294,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
          
         }
         
-        if hero.state == .Stand
+        
+        if hero.state == .Loose && hero.position.y - CGRectGetMinY(playableArea) < 400 && !sounded
         {
-//            checkHeroPositionOnBlock()
+        
+            sound(.Loose)
+            sounded = true
+            
         }
         
         let endScreen = convertPoint(CGPointMake(self.size.width,0), toNode: backgroundLayer)
@@ -305,6 +343,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     func didBeginContact(contact: SKPhysicsContact) {
+       
+        
         
         if (contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask) == (PhysicsCategory.Build | PhysicsCategory.Hook)
         {
@@ -348,32 +388,69 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         {
             jumpToLoose()
         }
-        
-        
     }
+    
+        
+    func sound(type : Sound)
+    {
+        if isEffectsEnabled
+        {
+        
+        if type == .Jump
+        {
+        player = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: jumpSoundPath!), error: nil)
+        }
+        else if type == .Loose
+        {
+        player = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: loseSoundPath!), error: nil)
+        }
+        player!.play()
+        player?.delegate = self
+            
+        }
+    }
+        
+    
     
     func jumpToLoose()
     {
         let hookPosition = convertPoint(convertPoint(chain.hookNode.position, fromNode: chain), toNode: backgroundLayer)
-       
-        hero.jump(CGPoint(x: hookPosition.x , y: hookPosition.y))
         hero.state = .Loose
+        hero.jump(CGPoint(x: hookPosition.x , y: hookPosition.y))
+        
         hero.physicsBody!.collisionBitMask = PhysicsCategory.None
-        hero.physicsBody!.contactTestBitMask = PhysicsCategory.None
+        hero.physicsBody!.contactTestBitMask = PhysicsCategory.Edge
+        for chain in hero.chain.chains
+        {
+            chain.physicsBody!.collisionBitMask = PhysicsCategory.None
+        }
     }
     
     func increaseScore()
     {
+        scorePoint++
+        score.text = String(scorePoint)
         
     }
     
     func restart(){
-        removeAllChildren()
+       if !isRestarted
+       {
+        
+        self.removeAllChildren()
         _countOfBuilds = 0
-        let gameScene = GameScene(fileNamed: "GameScene")
-        gameScene.scaleMode = .AspectFill
-        gameScene.view?.showsFPS = true
-        self.view?.presentScene(gameScene)
+       
+//        let gameScene = GameScene(fileNamed: "GameScene")
+//        gameScene.scaleMode = .AspectFill
+//        gameScene.view?.showsFPS = true
+//        self.view?.presentScene(gameScene)
+        
+        viewDelegate?.viewDidEndGame(scorePoint , highScore: scorePoint)
+        isRestarted = true
+        
+        }
+
+       
     
     }
     
@@ -493,7 +570,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         {
             c = _maxTimeOfPress
         }
-        c += 0.7
-        println(c)
+       println(counter)
     }
 }

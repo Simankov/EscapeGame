@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A361p" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="acc-Z7-VV5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6724" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rGY-uB-Jds">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6711"/>
     </dependencies>
     <scenes>
         <!--Game View Controller-->
@@ -16,17 +16,158 @@
                     <view key="view" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C87-AJ-SI6">
+                                <rect key="frame" x="549" y="6" width="46" height="30"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="J1T-mH-ACl" kind="show" identifier="EndGame" id="jZT-os-aR1"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="29t-5X-6ht"/>
+                    <connections>
+                        <outlet property="button" destination="C87-AJ-SI6" id="OLT-Ot-jAv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1101" y="575"/>
         </scene>
+        <!--Settings-->
+        <scene sceneID="nuw-Am-cdL">
+            <objects>
+                <viewController id="nfF-Rh-N3m" customClass="SettingsViewController" customModule="EscapeGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WdE-vn-gfo"/>
+                        <viewControllerLayoutGuide type="bottom" id="mSd-lO-Pkg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bAn-0m-cYE">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ONG-db-vFY">
+                                <rect key="frame" x="182" y="214" width="236" height="173"/>
+                                <subviews>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" placeholderIntrinsicWidth="49" placeholderIntrinsicHeight="31" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GbM-pd-4KK">
+                                        <rect key="frame" x="167" y="113" width="51" height="31"/>
+                                    </switch>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" placeholderIntrinsicWidth="49" placeholderIntrinsicHeight="31" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WlC-Nt-7Oe">
+                                        <rect key="frame" x="167" y="29" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="musicSwitched" destination="nfF-Rh-N3m" eventType="valueChanged" id="Mde-6R-O6g"/>
+                                        </connections>
+                                    </switch>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Music" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CbP-vY-sz6">
+                                        <rect key="frame" x="22" y="22" width="122" height="49"/>
+                                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="35"/>
+                                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="highlightedColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Effects" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Cf-JS-8SB">
+                                        <rect key="frame" x="20" y="104" width="126" height="49"/>
+                                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="35"/>
+                                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="highlightedColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="ONG-db-vFY" secondAttribute="centerY" id="lsa-v6-O0q"/>
+                            <constraint firstAttribute="centerX" secondItem="ONG-db-vFY" secondAttribute="centerX" id="ts9-JJ-nVX"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Settings" id="ajO-C2-3Pi"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="effectsSwitchButton" destination="GbM-pd-4KK" id="SJr-hp-WUG"/>
+                        <outlet property="musicSwitchButton" destination="WlC-Nt-7Oe" id="4az-gE-X3x"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E1w-DX-U2Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="449" y="2243"/>
+        </scene>
+        <!--End Game View Controller-->
+        <scene sceneID="4Aj-f3-3rd">
+            <objects>
+                <viewController id="J1T-mH-ACl" customClass="EndGameViewController" customModule="EscapeGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dfU-1d-UVf"/>
+                        <viewControllerLayoutGuide type="bottom" id="8Gs-ui-geG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MTJ-Yc-MgI">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view tag="1000" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k1g-lG-IXt">
+                                <rect key="frame" x="182" y="125" width="221" height="207"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gj1-GF-QxH">
+                                        <rect key="frame" x="20" y="20" width="55" height="21"/>
+                                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wU5-dR-9TZ" userLabel="scoreLabel">
+                                        <rect key="frame" x="144" y="20" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" tag="200" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nPn-I8-fMD" userLabel="highscoreLabel">
+                                        <rect key="frame" x="144" y="63" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Highscore:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nq6-28-up9">
+                                        <rect key="frame" x="21" y="63" width="105" height="21"/>
+                                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kuV-Jx-1Ch" userLabel="menuButton">
+                                        <rect key="frame" x="126" y="121" width="60" height="60"/>
+                                        <state key="normal" backgroundImage="menuButton.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="acc-Z7-VV5" kind="modal" id="WCt-lj-3Ki"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lX8-66-HBg" userLabel="resetButton">
+                                        <rect key="frame" x="33" y="121" width="60" height="60"/>
+                                        <state key="normal" backgroundImage="buttonReset.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="BV1-FR-VrT" kind="modal" id="nhD-UL-m4N"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Itj-K3-guN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1313" y="1438"/>
+        </scene>
         <!--Menu View Controller-->
         <scene sceneID="DP2-QR-4Fr">
             <objects>
-                <viewController id="acc-Z7-VV5" userLabel="Menu View Controller" sceneMemberID="viewController">
+                <viewController id="acc-Z7-VV5" userLabel="Menu View Controller" customClass="MenuViewController" customModule="EscapeGame" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TNL-eh-aXW"/>
                         <viewControllerLayoutGuide type="bottom" id="aGP-Z8-XmV"/>
@@ -35,62 +176,84 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lBW-l2-8Kf">
-                                <rect key="frame" x="175" y="189" width="127" height="63"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="Start THE GAME">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="81" y="264" width="238" height="71"/>
-                                </variation>
-                                <connections>
-                                    <segue destination="BV1-FR-VrT" kind="show" id="Ylf-8j-361"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bdh-4h-mWH">
+                                <rect key="frame" x="80" y="251" width="445" height="117"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5xY-nl-kTq">
+                                        <rect key="frame" x="20" y="20" width="233" height="77"/>
+                                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="35"/>
+                                        <state key="normal" title="New game"/>
+                                        <connections>
+                                            <segue destination="BV1-FR-VrT" kind="modal" id="2Vs-GM-jga"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Fp-oO-H7F">
+                                        <rect key="frame" x="246" y="37" width="179" height="44"/>
+                                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="35"/>
+                                        <state key="normal" title="Settings">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="s6S-hH-IjA" kind="presentation" id="SaR-Sn-fhv"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="lBW-l2-8Kf" secondAttribute="centerX" id="7bn-Ol-WA9"/>
-                            <constraint firstAttribute="centerY" secondItem="lBW-l2-8Kf" secondAttribute="centerY" id="GhR-Z3-1mM"/>
-                            <constraint firstAttribute="centerX" secondItem="lBW-l2-8Kf" secondAttribute="centerX" id="UEL-yF-zR0"/>
-                            <constraint firstAttribute="centerY" secondItem="lBW-l2-8Kf" secondAttribute="centerY" id="ZNh-nh-A3M"/>
-                            <constraint firstAttribute="centerY" secondItem="lBW-l2-8Kf" secondAttribute="centerY" id="vOB-gi-JVD"/>
-                            <constraint firstAttribute="centerX" secondItem="lBW-l2-8Kf" secondAttribute="centerX" id="wLV-4p-pc3"/>
+                            <constraint firstAttribute="centerX" secondItem="Bdh-4h-mWH" secondAttribute="centerX" id="34D-AB-RQO"/>
+                            <constraint firstAttribute="centerY" secondItem="Bdh-4h-mWH" secondAttribute="centerY" id="N8f-1c-LCR"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="7bn-Ol-WA9"/>
-                                <exclude reference="GhR-Z3-1mM"/>
-                                <exclude reference="UEL-yF-zR0"/>
-                                <exclude reference="ZNh-nh-A3M"/>
-                                <exclude reference="vOB-gi-JVD"/>
-                                <exclude reference="wLV-4p-pc3"/>
-                            </mask>
-                        </variation>
-                        <variation key="widthClass=compact">
-                            <mask key="constraints">
-                                <include reference="7bn-Ol-WA9"/>
-                                <include reference="vOB-gi-JVD"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=compact-widthClass=regular">
-                            <mask key="constraints">
-                                <include reference="GhR-Z3-1mM"/>
-                                <include reference="UEL-yF-zR0"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular-widthClass=regular">
-                            <mask key="constraints">
-                                <include reference="ZNh-nh-A3M"/>
-                                <include reference="wLV-4p-pc3"/>
-                            </mask>
-                        </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="HYa-Yn-vL0"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2zA-vx-lZX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="163.5" y="537"/>
+            <point key="canvasLocation" x="-425" y="553"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Lpc-nV-Ghw">
+            <objects>
+                <navigationController id="s6S-hH-IjA" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oCH-4d-wUA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="nfF-Rh-N3m" kind="relationship" relationship="rootViewController" id="Zbq-Nc-gKD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nue-yg-zoC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="460" y="1003"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="L1W-v2-7hV">
+            <objects>
+                <navigationController id="rGY-uB-Jds" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dOk-wN-Gnw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="acc-Z7-VV5" kind="relationship" relationship="rootViewController" id="T3t-pw-voF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u2I-Q8-C3s" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-592" y="1420"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="buttonReset.png" width="113" height="113"/>
+        <image name="menuButton.png" width="113" height="113"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="WCt-lj-3Ki"/>
+        <segue reference="nhD-UL-m4N"/>
+    </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

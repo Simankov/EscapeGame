@@ -10,11 +10,15 @@ import UIKit
 import SpriteKit
 
 
-class GameViewController: UIViewController {
-
+class GameViewController: UIViewController, viewEndGameDelegate {
+    @IBOutlet weak var button: UIButton!
+var isEffectsEnabled = true
+    
+    var score : Int?
+    var highScore : Int?
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         if let scene = GameScene(fileNamed: "GameScene") {
             // Configure the view.
             let skView = self.view as SKView
@@ -24,16 +28,35 @@ class GameViewController: UIViewController {
             
             /* Sprite Kit applies additional optimizations to improve rendering performance */
             skView.ignoresSiblingOrder = true
-            
+            scene.viewDelegate = self
             /* Set the scale mode to scale to fit the window */
             scene.scaleMode = .AspectFill
-            
+            scene.isEffectsEnabled = isEffectsEnabled
             skView.presentScene(scene)
         }
     }
 
     override func shouldAutorotate() -> Bool {
         return true
+        
+    
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "EndGame"
+        {
+            (segue.destinationViewController as EndGameViewController).highScore = highScore
+            (segue.destinationViewController as EndGameViewController).score = score
+        }
+    }
+    
+    func viewDidEndGame(score: Int, highScore : Int)
+    {
+        
+       performSegueWithIdentifier("EndGame", sender: nil)
+        self.score = score
+        self.highScore = highScore
+        
+        
     }
 
     override func prefersStatusBarHidden() -> Bool {

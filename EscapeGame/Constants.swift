@@ -21,10 +21,10 @@ let _maxLenghtBetweenBuilds: CGFloat = 1300  //1500
 let _minLenghtBetweenBuilds: CGFloat = 900   //900
 let _pointsInMeter: CGFloat = 157
 let _maxVelocityHook: CGFloat = 13
-let _maxAngularVelocityHook: CGFloat = 2
+let _maxAngularVelocityHook: CGFloat = 0.4
 let _buildMass: CGFloat  = 999999
 let _buildFriction: CGFloat  = 0.4
-let _maxTimeOfPress: CGFloat = 1
+let _maxTimeOfPress: CGFloat = 1.5
 let _countOfChains : Int = 40 //34
 let _scaleOfChain : CGFloat = 6
 
