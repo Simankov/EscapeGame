@@ -5,37 +5,69 @@
 //  Created by admin on 02.03.15.
 //  Copyright (c) 2015 Sergey Simankov. All rights reserved.
 //
+var parent : MenuViewController? = nil
 
 import UIKit
+protocol restartGameDelegate: class
+{
+   func   gameRestarted()
+}
 
-class MenuViewController: UIViewController, effectsSwitchDelegate {
+class MenuViewController: UIViewController, viewEndGameDelegate, restartGameDelegate {
     var isEffectsEnabled : Bool = true
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "SettingSegue"
-        {
-            (segue.destinationViewController as SettingsViewController).delegate = self
-        }
+    var gameViewController : GameViewController?
+    var settingViewController : SettingsViewController?
+    var endGameViewController : EndGameViewController?
+    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    func gameRestarted() {
         
-        if segue.identifier == "GameSegue"
-        {
-            (segue.destinationViewController as GameViewController).isEffectsEnabled = isEffectsEnabled
-        }
+        gameViewController = nil
+        gameViewController = self.storyboard!.instantiateViewControllerWithIdentifier("GameViewController") as? GameViewController
+        gameViewController?.delegate = self
+       
+         endGameViewController?.view.window?.rootViewController = gameViewController
+    }
+
+    func viewDidEndGame() {
+        
+        
+        
+            endGameViewController = self.storyboard!.instantiateViewControllerWithIdentifier("EndGameViewController") as? EndGameViewController
+            endGameViewController?.delegate = self
+        gameViewController?.view.window?.rootViewController = endGameViewController
+        
+        
+       
         
       
-    }
-    func effectsDidSwitched() {
-        isEffectsEnabled = !isEffectsEnabled
     }
     
     @IBAction func startNewGame()
     {
-        let gameViewController = self.storyboard!.instantiateViewControllerWithIdentifier("GameViewController") as GameViewController
+        gameViewController = self.storyboard!.instantiateViewControllerWithIdentifier("GameViewController") as? GameViewController
+        parent = self
+        gameViewController!.delegate = self
         
-        gameViewController.isEffectsEnabled = isEffectsEnabled
-            self.presentViewController(gameViewController, animated: true, completion: nil)
+        self.view.window?.rootViewController = gameViewController
     }
     
-  
+    @IBAction func settingButtonEnabled()
+    {
+        settingViewController = self.storyboard!.instantiateViewControllerWithIdentifier("SettingsViewController") as? SettingsViewController
+        
+        
+        navigationController!.pushViewController(settingViewController!, animated: true)
+    }
+    
+
+    
+  deinit
+  {
+    println("noope")
+    }
     
     
 }

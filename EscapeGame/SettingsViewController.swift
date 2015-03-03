@@ -8,15 +8,16 @@
 
 import UIKit
 
-protocol effectsSwitchDelegate : class{
-    func effectsDidSwitched()
-    
-}
+
 
 class SettingsViewController: UIViewController {
-    var delegate: effectsSwitchDelegate?
+  
     @IBOutlet weak var musicSwitchButton: UISwitch!
     @IBOutlet weak var effectsSwitchButton: UISwitch!
+    
+    override func viewDidLoad() {
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
     
     @IBAction func musicSwitched()
     {
@@ -36,6 +37,6 @@ class SettingsViewController: UIViewController {
     
     @IBAction func effectsSwitched()
     {
-        delegate?.effectsDidSwitched()
+        
     }
 }

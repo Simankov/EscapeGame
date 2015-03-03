@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-let _maxHeightBuild: CGFloat  = 900
+let _maxHeightBuild: CGFloat  = 800
 let _minHeightBuild : CGFloat = 100
 let _maxWidthBuild: CGFloat  = 600
 let _minWidthBuild: CGFloat =  256
@@ -17,7 +17,7 @@ let _hookNodeDensity: CGFloat  =  30000 //40000
 let _hookNodeScale: CGFloat  = 1.4
 let _DistanceFromEdge: CGFloat  =  400
 let _backgroundMoveSpeed: CGFloat =  1300
-let _maxLenghtBetweenBuilds: CGFloat = 1300  //1500
+let _maxLenghtBetweenBuilds: CGFloat = 1300  //1500 //
 let _minLenghtBetweenBuilds: CGFloat = 900   //900
 let _pointsInMeter: CGFloat = 157
 let _maxVelocityHook: CGFloat = 13

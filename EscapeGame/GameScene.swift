@@ -18,9 +18,16 @@ class ReleaseScene : SKScene
 
 protocol viewEndGameDelegate: class
 {
-    func viewDidEndGame(sender: AnyObject, score: Int, highScore: Int)
+    func viewDidEndGame()
 }
-
+class TestScene: SKScene {
+    weak var delegate2: viewEndGameDelegate?
+    override func update(currentTime: NSTimeInterval) {
+        delegate2?.viewDidEndGame()
+    }
+        
+    
+}
 
 class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate {
     
@@ -39,7 +46,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate {
     var score =  SKLabelNode()
     var playableArea: CGRect = CGRect()
     var touchedNode : SKNode? = SKNode()
-    var timer: NSTimer?
+    weak var timer: NSTimer?
     var backgroundLayer = SKNode()
     var chain = Chain()
     var startPosition : CGPoint = CGPointZero;
@@ -47,7 +54,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate {
     var scorePoint: NSInteger = 0
     var player : AVAudioPlayer?
     var sounded: Bool = false
-    
+    var isApplied = false
     
     var lastBuildPosition: CGFloat = 0
     var currentTouchPosition: CGPoint = CGPointZero
@@ -107,10 +114,11 @@ var isRestarted : Bool = false
         println(hero.size)
         view.showsPhysics = false
         physicsWorld.gravity = CGVectorMake(0, -14.8)
-        
-        score.position = CGPointMake(CGRectGetMidX(playableArea), CGRectGetMaxY(playableArea) - 400)
-        score.fontName = "HiraMinProN-W"
-        score.fontSize = 120
+        score = SKLabelNode(fontNamed: "Hiragino Kaku Gothic ProN W3")
+        score.position = CGPointMake(CGRectGetMidX(playableArea), CGRectGetMaxY(playableArea) - 200)
+       
+        score.fontSize = 170
+        score.text = " "
         self.delegate = nil
         score.fontColor = UIColor.blackColor()
         addChild(score)
@@ -260,8 +268,11 @@ var isRestarted : Bool = false
             dt = 0
         }
         
-
-        
+        if hero.position.x > hero.chain.build.position.x + hero.chain.build.size.width/2 - hero.size.width/2 + 10 && hero.state == .Fly
+        {
+            hero.physicsBody?.velocity = CGVectorMake(0, -500)
+        }
+        println(hero.state.rawValue)
         lastUpdateTime = CGFloat(currentTime)
         hero.updateState()
         let positionHook = convertPoint(chain.hookNode.position , fromNode: chain)
@@ -329,7 +340,7 @@ var isRestarted : Bool = false
 //            println(rightTop)
 //             println(leftTop)
             
-            while (alpha * 57.3 > 36 ) {
+            while (alpha * 57.3 > 30 ) {
              width = randomFloat(_minWidthBuild, _maxWidthBuild)
              height = randomFloat(_minHeightBuild, _maxHeightBuild)
             lenghtBetweenBuildes = randomFloat(_minLenghtBetweenBuilds, _maxLenghtBetweenBuilds)
@@ -420,7 +431,9 @@ var isRestarted : Bool = false
     
     func jumpToLoose()
     {
-        let hookPosition = convertPoint(convertPoint(chain.hookNode.position, fromNode: chain), toNode: backgroundLayer)
+        if scene != nil    // temporaryFix
+        {
+            let hookPosition = convertPoint(convertPoint(chain.hookNode.position, fromNode: chain), toNode: backgroundLayer)
         hero.state = .Loose
         hero.jump(CGPoint(x: hookPosition.x , y: hookPosition.y))
         
@@ -429,6 +442,7 @@ var isRestarted : Bool = false
         for chain in hero.chain.chains
         {
             chain.physicsBody!.collisionBitMask = PhysicsCategory.None
+        }
         }
     }
     
@@ -474,7 +488,7 @@ var isRestarted : Bool = false
             {
                 sub.removeFromSuperview()
             }
-            viewDelegate?.viewDidEndGame(self, score: scorePoint, highScore: scorePoint)
+            viewDelegate?.viewDidEndGame()
             
 //    self.view?.window?.rootViewController?.presentViewController( self.view?.window?.rootViewController?.storyboard!.instantiateViewControllerWithIdentifier("EndGameViewController") as EndGameViewController, animated: true, completion: nil)
             
@@ -602,12 +616,11 @@ var isRestarted : Bool = false
     
     func increaseCounter()
     {
-        counter += CGFloat(timer!.timeInterval);
-        var c = counter * counter
-        if c > _maxTimeOfPress
+        if timer != nil
         {
-            c = _maxTimeOfPress
+        counter += CGFloat(timer!.timeInterval);
         }
-       println(counter)
+        
+       
     }
 }

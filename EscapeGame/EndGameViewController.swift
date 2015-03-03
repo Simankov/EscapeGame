@@ -13,14 +13,19 @@ import UIKit
 class EndGameViewController: UIViewController {
     var score: Int?
     var highScore: Int?
-  
+    weak var delegate: MenuViewController?
+
     @IBOutlet weak var highScoreLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBAction func restart()
     {
-        self.presentViewController( self.storyboard!.instantiateViewControllerWithIdentifier("GameViewController") as GameViewController, animated: true, completion: nil)
+        delegate!.gameRestarted()
     }
- 
+  
+    @IBAction func menuPressed()
+    {
+        self.view.window?.rootViewController = delegate
+    }
    
     
     override func viewWillAppear(animated: Bool) {
