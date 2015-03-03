@@ -21,7 +21,7 @@ class SettingsViewController: UIViewController {
     @IBAction func musicSwitched()
     {
         
-        if 
+         
         
       if audioPlayer1.playing
       {
