@@ -10,8 +10,10 @@ import UIKit
 import SpriteKit
 
 
+
+
 class GameViewController: UIViewController, viewEndGameDelegate {
-    @IBOutlet weak var button: UIButton!
+
 var isEffectsEnabled = true
     
     var score : Int?
@@ -22,10 +24,10 @@ var isEffectsEnabled = true
         if let scene = GameScene(fileNamed: "GameScene") {
             // Configure the view.
             let skView = self.view as SKView
-            skView.showsFPS = true
+           skView.showsFPS = true
             skView.showsNodeCount = true
             
-            
+           
             /* Sprite Kit applies additional optimizations to improve rendering performance */
             skView.ignoresSiblingOrder = true
             scene.viewDelegate = self
@@ -41,21 +43,23 @@ var isEffectsEnabled = true
         
     
     }
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "EndGame"
-        {
-            (segue.destinationViewController as EndGameViewController).highScore = highScore
-            (segue.destinationViewController as EndGameViewController).score = score
-        }
-    }
     
-    func viewDidEndGame(score: Int, highScore : Int)
+    
+    func viewDidEndGame(sender: AnyObject ,score: Int, highScore : Int)
     {
-        
-       performSegueWithIdentifier("EndGame", sender: nil)
-        self.score = score
-        self.highScore = highScore
-        
+//        self.score = score
+//        self.highScore = highScore
+//      self.presentViewController( self.storyboard!.instantiateViewControllerWithIdentifier("EndGameViewController") as EndGameViewController, animated: true, completion: nil)
+//      
+        var parentController = self.presentingViewController ;
+      
+        dismissViewControllerAnimated(true){
+            if parentController?.title != "Menu"{
+                return
+            }
+            parentController!.performSegueWithIdentifier("EndGame",sender:self)
+            };
+       
         
     }
 

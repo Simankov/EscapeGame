@@ -65,12 +65,12 @@ class Hero : SKSpriteNode
     
     func addJointWithChain()
     {
-        let gameScene = scene as GameScene
-        gameScene.chain.firstChain.physicsBody!.dynamic = true
-        gameScene.chain.firstChain.position = gameScene.convertPoint(gameScene.convertPoint(CGPointMake(self.position.x, self.position.y - self.frame.height/2 + 30), fromNode: gameScene.backgroundLayer), toNode: chain)
-        gameScene.chain.firstChain.zRotation = CGFloat(M_PI_2);
         
-        let pinJoint = SKPhysicsJointFixed.jointWithBodyA(self.physicsBody, bodyB: gameScene.chain.firstChain.physicsBody, anchor: gameScene.convertPoint(CGPointMake(self.position.x, self.position.y - self.frame.height/2 + 30), fromNode: gameScene.backgroundLayer))
+        (scene as GameScene).chain.firstChain.physicsBody!.dynamic = true
+        (scene as GameScene).chain.firstChain.position = (scene as GameScene).convertPoint((scene as GameScene).convertPoint(CGPointMake(self.position.x, self.position.y - self.frame.height/2 + 30), fromNode: (scene as GameScene).backgroundLayer), toNode: chain)
+        (scene as GameScene).chain.firstChain.zRotation = CGFloat(M_PI_2);
+        
+        let pinJoint = SKPhysicsJointFixed.jointWithBodyA(self.physicsBody, bodyB: (scene as GameScene).chain.firstChain.physicsBody, anchor: (scene as GameScene).convertPoint(CGPointMake(self.position.x, self.position.y - self.frame.height/2 + 30), fromNode: (scene as GameScene).backgroundLayer))
         scene?.physicsWorld.addJoint(pinJoint)
     }
     
@@ -105,11 +105,11 @@ class Hero : SKSpriteNode
 //        println(powerMultiple)
         let minDistance = _minLenghtBetweenBuilds - _minWidthBuild + 10 // 40 for epsilon
         
-        let gameScene = scene as GameScene
+        
         let hookPosition =
-        gameScene.convertPoint(
-        gameScene.convertPoint(chain.hookNode.position, fromNode: chain),
-            toNode: gameScene.backgroundLayer)
+        (scene as GameScene).convertPoint(
+        (scene as GameScene).convertPoint(chain.hookNode.position, fromNode: chain),
+            toNode: (scene as GameScene).backgroundLayer)
 //        powerMultiple from 16000 to 4000
         
         let targetVector = CGVectorMake(target.x - hookPosition.x, target.y - hookPosition.y)
@@ -151,7 +151,8 @@ class Hero : SKSpriteNode
     {
         if self.physicsBody!.velocity.length() < 0.1
         {
-            (scene as GameScene).sound(.Jump)
+            
+            (scene as GameScene?)?.sound(.Jump)
             var amount: CGFloat = 0;
             switch(self.intersect){
                 case .None :

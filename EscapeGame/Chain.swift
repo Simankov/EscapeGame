@@ -167,8 +167,8 @@ class Chain : SKNode, AVAudioPlayerDelegate{
     
     func getInScene(point: CGPoint) -> CGPoint
     {
-        let gameScene = scene as GameScene
-        let pointInScene =  gameScene.convertPoint(point, fromNode: self)
+      
+        let pointInScene =  (scene as GameScene).convertPoint(point, fromNode: self)
         return pointInScene
     }
 
@@ -182,10 +182,10 @@ class Chain : SKNode, AVAudioPlayerDelegate{
             
         }else{
             
-           if var gameScene = scene as GameScene?
+           if scene != nil
            {
-            let inScene = gameScene.convertPoint(hookNode.position, fromNode: gameScene.chain)
-            let inHero = gameScene.convertPoint(inScene, toNode: gameScene.backgroundLayer)
+            let inScene = (scene as GameScene).convertPoint(hookNode.position, fromNode: (scene as GameScene).chain)
+            let inHero = (scene as GameScene).convertPoint(inScene, toNode: (scene as GameScene).backgroundLayer)
             
            
            
@@ -195,17 +195,17 @@ class Chain : SKNode, AVAudioPlayerDelegate{
                
                 
                             
-                                if self.build.number != gameScene.hero.build.number && gameScene.status  != .Wait
+                                if self.build.number != (scene as GameScene).hero.build.number && (scene as GameScene).status  != .Wait
                                     {
                                             let targetPosition =
-                                        gameScene.convertPoint(gameScene.convertPoint(hookNode.position, fromNode: gameScene.chain), toNode: gameScene.backgroundLayer)
+                                        (scene as GameScene).convertPoint((scene as GameScene).convertPoint(hookNode.position, fromNode: (scene as GameScene).chain), toNode: (scene as GameScene).backgroundLayer)
                                             if build.number != (scene as GameScene).hero.build.number
                                                 {
-                                                        gameScene.hero.jump(targetPosition)
+                                                        (scene as GameScene).hero.jump(targetPosition)
                                                         
                                                     
-                                                        gameScene.runOneTime = false
-                                                        gameScene.spawnChainOneTime = true
+                                                        (scene as GameScene).runOneTime = false
+                                                        (scene as GameScene).spawnChainOneTime = true
                                                 }
                                     }
                 
@@ -217,6 +217,7 @@ class Chain : SKNode, AVAudioPlayerDelegate{
             {
                 currentState = .InFly
             }
+            
         }
             else
            {

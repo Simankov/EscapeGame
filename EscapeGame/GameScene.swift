@@ -8,10 +8,17 @@
 
 import SpriteKit
 import AVFoundation
+let defaults = NSUserDefaults.standardUserDefaults()
+
+
+class ReleaseScene : SKScene
+{
+    
+}
 
 protocol viewEndGameDelegate: class
 {
-    func viewDidEndGame(score: Int, highScore: Int)
+    func viewDidEndGame(sender: AnyObject, score: Int, highScore: Int)
 }
 
 
@@ -27,17 +34,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate {
         case Loose
         case Jump
     }
-    var viewDelegate : viewEndGameDelegate?
+    weak var viewDelegate : viewEndGameDelegate?
     
     var score =  SKLabelNode()
     var playableArea: CGRect = CGRect()
     var touchedNode : SKNode? = SKNode()
-    var timer: NSTimer = NSTimer()
+    var timer: NSTimer?
     var backgroundLayer = SKNode()
     var chain = Chain()
     var startPosition : CGPoint = CGPointZero;
     var endPosition: CGPoint = CGPointZero
-    var scorePoint = 0
+    var scorePoint: NSInteger = 0
     var player : AVAudioPlayer?
     var sounded: Bool = false
     
@@ -65,10 +72,10 @@ var isRestarted : Bool = false
     
     override func didMoveToView(view: SKView) {
         prepareScene()
-       
+    
 
         // setup background
-        
+        timer = NSTimer()
         var background = SKSpriteNode()
         background.size = CGSize(width: 2048, height: 1536)
         background.position = CGPointMake( 1024,  768)
@@ -91,7 +98,7 @@ var isRestarted : Bool = false
         
         // setup chain
         
-        physicsWorld.addJoint(SKPhysicsJointFixed.jointWithBodyA(hero.physicsBody, bodyB: hero.basket.physicsBody, anchor: CGPointZero))
+        
         
         // gestures
         swipeRecognizer.addTarget(self, action: "swipe")
@@ -104,10 +111,10 @@ var isRestarted : Bool = false
         score.position = CGPointMake(CGRectGetMidX(playableArea), CGRectGetMaxY(playableArea) - 400)
         score.fontName = "HiraMinProN-W"
         score.fontSize = 120
-        
+        self.delegate = nil
         score.fontColor = UIColor.blackColor()
         addChild(score)
-        
+        physicsWorld.addJoint(SKPhysicsJointFixed.jointWithBodyA(hero.physicsBody, bodyB: hero.basket.physicsBody, anchor: CGPointZero))
     }
     
     func prepareScene()
@@ -121,7 +128,7 @@ var isRestarted : Bool = false
         let playableAreaPath = CGPathCreateMutable()
         CGPathMoveToPoint(playableAreaPath, nil, playableArea.size.width, CGRectGetMinY(playableArea))
         CGPathAddLineToPoint(playableAreaPath, nil, 0, CGRectGetMinY(playableArea))
-      
+        
         self.physicsBody = SKPhysicsBody(edgeChainFromPath: playableAreaPath)
         self.physicsBody!.categoryBitMask = PhysicsCategory.Edge
         self.physicsBody!.collisionBitMask = PhysicsCategory.Chain | PhysicsCategory.Edge | PhysicsCategory.Hook | PhysicsCategory.Hero
@@ -222,7 +229,7 @@ var isRestarted : Bool = false
             let position = (touches.anyObject() as UITouch).locationInNode(backgroundLayer)
             
             let timeOfTouch = counter
-            timer.invalidate()
+            timer!.invalidate()
             
             counter = 0;
             hero.powerMultiple = timeOfTouch
@@ -277,11 +284,10 @@ var isRestarted : Bool = false
         {
             restart()
         }
+       
         
         
-        
-        println(hero.build.number)
-        println(chain.build.number)
+       
         
         if convertPoint(hero.position, fromNode: backgroundLayer).x > _DistanceFromEdge && hero.physicsBody!.velocity == CGVectorMake(0, 0) && !runOneTime && !heroFall
         {
@@ -433,26 +439,53 @@ var isRestarted : Bool = false
         
     }
     
+  
     func restart(){
-       if !isRestarted
-       {
         
-        self.removeAllChildren()
-        _countOfBuilds = 0
-       
-//        let gameScene = GameScene(fileNamed: "GameScene")
-//        gameScene.scaleMode = .AspectFill
-//        gameScene.view?.showsFPS = true
-//        self.view?.presentScene(gameScene)
-        
-        viewDelegate?.viewDidEndGame(scorePoint , highScore: scorePoint)
-        isRestarted = true
-        
+        if !isRestarted
+        {
+            
+            defaults.setObject(scorePoint, forKey: "score")
+            
+            if defaults.integerForKey("highScore") != 0
+            {
+                if defaults.integerForKey("highScore") < scorePoint
+                {
+                    defaults.setObject(scorePoint, forKey: "highScore")
+                }
+            }
+            else
+            {
+                defaults.setObject(scorePoint, forKey: "highScore")
+            }
+            
+            defaults.synchronize()
+           
+            
+            
+            removeAllChildren()
+            let gameScene = GameScene(fileNamed: "GameScene")
+            _countOfBuilds = 0
+            scorePoint = 0
+            gameScene.scaleMode = .AspectFill
+            gameScene.view?.showsFPS = true
+//            self.view?.presentScene(gameScene)
+            for sub in view!.subviews
+            {
+                sub.removeFromSuperview()
+            }
+            viewDelegate?.viewDidEndGame(self, score: scorePoint, highScore: scorePoint)
+            
+//    self.view?.window?.rootViewController?.presentViewController( self.view?.window?.rootViewController?.storyboard!.instantiateViewControllerWithIdentifier("EndGameViewController") as EndGameViewController, animated: true, completion: nil)
+            
+            
+            isRestarted = true
         }
-
-       
+        }
     
-    }
+
+
+    
     
     func restartChain()
     {
@@ -562,9 +595,14 @@ var isRestarted : Bool = false
         }
     }
     
+   deinit {
+   
+    println("dealloc")
+    }
+    
     func increaseCounter()
     {
-        counter += CGFloat(timer.timeInterval);
+        counter += CGFloat(timer!.timeInterval);
         var c = counter * counter
         if c > _maxTimeOfPress
         {

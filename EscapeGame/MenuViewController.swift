@@ -20,10 +20,22 @@ class MenuViewController: UIViewController, effectsSwitchDelegate {
         {
             (segue.destinationViewController as GameViewController).isEffectsEnabled = isEffectsEnabled
         }
+        
+      
     }
     func effectsDidSwitched() {
         isEffectsEnabled = !isEffectsEnabled
     }
+    
+    @IBAction func startNewGame()
+    {
+        let gameViewController = self.storyboard!.instantiateViewControllerWithIdentifier("GameViewController") as GameViewController
+        
+        gameViewController.isEffectsEnabled = isEffectsEnabled
+            self.presentViewController(gameViewController, animated: true, completion: nil)
+    }
+    
+  
     
     
 }
