@@ -309,14 +309,14 @@ var isRestarted : Bool = false
          
         }
         
-        
-        if hero.state == .Loose && hero.position.y - CGRectGetMinY(playableArea) < 400 && !sounded
-        {
-        
-            sound(.Loose)
-            sounded = true
-            
-        }
+//        
+//        if hero.state == .Loose && hero.position.y - CGRectGetMinY(playableArea) < 400 && !sounded
+//        {
+//        
+//            sound(.Loose)
+//            sounded = true
+//            
+//        }
         
         let endScreen = convertPoint(CGPointMake(self.size.width,0), toNode: backgroundLayer)
         
@@ -429,10 +429,14 @@ var isRestarted : Bool = false
     {
         if scene != nil    // temporaryFix
         {
-            let hookPosition = convertPoint(convertPoint(chain.hookNode.position, fromNode: chain), toNode: backgroundLayer)
+        let hookPosition = convertPoint(convertPoint(chain.hookNode.position, fromNode: chain), toNode: backgroundLayer)
         hero.state = .Loose
         hero.jump(CGPoint(x: hookPosition.x , y: hookPosition.y))
-        
+            if !sounded
+            {
+        audioPlayer.play(.Fail)
+                sounded = true
+            }
         hero.physicsBody!.collisionBitMask = PhysicsCategory.None
         hero.physicsBody!.contactTestBitMask = PhysicsCategory.Edge
         for chain in hero.chain.chains
