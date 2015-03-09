@@ -71,10 +71,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate {
     var heroFall: Bool = false
     var spawnChainOneTime : Bool = false
      var lastBuild =  Build()
-    var jumpSoundPath = NSBundle.mainBundle().pathForResource("jump", ofType: "wav")
-    var loseSoundPath = NSBundle.mainBundle().pathForResource("lose", ofType: "wav")
     var isEffectsEnabled : Bool = true
 var isRestarted : Bool = false
+    var audioPlayer = AudioPlayer()
     
     
     override func didMoveToView(view: SKView) {
@@ -103,7 +102,6 @@ var isRestarted : Bool = false
         var height = randomFloat(_minHeightBuild, _maxHeightBuild)
         spawnBuild( width/2, size: CGSizeMake(width, height))
         
-        // setup chain
         
         
         
@@ -415,14 +413,12 @@ var isRestarted : Bool = false
         
         if type == .Jump
         {
-        player = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: jumpSoundPath!), error: nil)
+        audioPlayer.play(.Jump)
         }
         else if type == .Loose
         {
-        player = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: loseSoundPath!), error: nil)
+        audioPlayer.play(.Fail)
         }
-        player!.play()
-        player?.delegate = self
             
         }
     }

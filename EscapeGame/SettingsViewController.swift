@@ -24,14 +24,7 @@ class SettingsViewController: UIViewController {
         
          
         
-      if audioPlayer1.playing
-      {
-        audioPlayer1.pause()
-      }
-        else
-      {
-        audioPlayer1.play()
-       }
+      //
        
     }
     

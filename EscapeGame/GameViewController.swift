@@ -36,6 +36,7 @@ var isEffectsEnabled = true
             scene.viewDelegate = self
             /* Set the scale mode to scale to fit the window */
             scene.scaleMode = .AspectFill
+            audioPlayer.play(.Background)
 //            scene.isEffectsEnabled = isEffectsEnabled
             skView.presentScene(scene)
     }

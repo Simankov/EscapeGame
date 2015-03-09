@@ -13,6 +13,10 @@
 		8412DE531AA4E7DA0089610F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8412DE511AA4E7DA0089610F /* Main.storyboard */; };
 		842E8E221A87B10E0082E95B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842E8E211A87B10E0082E95B /* Extensions.swift */; };
 		8450F5011AA50F92000F8402 /* EndGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8450F5001AA50F92000F8402 /* EndGameViewController.swift */; };
+		847DCA191AADA2E200152965 /* EscapeFail.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 847DCA161AADA2E200152965 /* EscapeFail.mp3 */; };
+		847DCA1A1AADA2E200152965 /* EscapeMain.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 847DCA171AADA2E200152965 /* EscapeMain.mp3 */; };
+		847DCA1B1AADA2E200152965 /* EscapeMenu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 847DCA181AADA2E200152965 /* EscapeMenu.mp3 */; };
+		847DCA1F1AADA7C700152965 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847DCA1E1AADA7C700152965 /* AudioPlayer.swift */; };
 		849628E41A8602ED00131520 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849628E31A8602ED00131520 /* Hero.swift */; };
 		849628E81A86259300131520 /* Chain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849628E71A86259300131520 /* Chain.swift */; };
 		849A8E891AA45D4D008495F6 /* buttonReset.png in Resources */ = {isa = PBXBuildFile; fileRef = 849A8E881AA45D4D008495F6 /* buttonReset.png */; };
@@ -57,6 +61,10 @@
 		8412DE521AA4E7DA0089610F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = EscapeGame/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		842E8E211A87B10E0082E95B /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = ../Extensions.swift; sourceTree = "<group>"; };
 		8450F5001AA50F92000F8402 /* EndGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndGameViewController.swift; sourceTree = "<group>"; };
+		847DCA161AADA2E200152965 /* EscapeFail.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = EscapeFail.mp3; sourceTree = "<group>"; };
+		847DCA171AADA2E200152965 /* EscapeMain.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = EscapeMain.mp3; sourceTree = "<group>"; };
+		847DCA181AADA2E200152965 /* EscapeMenu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = EscapeMenu.mp3; sourceTree = "<group>"; };
+		847DCA1E1AADA7C700152965 /* AudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		849628E31A8602ED00131520 /* Hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
 		849628E71A86259300131520 /* Chain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chain.swift; sourceTree = "<group>"; };
 		849A8E881AA45D4D008495F6 /* buttonReset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonReset.png; sourceTree = "<group>"; };
@@ -107,6 +115,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		847DCA151AADA2E200152965 /* EscapeSound */ = {
+			isa = PBXGroup;
+			children = (
+				847DCA161AADA2E200152965 /* EscapeFail.mp3 */,
+				847DCA171AADA2E200152965 /* EscapeMain.mp3 */,
+				847DCA181AADA2E200152965 /* EscapeMenu.mp3 */,
+			);
+			name = EscapeSound;
+			path = EscapeGame/EscapeSound;
+			sourceTree = "<group>";
+		};
 		84C06E241AA373F100816DF9 /* Music */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +141,7 @@
 		84E960DF1A7D1D4000E3312D = {
 			isa = PBXGroup;
 			children = (
+				847DCA151AADA2E200152965 /* EscapeSound */,
 				84FD1D261AA3C3AF008B656F /* Convertation.swift */,
 				84C06E241AA373F100816DF9 /* Music */,
 				84E960EA1A7D1D4000E3312D /* EscapeGame */,
@@ -150,6 +170,7 @@
 				84E960F11A7D1D4000E3312D /* GameScene.swift */,
 				84E6B5C71AA21DE2007DAD72 /* Constants.swift */,
 				849628E31A8602ED00131520 /* Hero.swift */,
+				847DCA1E1AADA7C700152965 /* AudioPlayer.swift */,
 				840D4E0C1A838EAF00B639CC /* Build.swift */,
 				84FD1D281AA3C3AF008B656F /* GameViewController.swift */,
 				8450F5001AA50F92000F8402 /* EndGameViewController.swift */,
@@ -292,6 +313,7 @@
 				84CEB5921A95269A0040B95F /* heroBreath.png in Resources */,
 				84C06E2C1AA373F100816DF9 /* menu.wav in Resources */,
 				8412DE531AA4E7DA0089610F /* Main.storyboard in Resources */,
+				847DCA1A1AADA2E200152965 /* EscapeMain.mp3 in Resources */,
 				84E960F91A7D1D4100E3312D /* Images.xcassets in Resources */,
 				84E960F01A7D1D4000E3312D /* GameScene.sks in Resources */,
 				84CEB58C1A951E0A0040B95F /* heroStand.png in Resources */,
@@ -299,7 +321,9 @@
 				84C06E2B1AA373F100816DF9 /* lose.wav in Resources */,
 				849A8E891AA45D4D008495F6 /* buttonReset.png in Resources */,
 				84E6B5C61AA1F2C1007DAD72 /* maskForBasket.png in Resources */,
+				847DCA1B1AADA2E200152965 /* EscapeMenu.mp3 in Resources */,
 				84B9FFBF1A95181A0067236A /* build2.png in Resources */,
+				847DCA191AADA2E200152965 /* EscapeFail.mp3 in Resources */,
 				84CEB58E1A951E0A0040B95F /* heroJump.png in Resources */,
 				84C06E291AA373F100816DF9 /* backgroundMusic.wav in Resources */,
 			);
@@ -330,6 +354,7 @@
 				849628E41A8602ED00131520 /* Hero.swift in Sources */,
 				840D4E0D1A838EAF00B639CC /* Build.swift in Sources */,
 				84E6B5C81AA21DE2007DAD72 /* Constants.swift in Sources */,
+				847DCA1F1AADA7C700152965 /* AudioPlayer.swift in Sources */,
 				84FD1D2F1AA3C3AF008B656F /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,6 +7,8 @@
 //
 var parent : MenuViewController? = nil
 
+var audioPlayer = AudioPlayer()
+
 import UIKit
 protocol restartGameDelegate: class
 {
@@ -21,6 +23,8 @@ class MenuViewController: UIViewController, viewEndGameDelegate, restartGameDele
     
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        audioPlayer.play(.Menu)
+        
     }
     func gameRestarted() {
         
@@ -28,17 +32,18 @@ class MenuViewController: UIViewController, viewEndGameDelegate, restartGameDele
         gameViewController = self.storyboard!.instantiateViewControllerWithIdentifier("GameViewController") as? GameViewController
         gameViewController?.delegate = self
        
-         endGameViewController?.view.window?.rootViewController = gameViewController
+        endGameViewController?.view.window?.rootViewController = gameViewController
+        audioPlayer.play(.Background)
     }
 
     func viewDidEndGame() {
         
         
         
-            endGameViewController = self.storyboard!.instantiateViewControllerWithIdentifier("EndGameViewController") as? EndGameViewController
-            endGameViewController?.delegate = self
+        endGameViewController = self.storyboard!.instantiateViewControllerWithIdentifier("EndGameViewController") as? EndGameViewController
+        endGameViewController?.delegate = self
         gameViewController?.view.window?.rootViewController = endGameViewController
-        
+        audioPlayer.play(.Menu)
         
        
         
@@ -52,6 +57,7 @@ class MenuViewController: UIViewController, viewEndGameDelegate, restartGameDele
         gameViewController!.delegate = self
         
         self.view.window?.rootViewController = gameViewController
+        audioPlayer.play(.Background)
     }
     
     @IBAction func settingButtonEnabled()
@@ -60,6 +66,7 @@ class MenuViewController: UIViewController, viewEndGameDelegate, restartGameDele
         
         
         navigationController!.pushViewController(settingViewController!, animated: true)
+        
     }
     
 
