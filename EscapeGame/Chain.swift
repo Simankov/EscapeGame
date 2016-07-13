@@ -150,13 +150,13 @@ class Chain : SKNode, AVAudioPlayerDelegate{
             
             if chains[i].name == "hook"
             {
-                let limJoint = SKPhysicsJointLimit.jointWithBodyA(firstChain.physicsBody, bodyB: hookNode.physicsBody,
+                let limJoint = SKPhysicsJointLimit.jointWithBodyA(firstChain.physicsBody!, bodyB: hookNode.physicsBody!,
                     anchorA: getInScene(CGPoint(x: firstChain.position.x, y: CGRectGetMaxY(firstChain.frame))),
                     anchorB: getInScene(CGPoint(x:position.x, y: CGRectGetMinY(lastChain.frame))))
                 
                 limJoint.maxLength = CGRectGetMaxY(firstChain.frame) - CGRectGetMinY(lastChain.frame)
                 
-                let fixJoint = SKPhysicsJointPin.jointWithBodyA(lastChain.physicsBody, bodyB: hookNode.physicsBody,
+                let fixJoint = SKPhysicsJointPin.jointWithBodyA(lastChain.physicsBody!, bodyB: hookNode.physicsBody!,
                     anchor: getInScene(CGPoint(x: position.x, y: lastChain.position.y - lastChain.size.height/2 )))
                 
                 scene?.physicsWorld.addJoint(fixJoint)
@@ -168,7 +168,7 @@ class Chain : SKNode, AVAudioPlayerDelegate{
     func getInScene(point: CGPoint) -> CGPoint
     {
       
-        let pointInScene =  (scene as GameScene).convertPoint(point, fromNode: self)
+        let pointInScene =  (scene as! GameScene).convertPoint(point, fromNode: self)
         return pointInScene
     }
 
@@ -184,8 +184,8 @@ class Chain : SKNode, AVAudioPlayerDelegate{
             
            if scene != nil
            {
-            let inScene = (scene as GameScene).convertPoint(hookNode.position, fromNode: (scene as GameScene).chain)
-            let inHero = (scene as GameScene).convertPoint(inScene, toNode: (scene as GameScene).backgroundLayer)
+            let inScene = (scene as! GameScene).convertPoint(hookNode.position, fromNode: (scene as! GameScene).chain)
+            let inHero = (scene as! GameScene).convertPoint(inScene, toNode: (scene as! GameScene).backgroundLayer)
             
            
            
@@ -195,17 +195,17 @@ class Chain : SKNode, AVAudioPlayerDelegate{
                
                 
                             
-                                if self.build.number != (scene as GameScene).hero.build.number && (scene as GameScene).status  != .Wait
+                                if self.build.number != (scene as! GameScene).hero.build.number && (scene as! GameScene).status  != .Wait
                                     {
                                             let targetPosition =
-                                        (scene as GameScene).convertPoint((scene as GameScene).convertPoint(hookNode.position, fromNode: (scene as GameScene).chain), toNode: (scene as GameScene).backgroundLayer)
-                                            if build.number != (scene as GameScene).hero.build.number
+                                        (scene as! GameScene).convertPoint((scene as! GameScene).convertPoint(hookNode.position, fromNode: (scene as! GameScene).chain), toNode: (scene as! GameScene).backgroundLayer)
+                                            if build.number != (scene as! GameScene).hero.build.number
                                                 {
-                                                        (scene as GameScene).hero.jump(targetPosition)
+                                                        (scene as! GameScene).hero.jump(targetPosition)
                                                         
                                                     
-                                                        (scene as GameScene).runOneTime = false
-                                                        (scene as GameScene).spawnChainOneTime = true
+                                                        (scene as! GameScene).runOneTime = false
+                                                        (scene as! GameScene).spawnChainOneTime = true
                                                 }
                                     }
                 

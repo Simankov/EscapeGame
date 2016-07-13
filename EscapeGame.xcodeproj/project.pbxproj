@@ -42,6 +42,23 @@
 		84FD1D2D1AA3C3AF008B656F /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FD1D281AA3C3AF008B656F /* GameViewController.swift */; };
 		84FD1D2E1AA3C3AF008B656F /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FD1D291AA3C3AF008B656F /* MenuViewController.swift */; };
 		84FD1D2F1AA3C3AF008B656F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FD1D2A1AA3C3AF008B656F /* SettingsViewController.swift */; };
+		A5DE08AD1D3594FF00036A63 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = A5DE08AC1D3594FF00036A63 /* back.png */; };
+		A5DE08AF1D3657F200036A63 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5DE08AE1D3657F200036A63 /* GoogleMobileAds.framework */; };
+		A5F4F76E1D366D1800E376F6 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F4F76D1D366D1800E376F6 /* libz.tbd */; };
+		A5F4F7701D366E8000E376F6 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F4F76F1D366E8000E376F6 /* CoreBluetooth.framework */; };
+		A5F4F7721D366E8600E376F6 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F4F7711D366E8600E376F6 /* MediaPlayer.framework */; };
+		A5F4F7741D366E8C00E376F6 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F4F7731D366E8C00E376F6 /* Accelerate.framework */; };
+		A5F4F7761D366FA200E376F6 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F4F7751D366FA200E376F6 /* AdSupport.framework */; };
+		A5F4F7781D366FB200E376F6 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F4F7771D366FB200E376F6 /* AudioToolbox.framework */; };
+		A5F4F77A1D366FB900E376F6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F4F7791D366FB900E376F6 /* CoreGraphics.framework */; };
+		A5F4F77C1D366FC400E376F6 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F4F77B1D366FC400E376F6 /* CoreTelephony.framework */; };
+		A5F4F77F1D366FD200E376F6 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F4F77D1D366FD200E376F6 /* EventKit.framework */; };
+		A5F4F7801D366FD200E376F6 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F4F77E1D366FD200E376F6 /* EventKitUI.framework */; };
+		A5F4F7831D366FE600E376F6 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F4F7821D366FE600E376F6 /* MessageUI.framework */; };
+		A5F4F7851D366FF300E376F6 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F4F7841D366FF300E376F6 /* SystemConfiguration.framework */; };
+		A5F4F7871D36701700E376F6 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F4F7861D36701700E376F6 /* StoreKit.framework */; };
+		A5F4F7891D36705D00E376F6 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F4F7881D36705D00E376F6 /* SafariServices.framework */; };
+		F629A3B699CFBEDFC7427C60 /* libPods-EscapeGame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 204987971BC81CAE48288C52 /* libPods-EscapeGame.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +71,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		A5F4F7811D366FDC00E376F6 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		204987971BC81CAE48288C52 /* libPods-EscapeGame.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EscapeGame.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84042D091AA369CE006BCE23 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		840D4E0A1A82D1C600B639CC /* shape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shape.png; sourceTree = "<group>"; };
 		840D4E0C1A838EAF00B639CC /* Build.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Build.swift; sourceTree = "<group>"; };
@@ -94,6 +124,24 @@
 		84FD1D281AA3C3AF008B656F /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		84FD1D291AA3C3AF008B656F /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		84FD1D2A1AA3C3AF008B656F /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		9FB9A7536090ACBE6F97B056 /* Pods-EscapeGame.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EscapeGame.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EscapeGame/Pods-EscapeGame.debug.xcconfig"; sourceTree = "<group>"; };
+		A5DE08AC1D3594FF00036A63 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back.png; path = Images/back.png; sourceTree = SOURCE_ROOT; };
+		A5DE08AE1D3657F200036A63 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = ../../Desktop/GoogleMobileAds.framework; sourceTree = "<group>"; };
+		A5F4F76D1D366D1800E376F6 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		A5F4F76F1D366E8000E376F6 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		A5F4F7711D366E8600E376F6 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		A5F4F7731D366E8C00E376F6 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		A5F4F7751D366FA200E376F6 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		A5F4F7771D366FB200E376F6 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		A5F4F7791D366FB900E376F6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A5F4F77B1D366FC400E376F6 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		A5F4F77D1D366FD200E376F6 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		A5F4F77E1D366FD200E376F6 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
+		A5F4F7821D366FE600E376F6 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		A5F4F7841D366FF300E376F6 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		A5F4F7861D36701700E376F6 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		A5F4F7881D36705D00E376F6 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
+		F9A7A027EFB62988542DFB4A /* Pods-EscapeGame.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EscapeGame.release.xcconfig"; path = "Pods/Target Support Files/Pods-EscapeGame/Pods-EscapeGame.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +149,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5F4F7891D36705D00E376F6 /* SafariServices.framework in Frameworks */,
+				A5F4F7871D36701700E376F6 /* StoreKit.framework in Frameworks */,
+				A5F4F7851D366FF300E376F6 /* SystemConfiguration.framework in Frameworks */,
+				A5F4F7831D366FE600E376F6 /* MessageUI.framework in Frameworks */,
+				A5F4F77F1D366FD200E376F6 /* EventKit.framework in Frameworks */,
+				A5F4F7801D366FD200E376F6 /* EventKitUI.framework in Frameworks */,
+				A5F4F77C1D366FC400E376F6 /* CoreTelephony.framework in Frameworks */,
+				A5F4F77A1D366FB900E376F6 /* CoreGraphics.framework in Frameworks */,
+				A5F4F7781D366FB200E376F6 /* AudioToolbox.framework in Frameworks */,
+				A5F4F7761D366FA200E376F6 /* AdSupport.framework in Frameworks */,
+				A5F4F7741D366E8C00E376F6 /* Accelerate.framework in Frameworks */,
+				A5F4F7721D366E8600E376F6 /* MediaPlayer.framework in Frameworks */,
+				A5F4F7701D366E8000E376F6 /* CoreBluetooth.framework in Frameworks */,
+				A5F4F76E1D366D1800E376F6 /* libz.tbd in Frameworks */,
+				A5DE08AF1D3657F200036A63 /* GoogleMobileAds.framework in Frameworks */,
 				84042D0A1AA369CE006BCE23 /* AVFoundation.framework in Frameworks */,
+				F629A3B699CFBEDFC7427C60 /* libPods-EscapeGame.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,6 +179,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		141523929D473565435B3851 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A5F4F7881D36705D00E376F6 /* SafariServices.framework */,
+				A5F4F7861D36701700E376F6 /* StoreKit.framework */,
+				A5F4F7841D366FF300E376F6 /* SystemConfiguration.framework */,
+				A5F4F7821D366FE600E376F6 /* MessageUI.framework */,
+				A5F4F77D1D366FD200E376F6 /* EventKit.framework */,
+				A5F4F77E1D366FD200E376F6 /* EventKitUI.framework */,
+				A5F4F77B1D366FC400E376F6 /* CoreTelephony.framework */,
+				A5F4F7791D366FB900E376F6 /* CoreGraphics.framework */,
+				A5F4F7771D366FB200E376F6 /* AudioToolbox.framework */,
+				A5F4F7751D366FA200E376F6 /* AdSupport.framework */,
+				A5F4F7731D366E8C00E376F6 /* Accelerate.framework */,
+				A5F4F7711D366E8600E376F6 /* MediaPlayer.framework */,
+				A5F4F76F1D366E8000E376F6 /* CoreBluetooth.framework */,
+				A5F4F76D1D366D1800E376F6 /* libz.tbd */,
+				204987971BC81CAE48288C52 /* libPods-EscapeGame.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		847DCA151AADA2E200152965 /* EscapeSound */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +234,8 @@
 				84E961041A7D1D4100E3312D /* EscapeGameTests */,
 				84E960E91A7D1D4000E3312D /* Products */,
 				84042D091AA369CE006BCE23 /* AVFoundation.framework */,
+				CB870A364C1C83CDE638DCAA /* Pods */,
+				141523929D473565435B3851 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -171,6 +259,7 @@
 				84E6B5C71AA21DE2007DAD72 /* Constants.swift */,
 				849628E31A8602ED00131520 /* Hero.swift */,
 				847DCA1E1AADA7C700152965 /* AudioPlayer.swift */,
+				A5DE08AE1D3657F200036A63 /* GoogleMobileAds.framework */,
 				840D4E0C1A838EAF00B639CC /* Build.swift */,
 				84FD1D281AA3C3AF008B656F /* GameViewController.swift */,
 				8450F5001AA50F92000F8402 /* EndGameViewController.swift */,
@@ -212,6 +301,7 @@
 		84E961111A7D264C00E3312D /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				A5DE08AC1D3594FF00036A63 /* back.png */,
 				849A8E8A1AA45FC8008495F6 /* menuButton.png */,
 				849A8E881AA45D4D008495F6 /* buttonReset.png */,
 				84E6B5C51AA1F2C1007DAD72 /* maskForBasket.png */,
@@ -226,6 +316,15 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
+		CB870A364C1C83CDE638DCAA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9FB9A7536090ACBE6F97B056 /* Pods-EscapeGame.debug.xcconfig */,
+				F9A7A027EFB62988542DFB4A /* Pods-EscapeGame.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -233,9 +332,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84E9610B1A7D1D4100E3312D /* Build configuration list for PBXNativeTarget "EscapeGame" */;
 			buildPhases = (
+				35362B5D63BDF225829BA107 /* Check Pods Manifest.lock */,
 				84E960E41A7D1D4000E3312D /* Sources */,
 				84E960E51A7D1D4000E3312D /* Frameworks */,
 				84E960E61A7D1D4000E3312D /* Resources */,
+				45CEF918E16792C449EAC757 /* Copy Pods Resources */,
+				A5DE08A91D358B5000036A63 /* ShellScript */,
+				A5F4F7811D366FDC00E376F6 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -270,6 +373,8 @@
 		84E960E01A7D1D4000E3312D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0620;
 				ORGANIZATIONNAME = "Sergey Simankov";
 				TargetAttributes = {
@@ -317,6 +422,7 @@
 				84E960F91A7D1D4100E3312D /* Images.xcassets in Resources */,
 				84E960F01A7D1D4000E3312D /* GameScene.sks in Resources */,
 				84CEB58C1A951E0A0040B95F /* heroStand.png in Resources */,
+				A5DE08AD1D3594FF00036A63 /* back.png in Resources */,
 				849A8E8B1AA45FC8008495F6 /* menuButton.png in Resources */,
 				84C06E2B1AA373F100816DF9 /* lose.wav in Resources */,
 				849A8E891AA45D4D008495F6 /* buttonReset.png in Resources */,
@@ -337,6 +443,52 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		35362B5D63BDF225829BA107 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		45CEF918E16792C449EAC757 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EscapeGame/Pods-EscapeGame-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A5DE08A91D358B5000036A63 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 69b21e5a3b02915f86c0c52a087feceb06e27822 826f9b04284d882f6ff905c4a4b475bf8955afbe962535fbf5fa8b995d6f370f\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		84E960E41A7D1D4000E3312D /* Sources */ = {
@@ -471,10 +623,15 @@
 		};
 		84E9610C1A7D1D4100E3312D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9FB9A7536090ACBE6F97B056 /* Pods-EscapeGame.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/sergey/Desktop,
+				);
 				INFOPLIST_FILE = EscapeGame/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -482,10 +639,15 @@
 		};
 		84E9610D1A7D1D4100E3312D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9A7A027EFB62988542DFB4A /* Pods-EscapeGame.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/sergey/Desktop,
+				);
 				INFOPLIST_FILE = EscapeGame/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

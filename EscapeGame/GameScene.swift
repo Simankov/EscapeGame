@@ -82,13 +82,13 @@ var isRestarted : Bool = false
 
         // setup background
         timer = NSTimer()
-        var background = SKSpriteNode()
+        var background = SKSpriteNode(imageNamed: "back.png");
         background.size = CGSize(width: 2048, height: 1536)
         background.position = CGPointMake( 1024,  768)
-        background.zPosition = -1
+        background.zPosition = -2
         backgroundColor = UIColor.whiteColor()
         
-//        backgroundLayer.addChild(background)
+        addChild(background)
         backgroundLayer.name = "backgroundLayer"
         backgroundLayer.zPosition = -1
         backgroundLayer.physicsBody = SKPhysicsBody(circleOfRadius: 3)
@@ -98,8 +98,8 @@ var isRestarted : Bool = false
         
         addChild(backgroundLayer)
         
-        var width = randomFloat(_minWidthBuild, _maxWidthBuild)
-        var height = randomFloat(_minHeightBuild, _maxHeightBuild)
+        var width = randomFloat(_minWidthBuild, upperLimit: _maxWidthBuild)
+        var height = randomFloat(_minHeightBuild, upperLimit: _maxHeightBuild)
         spawnBuild( width/2, size: CGSizeMake(width, height))
         
         
@@ -109,7 +109,6 @@ var isRestarted : Bool = false
         swipeRecognizer.addTarget(self, action: "swipe")
         view.addGestureRecognizer(swipeRecognizer)
         view.userInteractionEnabled = true
-        println(hero.size)
         view.showsPhysics = false
         physicsWorld.gravity = CGVectorMake(0, -14.8)
         score = SKLabelNode(fontNamed: "Hiragino Kaku Gothic ProN W3")
@@ -120,7 +119,7 @@ var isRestarted : Bool = false
         self.delegate = nil
         score.fontColor = UIColor.blackColor()
         addChild(score)
-        physicsWorld.addJoint(SKPhysicsJointFixed.jointWithBodyA(hero.physicsBody, bodyB: hero.basket.physicsBody, anchor: CGPointZero))
+        physicsWorld.addJoint(SKPhysicsJointFixed.jointWithBodyA(hero.physicsBody!, bodyB: hero.basket.physicsBody!, anchor: CGPointZero))
     }
     
     func prepareScene()
@@ -140,19 +139,20 @@ var isRestarted : Bool = false
         self.physicsBody!.collisionBitMask = PhysicsCategory.Chain | PhysicsCategory.Edge | PhysicsCategory.Hook | PhysicsCategory.Hero
         
     }
+
     
     
- override  func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+ override  func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
     
     
-       startPosition = (touches.anyObject() as UITouch).locationInNode(self)
+       startPosition = (touches.first!).locationInNode(self)
         
        touchedNode  = nodeAtPoint(startPosition) as SKNode
        status = .Playable
    
     
              timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: "increaseCounter", userInfo: nil, repeats: true)
-             currentTouchPosition = (touches.anyObject() as UITouch).locationInNode(backgroundLayer)
+             currentTouchPosition = (touches.first!).locationInNode(backgroundLayer)
         
         if touchedNode?.name == "button"
         {
@@ -163,17 +163,17 @@ var isRestarted : Bool = false
     }
     
 
-    override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
         if !flagMovedObjects {
-            currentTouchPosition = (touches.anyObject() as UITouch).locationInNode(backgroundLayer)
+            currentTouchPosition = (touches.first!).locationInNode(backgroundLayer)
         }else{
             
             if touchedNode?.name != "hook"
             {
-                touchedNode?.position = convertPoint((touches.anyObject() as UITouch).locationInNode(self), toNode: backgroundLayer)
+                touchedNode?.position = convertPoint((touches.first!).locationInNode(self), toNode: backgroundLayer)
             }else{
-                touchedNode?.position = convertPoint((touches.anyObject() as UITouch).locationInNode(self), toNode: chain)
+                touchedNode?.position = convertPoint((touches.first!).locationInNode(self), toNode: chain)
             }
         }
     }
@@ -221,18 +221,18 @@ var isRestarted : Bool = false
         }
     
     
-        let fixJoint = SKPhysicsJointFixed.jointWithBodyA(backgroundLayer.physicsBody, bodyB: build.physicsBody, anchor: CGPointZero)
+        let fixJoint = SKPhysicsJointFixed.jointWithBodyA(backgroundLayer.physicsBody!, bodyB: build.physicsBody!, anchor: CGPointZero)
         physicsWorld.addJoint(fixJoint)
-        
+        print(build.size.height);
 
 
     }
     
-    override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
         if !flagMovedObjects {
             let count = touches.count
-            let position = (touches.anyObject() as UITouch).locationInNode(backgroundLayer)
+            let position = (touches.first!).locationInNode(backgroundLayer)
             
             let timeOfTouch = counter
             timer!.invalidate()
@@ -270,7 +270,6 @@ var isRestarted : Bool = false
         {
             hero.physicsBody?.velocity = CGVectorMake(0, -500)
         }
-        println(hero.state.rawValue)
         lastUpdateTime = CGFloat(currentTime)
         hero.updateState()
         let positionHook = convertPoint(chain.hookNode.position , fromNode: chain)
@@ -322,33 +321,28 @@ var isRestarted : Bool = false
         
         if lenghtBetweenBuildes == 0 {
             
-            lenghtBetweenBuildes = randomFloat(_minLenghtBetweenBuilds, _maxLenghtBetweenBuilds)
+            lenghtBetweenBuildes = randomFloat(_minLenghtBetweenBuilds, upperLimit: _maxLenghtBetweenBuilds)
             
         }
         else
           if lastBuildPosition + lenghtBetweenBuildes < endScreen.x    {
-            var width = randomFloat(_minWidthBuild, _maxWidthBuild)
-            var height = randomFloat(_minHeightBuild, _maxHeightBuild)
-            lenghtBetweenBuildes = randomFloat(_minLenghtBetweenBuilds, _maxLenghtBetweenBuilds)
+            var width = randomFloat(_minWidthBuild, upperLimit: _maxWidthBuild)
+            var height = randomFloat(_minHeightBuild, upperLimit: _maxHeightBuild)
+            lenghtBetweenBuildes = randomFloat(_minLenghtBetweenBuilds, upperLimit: _maxLenghtBetweenBuilds)
             var rightTop = CGPointMake(lastBuild.position.x + lastBuild.size.width/2, lastBuild.position.y + lastBuild.size.height/2)
             var leftTop = CGPointMake(lastBuild.position.x + lenghtBetweenBuildes - width/2, CGRectGetMinY(playableArea) + height)
             var alpha = atan((leftTop.y - rightTop.y ) / (leftTop.x - rightTop.x))
-//            println(alpha * 57.3)
-//            println(lenghtBetweenBuildes)
-//            println(rightTop)
-//             println(leftTop)
-            
             while (alpha * 57.3 > 30 ) {
-             width = randomFloat(_minWidthBuild, _maxWidthBuild)
-             height = randomFloat(_minHeightBuild, _maxHeightBuild)
-            lenghtBetweenBuildes = randomFloat(_minLenghtBetweenBuilds, _maxLenghtBetweenBuilds)
+             width = randomFloat(_minWidthBuild, upperLimit: _maxWidthBuild)
+                height = randomFloat(_minHeightBuild, upperLimit: _maxHeightBuild)
+            lenghtBetweenBuildes = randomFloat(_minLenghtBetweenBuilds, upperLimit: _maxLenghtBetweenBuilds)
                 var rightTop = CGPointMake(lastBuild.position.x + lastBuild.size.width/2, lastBuild.position.y + lastBuild.size.height/2)
                 var leftTop = CGPointMake(lastBuild.position.x + lenghtBetweenBuildes - width/2, CGRectGetMinY(playableArea) + height)
                 alpha = atan((leftTop.y - rightTop.y ) / (leftTop.x - rightTop.x))
             }
             spawnBuild(lastBuild.position.x + lenghtBetweenBuildes, size: CGSizeMake(width, height))
             
-            lenghtBetweenBuildes = randomFloat(_minLenghtBetweenBuilds, _maxLenghtBetweenBuilds)
+            lenghtBetweenBuildes = randomFloat(_minLenghtBetweenBuilds, upperLimit: _maxLenghtBetweenBuilds)
         }
         
         if chain.parent != nil{
@@ -367,11 +361,11 @@ var isRestarted : Bool = false
             
             if contact.bodyB.categoryBitMask == PhysicsCategory.Build
             {
-                chain.build = (contact.bodyB.node as Build)
+                chain.build = (contact.bodyB.node as! Build)
             }
             else
             {
-                chain.build = (contact.bodyA.node as Build)
+                chain.build = (contact.bodyA.node as! Build)
             }
         }
         
@@ -391,11 +385,11 @@ var isRestarted : Bool = false
             {
                 contact.bodyA.node!.physicsBody?.velocity = CGVectorMake(0, 0)
                 
-                hero.build = (contact.bodyB.node as Build)
+                hero.build = (contact.bodyB.node as! Build)
             } else {
                 contact.bodyB.node!.physicsBody?.velocity = CGVectorMake(0, 0)
                 
-                hero.build = (contact.bodyA.node as Build)
+                hero.build = (contact.bodyA.node as! Build)
             }
         }
         
@@ -481,8 +475,8 @@ var isRestarted : Bool = false
             let gameScene = GameScene(fileNamed: "GameScene")
             _countOfBuilds = 0
             scorePoint = 0
-            gameScene.scaleMode = .AspectFill
-            gameScene.view?.showsFPS = true
+            gameScene!.scaleMode = .AspectFill
+            gameScene!.view?.showsFPS = true
 //            self.view?.presentScene(gameScene)
             for sub in view!.subviews
             {
@@ -516,7 +510,7 @@ var isRestarted : Bool = false
                 chain2.addAdditionalJoints();
                 let space = self.hero.size.width
                 let spacePerChain = space / CGFloat(chain2.chains.count)
-                for (index,chain) in enumerate(chain2.chains)
+                for (index,chain) in chain2.chains.enumerate()
                 {
                     
                     (chain as SKSpriteNode).position = self.convertPoint(self.convertPoint(CGPoint(x: self.hero.position.x - self.hero.size.width/2 + spacePerChain * CGFloat(index) , y: self.hero.position.y), fromNode: self.backgroundLayer), toNode: self.chain)
@@ -607,11 +601,6 @@ var isRestarted : Bool = false
            hero.intersect = .None
           
         }
-    }
-    
-   deinit {
-   
-    println("dealloc")
     }
     
     func increaseCounter()

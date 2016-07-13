@@ -18,27 +18,44 @@ enum TypeOfMusic    {
 
 class AudioPlayer: NSObject, AVAudioPlayerDelegate
 {
-    var player : AVAudioPlayer = AVAudioPlayer()
+    private var player : AVAudioPlayer!
+    var isMusicEnabled : Bool {
+        get {let defaults = NSUserDefaults.standardUserDefaults();
+            return defaults.boolForKey("isMusicEnabled") ?? true;
+        }
+        set {
+            defaults.setBool(newValue, forKey: "isMusicEnabled");
+        }
+    }
+    
+    var isEffectsEnabled : Bool {
+        get {let defaults = NSUserDefaults.standardUserDefaults();
+            return defaults.boolForKey("isEffectsEnabled") ?? true;
+        }
+        set {
+            defaults.setBool(newValue, forKey: "isEffectsEnabled");
+        }
+    }
    
  
-    func returnNSURL(fileName: String) -> NSURL
+    private func returnNSURL(fileName: String) -> NSURL
     {
         let name = fileName.substringToIndex(fileName.rangeOfString(".")!.startIndex)
-        let rightIndex = advance(fileName.rangeOfString(".")!.startIndex, 1)
+        let rightIndex = fileName.rangeOfString(".")!.startIndex.advancedBy(1)
         var type = fileName.substringFromIndex(rightIndex)
         
-        return NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(name, ofType: type)!)!
+        return NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(name, ofType: type)!)
     }
     
     
-    var audioSets: [[TypeOfMusic: String?]] = [
+    private var audioSets: [[TypeOfMusic: String?]] = [
         [.Background: "backgroundMusic.wav", .Jump: "jump.wav", .Fail: "lose.wav", .Menu : nil],
         [.Background: "EscapeMain.mp3", .Jump: nil, .Fail: "EscapeFail.mp3", .Menu : "EscapeMenu.mp3"]
     ]
-    var currentSet = 1
-    var currentType: TypeOfMusic = .Menu
+    private var currentSet = 1
+    private var currentType: TypeOfMusic = .Menu
     
-    func audioPlayerDidFinishPlaying(player: AVAudioPlayer!, successfully flag: Bool) {
+    private func audioPlayerDidFinishPlaying(player: AVAudioPlayer!, successfully flag: Bool) {
         switch(currentType)
         {
         case .Background, .Menu:
@@ -51,7 +68,12 @@ class AudioPlayer: NSObject, AVAudioPlayerDelegate
     
     func play(type: TypeOfMusic)
     {
-        
+        if ((type == TypeOfMusic.Background || type == TypeOfMusic.Menu) && (!isMusicEnabled)){
+            return;
+        }
+        if ((type == TypeOfMusic.Fail || type == TypeOfMusic.Jump) && (!isEffectsEnabled)){
+            return;
+        }
         let currentAudioSet = audioSets[currentSet]
         
         if let fileName = currentAudioSet[type]
@@ -59,21 +81,51 @@ class AudioPlayer: NSObject, AVAudioPlayerDelegate
           if let finalFileName = fileName
           {
             currentType = type
-            player = AVAudioPlayer(contentsOfURL: returnNSURL(finalFileName),error : nil)
+            if let player = player {
+                player.stop();
+            }
+            player = try? AVAudioPlayer(contentsOfURL: returnNSURL(finalFileName))
             player.delegate = self
-            play()
+            player.play()
             }
         }
     }
     
-    func changeSet()
+    private func changeSet()
     {
         currentSet = 1
     }
     
     func play()
     {
-        player.play()
-       
+        play(.Background)
+    }
+    
+    func isPlaying() -> Bool
+    {
+        if let _ = player {
+            return player.playing;
+        } else {
+            return false
+        }
+    }
+    
+    func stop()
+    {
+        player?.stop();
+    }
+    
+    func musicSwitched(){
+        if (isPlaying()){
+            isMusicEnabled = false;
+            stop();
+        } else {
+            isMusicEnabled = true;
+            play();
+        }
+    }
+    
+    func effectsSwitched(){
+        isEffectsEnabled = !isEffectsEnabled;
     }
 }

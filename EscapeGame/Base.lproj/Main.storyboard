@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6724" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5mG-mr-Ohh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5mG-mr-Ohh">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6711"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
         <!--Game View Controller-->
@@ -17,16 +16,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C87-AJ-SI6">
-                                <rect key="frame" x="549" y="6" width="46" height="30"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FO7-ET-8vc" customClass="GADBannerView">
+                                <rect key="frame" x="-64" y="510" width="728" height="90"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="728" id="Pee-S5-MHA"/>
+                                    <constraint firstAttribute="height" constant="90" id="XC8-VE-7Es"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mGo-hy-Ny1" customClass="SKView">
+                                <rect key="frame" x="0.0" y="20" width="600" height="480"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mGo-hy-Ny1" firstAttribute="top" secondItem="maK-i9-Uhn" secondAttribute="bottom" id="Fym-Jv-91d"/>
+                            <constraint firstItem="khH-OB-KpY" firstAttribute="top" secondItem="FO7-ET-8vc" secondAttribute="bottom" id="Pcj-mr-08y"/>
+                            <constraint firstAttribute="trailing" secondItem="mGo-hy-Ny1" secondAttribute="trailing" id="SrL-xe-f8o"/>
+                            <constraint firstItem="mGo-hy-Ny1" firstAttribute="centerX" secondItem="3se-qz-xqx" secondAttribute="centerX" id="Z7I-7e-D1t"/>
+                            <constraint firstItem="FO7-ET-8vc" firstAttribute="centerX" secondItem="3se-qz-xqx" secondAttribute="centerX" id="cXK-yR-g89"/>
+                            <constraint firstItem="FO7-ET-8vc" firstAttribute="top" secondItem="mGo-hy-Ny1" secondAttribute="bottom" constant="10" id="eA5-hi-4nV"/>
+                            <constraint firstItem="mGo-hy-Ny1" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leading" id="fem-cc-bZD"/>
+                            <constraint firstItem="mGo-hy-Ny1" firstAttribute="top" secondItem="maK-i9-Uhn" secondAttribute="bottom" id="lWq-f7-lDv"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="lWq-f7-lDv"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="29t-5X-6ht"/>
+                    <connections>
+                        <outlet property="banner" destination="FO7-ET-8vc" id="6B4-tH-uaY"/>
+                        <outlet property="gameView" destination="mGo-hy-Ny1" id="iig-WN-QQf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
@@ -49,6 +73,9 @@
                                 <subviews>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" placeholderIntrinsicWidth="49" placeholderIntrinsicHeight="31" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GbM-pd-4KK">
                                         <rect key="frame" x="167" y="113" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="effectsSwitched" destination="nfF-Rh-N3m" eventType="valueChanged" id="Rnm-Un-lhV"/>
+                                        </connections>
                                     </switch>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" placeholderIntrinsicWidth="49" placeholderIntrinsicHeight="31" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WlC-Nt-7Oe">
                                         <rect key="frame" x="167" y="29" width="51" height="31"/>
@@ -151,14 +178,16 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <color key="backgroundColor" red="0.043137254901960784" green="0.40392156862745099" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.043137254901960784" green="0.40392156862745099" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="206" id="e77-dO-9Lu"/>
                                     <constraint firstAttribute="height" constant="146" id="kbT-Gb-5ao"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.17254901960784313" green="0.50196078431372548" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.95686274509803926" green="0.95686274509803926" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="k1g-lG-IXt" secondAttribute="centerX" constant="15" id="O3w-GW-QSX"/>
                             <constraint firstAttribute="centerY" secondItem="k1g-lG-IXt" secondAttribute="centerY" constant="61" id="ish-0a-vn1"/>
@@ -184,7 +213,7 @@
                         <viewControllerLayoutGuide type="bottom" id="aGP-Z8-XmV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Wpv-lL-7W6">
-                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bdh-4h-mWH">

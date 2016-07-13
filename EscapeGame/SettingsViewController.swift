@@ -16,20 +16,23 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var effectsSwitchButton: UISwitch!
     
     override func viewDidLoad() {
+        super.viewDidLoad();
         self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated);
+        musicSwitchButton.on = audioPlayer.isMusicEnabled;
+        effectsSwitchButton.on = audioPlayer.isEffectsEnabled;
     }
     
     @IBAction func musicSwitched()
     {
-        
-         
-        
-      //
-       
+        audioPlayer.musicSwitched();
     }
     
     @IBAction func effectsSwitched()
     {
-        
+        audioPlayer.effectsSwitched();
     }
 }

@@ -11,7 +11,7 @@
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>D5346B8EBC6ABFAB628812573555CCD898D20E0F</key>
-		<string>https://bitbucket.org/slmkarta_/escape.git</string>
+		<string>ssh://bitbucket.org/slmkarta_/escape.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>EscapeGame.xcodeproj</string>
@@ -21,7 +21,7 @@
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://bitbucket.org/slmkarta_/escape.git</string>
+	<string>ssh://bitbucket.org/slmkarta_/escape.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
@@ -34,7 +34,7 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>D5346B8EBC6ABFAB628812573555CCD898D20E0F</string>
 			<key>IDESourceControlWCCName</key>
-			<string>escapeGame</string>
+			<string>escape</string>
 		</dict>
 	</array>
 </dict>

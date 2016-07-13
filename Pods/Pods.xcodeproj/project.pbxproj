@@ -1,0 +1,338 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D44FEC949DE5B922451E5C95D14E144A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B153096DBB5CCFF0987D321DE7743DF /* Foundation.framework */; };
+		FA609C35A12DC7C328B6EF204A6685D1 /* Pods-EscapeGame-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A447810286DF398D3B82EAF5ED7078 /* Pods-EscapeGame-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		16201222E061B97FBAE6A90C87DAB119 /* Pods-EscapeGame-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EscapeGame-acknowledgements.plist"; sourceTree = "<group>"; };
+		2328CBE55AD859836AD486FEDD30B99E /* Pods-EscapeGame.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EscapeGame.release.xcconfig"; sourceTree = "<group>"; };
+		48DC94E8A2C9CE631FFCDBEE527887E9 /* Crashlytics.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Crashlytics.h; path = iOS/Crashlytics.framework/Headers/Crashlytics.h; sourceTree = "<group>"; };
+		51BEF7976EE0B15AEB8C2F1FDD1D79BB /* libPods-EscapeGame.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EscapeGame.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		55E0E2B415ABA046D9662A06FC1A481D /* CLSStackFrame.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLSStackFrame.h; path = iOS/Crashlytics.framework/Headers/CLSStackFrame.h; sourceTree = "<group>"; };
+		58CB1922E097F5F63CE4B1F4C7ED614F /* CLSAttributes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLSAttributes.h; path = iOS/Crashlytics.framework/Headers/CLSAttributes.h; sourceTree = "<group>"; };
+		71A11F4241CCBCA37156B7FC9A13BDF6 /* Answers.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Answers.h; path = iOS/Crashlytics.framework/Headers/Answers.h; sourceTree = "<group>"; };
+		7BD29FA9054A03F6D3CB071CBF43B3B6 /* Pods-EscapeGame-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-EscapeGame-resources.sh"; sourceTree = "<group>"; };
+		860B392E34FFBFA83ACE70DFD3CC3091 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = iOS/Crashlytics.framework; sourceTree = "<group>"; };
+		870052504DB7F9BEEF327D33E379E2BD /* ANSCompatibility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ANSCompatibility.h; path = iOS/Crashlytics.framework/Headers/ANSCompatibility.h; sourceTree = "<group>"; };
+		88F30AA1BC30B20FD157C2D5E9238233 /* Pods-EscapeGame-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-EscapeGame-acknowledgements.markdown"; sourceTree = "<group>"; };
+		8B153096DBB5CCFF0987D321DE7743DF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		90A447810286DF398D3B82EAF5ED7078 /* Pods-EscapeGame-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-EscapeGame-dummy.m"; sourceTree = "<group>"; };
+		9FA991FD16DD28355408EF5DF75D6227 /* CLSLogging.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLSLogging.h; path = iOS/Crashlytics.framework/Headers/CLSLogging.h; sourceTree = "<group>"; };
+		A95931F4FE37E1A18D326208C5B360E6 /* CLSReport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLSReport.h; path = iOS/Crashlytics.framework/Headers/CLSReport.h; sourceTree = "<group>"; };
+		B975898C79B384D6E5E6DC3CDE4FC207 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = iOS/Fabric.framework; sourceTree = "<group>"; };
+		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		EAFE8AEA9190FB55C96335F151750F89 /* Pods-EscapeGame.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EscapeGame.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		124EE5AB88AF7594566E5100D6A69DDE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D44FEC949DE5B922451E5C95D14E144A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3113AB6DB2E2B7E8D282910161ABB774 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6F89EADEC8A94D2DD08D6CC983E72F4E /* Crashlytics */,
+				AB724331B6AC07BF9F81BAC8AF9447B7 /* Fabric */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		312308E1C7BFC7DED150DDB35A616553 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				3FC4272514449A8F1048C68777B2CF8D /* Pods-EscapeGame */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		3FC4272514449A8F1048C68777B2CF8D /* Pods-EscapeGame */ = {
+			isa = PBXGroup;
+			children = (
+				88F30AA1BC30B20FD157C2D5E9238233 /* Pods-EscapeGame-acknowledgements.markdown */,
+				16201222E061B97FBAE6A90C87DAB119 /* Pods-EscapeGame-acknowledgements.plist */,
+				90A447810286DF398D3B82EAF5ED7078 /* Pods-EscapeGame-dummy.m */,
+				7BD29FA9054A03F6D3CB071CBF43B3B6 /* Pods-EscapeGame-resources.sh */,
+				EAFE8AEA9190FB55C96335F151750F89 /* Pods-EscapeGame.debug.xcconfig */,
+				2328CBE55AD859836AD486FEDD30B99E /* Pods-EscapeGame.release.xcconfig */,
+			);
+			name = "Pods-EscapeGame";
+			path = "Target Support Files/Pods-EscapeGame";
+			sourceTree = "<group>";
+		};
+		404AEB00724A2023717298BC036BB93E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				860B392E34FFBFA83ACE70DFD3CC3091 /* Crashlytics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		53F661C0CA7190D2CF05023FB33D61E4 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				8B153096DBB5CCFF0987D321DE7743DF /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		6F89EADEC8A94D2DD08D6CC983E72F4E /* Crashlytics */ = {
+			isa = PBXGroup;
+			children = (
+				870052504DB7F9BEEF327D33E379E2BD /* ANSCompatibility.h */,
+				71A11F4241CCBCA37156B7FC9A13BDF6 /* Answers.h */,
+				58CB1922E097F5F63CE4B1F4C7ED614F /* CLSAttributes.h */,
+				9FA991FD16DD28355408EF5DF75D6227 /* CLSLogging.h */,
+				A95931F4FE37E1A18D326208C5B360E6 /* CLSReport.h */,
+				55E0E2B415ABA046D9662A06FC1A481D /* CLSStackFrame.h */,
+				48DC94E8A2C9CE631FFCDBEE527887E9 /* Crashlytics.h */,
+				404AEB00724A2023717298BC036BB93E /* Frameworks */,
+			);
+			path = Crashlytics;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				3113AB6DB2E2B7E8D282910161ABB774 /* Pods */,
+				CCA510CFBEA2D207524CDA0D73C3B561 /* Products */,
+				312308E1C7BFC7DED150DDB35A616553 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		A0775D4EB38082CF9AF7DAACD0DCAEAB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B975898C79B384D6E5E6DC3CDE4FC207 /* Fabric.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AB724331B6AC07BF9F81BAC8AF9447B7 /* Fabric */ = {
+			isa = PBXGroup;
+			children = (
+				A0775D4EB38082CF9AF7DAACD0DCAEAB /* Frameworks */,
+			);
+			path = Fabric;
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				53F661C0CA7190D2CF05023FB33D61E4 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CCA510CFBEA2D207524CDA0D73C3B561 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				51BEF7976EE0B15AEB8C2F1FDD1D79BB /* libPods-EscapeGame.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D5AE67FE97B23D9CB94CBA270C5D89D /* Pods-EscapeGame */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 42861858360A71509B3017BD69A51CA4 /* Build configuration list for PBXNativeTarget "Pods-EscapeGame" */;
+			buildPhases = (
+				BBA75936ABECD00BDFE0E05E9035CCC4 /* Sources */,
+				124EE5AB88AF7594566E5100D6A69DDE /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-EscapeGame";
+			productName = "Pods-EscapeGame";
+			productReference = 51BEF7976EE0B15AEB8C2F1FDD1D79BB /* libPods-EscapeGame.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = CCA510CFBEA2D207524CDA0D73C3B561 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D5AE67FE97B23D9CB94CBA270C5D89D /* Pods-EscapeGame */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BBA75936ABECD00BDFE0E05E9035CCC4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA609C35A12DC7C328B6EF204A6685D1 /* Pods-EscapeGame-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		03CA91998D6773EC5D02B3DB87B8353E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0B57334D6C23DADAA4F7D802A5760EB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		57671BE88F89272B84098A1C307BA422 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2328CBE55AD859836AD486FEDD30B99E /* Pods-EscapeGame.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		797F75780FE5A3D3259B47A093EC7DBC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EAFE8AEA9190FB55C96335F151750F89 /* Pods-EscapeGame.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B57334D6C23DADAA4F7D802A5760EB2 /* Debug */,
+				03CA91998D6773EC5D02B3DB87B8353E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		42861858360A71509B3017BD69A51CA4 /* Build configuration list for PBXNativeTarget "Pods-EscapeGame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				797F75780FE5A3D3259B47A093EC7DBC /* Debug */,
+				57671BE88F89272B84098A1C307BA422 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

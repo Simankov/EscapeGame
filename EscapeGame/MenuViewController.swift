@@ -23,9 +23,14 @@ class MenuViewController: UIViewController, viewEndGameDelegate, restartGameDele
     
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-        audioPlayer.play(.Menu)
-        
     }
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad();
+        audioPlayer.play(.Menu)
+    }
+    
     func gameRestarted() {
         
         gameViewController = nil
@@ -62,18 +67,18 @@ class MenuViewController: UIViewController, viewEndGameDelegate, restartGameDele
     
     @IBAction func settingButtonEnabled()
     {
-        settingViewController = self.storyboard!.instantiateViewControllerWithIdentifier("SettingsViewController") as? SettingsViewController
+        if (navigationController == nil){
+            settingViewController = self.storyboard!.instantiateViewControllerWithIdentifier("SettingsViewController") as? SettingsViewController
+            let navigationController = UINavigationController();
+            self.view.window?.rootViewController = navigationController;
+            navigationController.pushViewController(self, animated: false)
+            navigationController.pushViewController(settingViewController!, animated: true)
+        } else {
+            settingViewController = self.storyboard!.instantiateViewControllerWithIdentifier("SettingsViewController") as? SettingsViewController
+            assert(navigationController != nil);
+            navigationController!.pushViewController(settingViewController!, animated: true)
+        }
         
-        
-        navigationController!.pushViewController(settingViewController!, animated: true)
-        
-    }
-    
-
-    
-  deinit
-  {
-    println("noope")
     }
     
     

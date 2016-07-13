@@ -9,7 +9,7 @@
 import SpriteKit
 
 let _maxHeightBuild: CGFloat  = 800
-let _minHeightBuild : CGFloat = 100
+let _minHeightBuild : CGFloat = 260
 let _maxWidthBuild: CGFloat  = 600
 let _minWidthBuild: CGFloat =  256
 
@@ -40,7 +40,6 @@ struct PhysicsCategory
     static var Hero : UInt32 = 32
     static var Antenna : UInt32 = 64
     static var Fire : UInt32 = 128
-    static var Busket: UInt32 = 256
-    
+    static var Busket: UInt32 = 256    
 }
 

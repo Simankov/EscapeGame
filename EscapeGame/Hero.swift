@@ -41,7 +41,7 @@ class Hero : SKSpriteNode
     var power : CGFloat = 300
    
     
-    override init()
+    init()
     {
         super.init(texture: SKTexture(imageNamed: "hero"), color: UIColor.clearColor(), size: SKTexture(imageNamed: "hero").size())
        
@@ -66,11 +66,11 @@ class Hero : SKSpriteNode
     func addJointWithChain()
     {
         
-        (scene as GameScene).chain.firstChain.physicsBody!.dynamic = true
-        (scene as GameScene).chain.firstChain.position = (scene as GameScene).convertPoint((scene as GameScene).convertPoint(CGPointMake(self.position.x, self.position.y - self.frame.height/2 + 30), fromNode: (scene as GameScene).backgroundLayer), toNode: chain)
-        (scene as GameScene).chain.firstChain.zRotation = CGFloat(M_PI_2);
+        (scene as! GameScene).chain.firstChain.physicsBody!.dynamic = true
+        (scene as! GameScene).chain.firstChain.position = (scene as! GameScene).convertPoint((scene as! GameScene).convertPoint(CGPointMake(self.position.x, self.position.y - self.frame.height/2 + 30), fromNode: (scene as! GameScene).backgroundLayer), toNode: chain)
+        (scene as! GameScene).chain.firstChain.zRotation = CGFloat(M_PI_2);
         
-        let pinJoint = SKPhysicsJointFixed.jointWithBodyA(self.physicsBody, bodyB: (scene as GameScene).chain.firstChain.physicsBody, anchor: (scene as GameScene).convertPoint(CGPointMake(self.position.x, self.position.y - self.frame.height/2 + 30), fromNode: (scene as GameScene).backgroundLayer))
+        let pinJoint = SKPhysicsJointFixed.jointWithBodyA(self.physicsBody!, bodyB: (scene as! GameScene).chain.firstChain.physicsBody!, anchor: (scene as! GameScene).convertPoint(CGPointMake(self.position.x, self.position.y - self.frame.height/2 + 30), fromNode: (scene as! GameScene).backgroundLayer))
         scene?.physicsWorld.addJoint(pinJoint)
     }
     
@@ -96,47 +96,30 @@ class Hero : SKSpriteNode
         {
             powerMultiple = _maxTimeOfPress
         }
-//        if powerMultiple > _maxTimeOfPress
-//        {
-//            powerMultiple = _maxTimeOfPress
-//        }
-//        powerMultiple += 0.9
-        
-//        println(powerMultiple)
-       
-        
         
         let hookPosition =
-        (scene as GameScene).convertPoint(
-        (scene as GameScene).convertPoint(chain.hookNode.position, fromNode: chain),
-            toNode: (scene as GameScene).backgroundLayer)
-//        powerMultiple from 16000 to 4000
+        (scene as! GameScene).convertPoint(
+        (scene as! GameScene).convertPoint(chain.hookNode.position, fromNode: chain),
+            toNode: (scene as! GameScene).backgroundLayer)
         
         let targetVector = CGVectorMake(target.x - hookPosition.x, target.y - hookPosition.y)
         let targetDirection = targetVector.normalize()
-        
         let max = 1200 * chain.hookNode.physicsBody!.mass
-        
         let perTime = ( max / 1.5 )
-        
-        
-        
         let impulse = CGVectorMake(targetDirection.dx * perTime * powerMultiple , targetDirection.dy * perTime * powerMultiple)
-        let gameScene = scene as GameScene
+        let gameScene = scene as! GameScene
         chain.changeCollisionMaskForChains()
         let positionInScene = gameScene.convertPoint(gameScene.chain.hookNode.position, fromNode: gameScene.chain)
         let positionInBack = gameScene.convertPoint(positionInScene, toNode: gameScene.backgroundLayer)
+        
         if CGRectIntersectsRect(gameScene.chain.build.frame, CGRect(origin: CGPointMake(positionInBack.x - gameScene.chain.hookNode.size.width/2 - 25, positionInBack.y - gameScene.chain.hookNode.size.height/2 - 25), size: CGSizeMake(chain.hookNode.size.width + 50,chain.hookNode.size.height + 50 ))) && (build.number == chain.build.number)
         {
            chain.hookNode.physicsBody!.applyImpulse(impulse)
             gameScene.isApplied = true
-        
         }
-            powerMultiple = 0;
         
-        }
-//        (scene as GameScene).chain.hookNode.physicsBody!.applyImpulse(impulse)
-        //        fire.physicsBody!.applyImpulse(CGVectorMake(direction.x * power * powerMultiple, direction.y * power * powerMultiple))
+        powerMultiple = 0;
+    }
     
     func animate(current: Animate)
     {
@@ -145,7 +128,7 @@ class Hero : SKSpriteNode
             self.texture = SKTexture(imageNamed: "heroJump")
             self.removeActionForKey("breath")
         } else {
-            var action = SKAction.repeatActionForever((SKAction.animateWithTextures(self.animationBreath, timePerFrame: 0.5)))
+            let action = SKAction.repeatActionForever((SKAction.animateWithTextures(self.animationBreath, timePerFrame: 0.5)))
             self.texture = SKTexture(imageNamed: "heroStand")
             self.runAction(action, withKey : "breath")
         }
@@ -155,7 +138,7 @@ class Hero : SKSpriteNode
     {
         if self.physicsBody!.velocity.length() < 0.1         {
             
-            (scene as GameScene?)?.sound(.Jump)
+            (scene as! GameScene?)?.sound(.Jump)
             var amount: CGFloat = 0;
             switch(self.intersect){
                 case .None :
@@ -170,12 +153,12 @@ class Hero : SKSpriteNode
                     amount = 0
             }
             
-            let g : CGFloat = abs((scene as GameScene).physicsWorld.gravity.dy)
+            let g : CGFloat = abs((scene as! GameScene).physicsWorld.gravity.dy)
             let x1 = self.position.x
             let y1 = self.position.y
             let timeOfJump : CGFloat = 1
             var x2 = target.x
-            var y2 = target.y + self.size.height/2
+            let y2 = target.y + self.size.height/2
             
         if self.state != .Loose
         {
@@ -199,7 +182,7 @@ class Hero : SKSpriteNode
     
     func calculateSpeed(start: CGPoint, target: CGPoint) -> CGVector
     {
-        let g : CGFloat = abs((scene as GameScene).physicsWorld.gravity.dy)
+        let g : CGFloat = abs((scene as! GameScene).physicsWorld.gravity.dy)
         let x1 = start.x
         let y1 = start.y
         let x2 = target.x
@@ -226,8 +209,6 @@ class Hero : SKSpriteNode
         if physicsBody!.velocity.length() > 0.1
         {
             self.state = .Fly
-//            println(frame.size)
-            
         }
         else
         {

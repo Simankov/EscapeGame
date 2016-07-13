@@ -24,7 +24,7 @@ class Build: SKSpriteNode
  {
      var antenna : SKSpriteNode = SKSpriteNode(imageNamed: "antenna")
      var number: Int = 0
-  override init()
+ init()
   {
     super.init(texture: SKTexture(imageNamed: "build2"),color : UIColor.clearColor(), size: SKTexture(imageNamed: "build2").size())
     

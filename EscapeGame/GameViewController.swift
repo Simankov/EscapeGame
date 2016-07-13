@@ -8,14 +8,16 @@
 
 import UIKit
 import SpriteKit
-
+import GoogleMobileAds
 
 
 
 class GameViewController: UIViewController, viewEndGameDelegate {
 
 var isEffectsEnabled = true
+    @IBOutlet weak var gameView: UIView!
     
+    @IBOutlet weak var banner: GADBannerView!
     var score : Int?
     weak var delegate: MenuViewController?
     var highScore : Int?
@@ -24,22 +26,26 @@ var isEffectsEnabled = true
         
         if let scene = GameScene(fileNamed: "GameScene")
         {
-        
             // Configure the view.
-            let skView = self.view as SKView
-           skView.showsFPS = true
+            let skView = gameView as! SKView
+            skView.showsFPS = true
             skView.showsNodeCount = true
-            
-           
+            banner.layer.zPosition = 100;
+            banner.adUnitID = "ca-app-pub-5388282998795388/1787706150"
+            banner.rootViewController = self
+            let request = GADRequest();
+            request.testDevices = [kGADSimulatorID];
+            banner.loadRequest(request);
+            print(self.view.frame.size);
+            print(gameView.frame.size)
             /* Sprite Kit applies additional optimizations to improve rendering performance */
             skView.ignoresSiblingOrder = true
             scene.viewDelegate = self
             /* Set the scale mode to scale to fit the window */
             scene.scaleMode = .AspectFill
             audioPlayer.play(.Background)
-//            scene.isEffectsEnabled = isEffectsEnabled
             skView.presentScene(scene)
-    }
+        }
     
     }
 
@@ -47,10 +53,6 @@ var isEffectsEnabled = true
         return true
         
     
-    }
-    
-    deinit{
-        println("sdfdsfsdfsfsdfsdf")
     }
     
     func viewDidEndGame()
