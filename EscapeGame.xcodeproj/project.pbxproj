@@ -42,6 +42,9 @@
 		84FD1D2D1AA3C3AF008B656F /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FD1D281AA3C3AF008B656F /* GameViewController.swift */; };
 		84FD1D2E1AA3C3AF008B656F /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FD1D291AA3C3AF008B656F /* MenuViewController.swift */; };
 		84FD1D2F1AA3C3AF008B656F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FD1D2A1AA3C3AF008B656F /* SettingsViewController.swift */; };
+		A5D3CA811D36913A0005CB4E /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = A5D3CA801D36913A0005CB4E /* 1.png */; settings = {ASSET_TAGS = (); }; };
+		A5D3CA831D36919A0005CB4E /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = A5D3CA821D36919A0005CB4E /* 2.png */; settings = {ASSET_TAGS = (); }; };
+		A5D3CA851D3697640005CB4E /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = A5D3CA841D3697640005CB4E /* 3.png */; settings = {ASSET_TAGS = (); }; };
 		A5DE08AD1D3594FF00036A63 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = A5DE08AC1D3594FF00036A63 /* back.png */; };
 		A5DE08AF1D3657F200036A63 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5DE08AE1D3657F200036A63 /* GoogleMobileAds.framework */; };
 		A5F4F76E1D366D1800E376F6 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F4F76D1D366D1800E376F6 /* libz.tbd */; };
@@ -125,6 +128,9 @@
 		84FD1D291AA3C3AF008B656F /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		84FD1D2A1AA3C3AF008B656F /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		9FB9A7536090ACBE6F97B056 /* Pods-EscapeGame.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EscapeGame.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EscapeGame/Pods-EscapeGame.debug.xcconfig"; sourceTree = "<group>"; };
+		A5D3CA801D36913A0005CB4E /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 1.png; path = ../../../Desktop/1.png; sourceTree = "<group>"; };
+		A5D3CA821D36919A0005CB4E /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 2.png; path = ../../../Desktop/2.png; sourceTree = "<group>"; };
+		A5D3CA841D3697640005CB4E /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 3.png; path = ../../../Desktop/3.png; sourceTree = "<group>"; };
 		A5DE08AC1D3594FF00036A63 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back.png; path = Images/back.png; sourceTree = SOURCE_ROOT; };
 		A5DE08AE1D3657F200036A63 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = ../../Desktop/GoogleMobileAds.framework; sourceTree = "<group>"; };
 		A5F4F76D1D366D1800E376F6 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -301,6 +307,9 @@
 		84E961111A7D264C00E3312D /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				A5D3CA841D3697640005CB4E /* 3.png */,
+				A5D3CA821D36919A0005CB4E /* 2.png */,
+				A5D3CA801D36913A0005CB4E /* 1.png */,
 				A5DE08AC1D3594FF00036A63 /* back.png */,
 				849A8E8A1AA45FC8008495F6 /* menuButton.png */,
 				849A8E881AA45D4D008495F6 /* buttonReset.png */,
@@ -414,7 +423,9 @@
 				84B9FFB91A950D1E0067236A /* rope3.png in Resources */,
 				84C06E2A1AA373F100816DF9 /* jump.wav in Resources */,
 				84B9FFBD1A9513DC0067236A /* hero.png in Resources */,
+				A5D3CA851D3697640005CB4E /* 3.png in Resources */,
 				840D4E0B1A82D1C600B639CC /* shape.png in Resources */,
+				A5D3CA831D36919A0005CB4E /* 2.png in Resources */,
 				84CEB5921A95269A0040B95F /* heroBreath.png in Resources */,
 				84C06E2C1AA373F100816DF9 /* menu.wav in Resources */,
 				8412DE531AA4E7DA0089610F /* Main.storyboard in Resources */,
@@ -422,6 +433,7 @@
 				84E960F91A7D1D4100E3312D /* Images.xcassets in Resources */,
 				84E960F01A7D1D4000E3312D /* GameScene.sks in Resources */,
 				84CEB58C1A951E0A0040B95F /* heroStand.png in Resources */,
+				A5D3CA811D36913A0005CB4E /* 1.png in Resources */,
 				A5DE08AD1D3594FF00036A63 /* back.png in Resources */,
 				849A8E8B1AA45FC8008495F6 /* menuButton.png in Resources */,
 				84C06E2B1AA373F100816DF9 /* lose.wav in Resources */,

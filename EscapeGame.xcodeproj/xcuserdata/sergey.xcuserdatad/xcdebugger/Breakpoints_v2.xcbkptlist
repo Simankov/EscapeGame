@@ -170,11 +170,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EscapeGame/GameScene.swift"
-            timestampString = "490108357.571056"
+            timestampString = "490118859.946913"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "479"
-            endingLineNumber = "479"
+            startingLineNumber = "462"
+            endingLineNumber = "462"
             landmarkName = "restart()"
             landmarkType = "5">
          </BreakpointContent>

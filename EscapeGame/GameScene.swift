@@ -114,7 +114,7 @@ var isRestarted : Bool = false
         score = SKLabelNode(fontNamed: "Hiragino Kaku Gothic ProN W3")
         score.position = CGPointMake(CGRectGetMidX(playableArea), CGRectGetMaxY(playableArea) - 200)
        
-        score.fontSize = 170
+        score.fontSize = _scoreFontSize
         score.text = " "
         self.delegate = nil
         score.fontColor = UIColor.blackColor()
@@ -272,15 +272,7 @@ var isRestarted : Bool = false
         }
         lastUpdateTime = CGFloat(currentTime)
         hero.updateState()
-        let positionHook = convertPoint(chain.hookNode.position , fromNode: chain)
-//        let offset = convertPoint(positionHook, toNode: backgroundLayer).x - convertPoint( CGPoint(x:CGRectGetMaxX(frame)-300, y:0), toNode: backgroundLayer).x
-//            
-//        if offset > 0
-//        {
-//            backgroundLayer.position.x -= offset
-//        }
         
-        // fix bug with hook out of screen
         if convertPoint(chain.hookNode.position, fromNode: chain).y < CGRectGetMinY(playableArea) && status == .Playable
         {
             
@@ -307,16 +299,7 @@ var isRestarted : Bool = false
             runOneTime = true
          
         }
-        
-//        
-//        if hero.state == .Loose && hero.position.y - CGRectGetMinY(playableArea) < 400 && !sounded
-//        {
-//        
-//            sound(.Loose)
-//            sounded = true
-//            
-//        }
-        
+
         let endScreen = convertPoint(CGPointMake(self.size.width,0), toNode: backgroundLayer)
         
         if lenghtBetweenBuildes == 0 {
@@ -477,16 +460,12 @@ var isRestarted : Bool = false
             scorePoint = 0
             gameScene!.scaleMode = .AspectFill
             gameScene!.view?.showsFPS = true
-//            self.view?.presentScene(gameScene)
+        
             for sub in view!.subviews
             {
                 sub.removeFromSuperview()
             }
             viewDelegate?.viewDidEndGame()
-            
-//    self.view?.window?.rootViewController?.presentViewController( self.view?.window?.rootViewController?.storyboard!.instantiateViewControllerWithIdentifier("EndGameViewController") as EndGameViewController, animated: true, completion: nil)
-            
-            
             isRestarted = true
         }
         }

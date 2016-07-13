@@ -27,6 +27,7 @@ let _buildFriction: CGFloat  = 0.4
 let _maxTimeOfPress: CGFloat = 1.5
 let _countOfChains : Int = 40 //34
 let _scaleOfChain : CGFloat = 6
+let _scoreFontSize : CGFloat = 170;
 
 
 struct PhysicsCategory
