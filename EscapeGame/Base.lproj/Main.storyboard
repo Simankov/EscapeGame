@@ -183,7 +183,7 @@
                                     <constraint firstAttribute="height" constant="400" id="p5h-RJ-9OX"/>
                                 </constraints>
                             </view>
-                            <view tag="1000" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k1g-lG-IXt" customClass="PauseGameView" customModule="EscapeGame" customModuleProvider="target">
+                            <view tag="1000" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k1g-lG-IXt">
                                 <rect key="frame" x="-25" y="50" width="400" height="300"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" tag="200" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nPn-I8-fMD" userLabel="highscoreLabel">
@@ -233,7 +233,7 @@
                                                     <constraint firstAttribute="width" constant="64" id="2ZZ-gk-2f5"/>
                                                     <constraint firstAttribute="height" constant="64" id="Lhk-ta-Rn3"/>
                                                 </constraints>
-                                                <state key="normal" backgroundImage="b27fdfb4f3e2bc5bd38d21b93b25dead.png">
+                                                <state key="normal" backgroundImage="menu.png">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -453,7 +453,7 @@
                                     <constraint firstAttribute="width" constant="3" id="uRF-9z-zTr"/>
                                 </constraints>
                             </view>
-                            <view tag="1000" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pXt-kv-B5s" customClass="PauseGameView" customModule="EscapeGame" customModuleProvider="target">
+                            <view tag="1000" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pXt-kv-B5s">
                                 <rect key="frame" x="100" y="150" width="400" height="300"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" tag="200" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ej4-WW-gQJ" userLabel="highscoreLabel">
@@ -503,7 +503,7 @@
                                                     <constraint firstAttribute="width" constant="64" id="MUw-fq-4AW"/>
                                                     <constraint firstAttribute="height" constant="64" id="i2L-WK-y7K"/>
                                                 </constraints>
-                                                <state key="normal" backgroundImage="b27fdfb4f3e2bc5bd38d21b93b25dead.png">
+                                                <state key="normal" backgroundImage="menu.png">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -616,7 +616,7 @@
         <image name="1.png" width="512" height="512"/>
         <image name="2.png" width="256" height="256"/>
         <image name="3.png" width="512" height="512"/>
-        <image name="b27fdfb4f3e2bc5bd38d21b93b25dead.png" width="980" height="980"/>
+        <image name="menu.png" width="980" height="980"/>
         <image name="pause.png" width="200" height="200"/>
     </resources>
     <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>

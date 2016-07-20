@@ -31,16 +31,17 @@
 		84FD1D2D1AA3C3AF008B656F /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FD1D281AA3C3AF008B656F /* GameViewController.swift */; };
 		84FD1D2E1AA3C3AF008B656F /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FD1D291AA3C3AF008B656F /* MenuViewController.swift */; };
 		84FD1D2F1AA3C3AF008B656F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FD1D2A1AA3C3AF008B656F /* SettingsViewController.swift */; };
-		A58AD38E1D3FB35B00088600 /* main.wav in Resources */ = {isa = PBXBuildFile; fileRef = A58AD38D1D3FB35B00088600 /* main.wav */; settings = {ASSET_TAGS = (); }; };
 		A58AD3901D3FBB3100088600 /* shape.png in Resources */ = {isa = PBXBuildFile; fileRef = A58AD38F1D3FBB3100088600 /* shape.png */; settings = {ASSET_TAGS = (); }; };
 		A58AD3921D3FBB8500088600 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A58AD3911D3FBB8500088600 /* GameScene.sks */; settings = {ASSET_TAGS = (); }; };
-		A5D3CA811D36913A0005CB4E /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = A5D3CA801D36913A0005CB4E /* 1.png */; settings = {ASSET_TAGS = (); }; };
-		A5D3CA831D36919A0005CB4E /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = A5D3CA821D36919A0005CB4E /* 2.png */; settings = {ASSET_TAGS = (); }; };
-		A5D3CA851D3697640005CB4E /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = A5D3CA841D3697640005CB4E /* 3.png */; settings = {ASSET_TAGS = (); }; };
-		A5D3CA871D3825710005CB4E /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = A5D3CA861D3825710005CB4E /* pause.png */; settings = {ASSET_TAGS = (); }; };
-		A5D534FF1D3F9F6F009A2E39 /* EscapeFail.wav in Resources */ = {isa = PBXBuildFile; fileRef = A5D534FE1D3F9F6F009A2E39 /* EscapeFail.wav */; settings = {ASSET_TAGS = (); }; };
-		A5DBF7ED1D3D1D7F00A8A522 /* b27fdfb4f3e2bc5bd38d21b93b25dead.png in Resources */ = {isa = PBXBuildFile; fileRef = A5DBF7EC1D3D1D7F00A8A522 /* b27fdfb4f3e2bc5bd38d21b93b25dead.png */; settings = {ASSET_TAGS = (); }; };
-		A5DE08AD1D3594FF00036A63 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = A5DE08AC1D3594FF00036A63 /* back.png */; };
+		A58AD39A1D3FBE7B00088600 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = A58AD3931D3FBE7B00088600 /* 1.png */; settings = {ASSET_TAGS = (); }; };
+		A58AD39B1D3FBE7B00088600 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = A58AD3941D3FBE7B00088600 /* 2.png */; settings = {ASSET_TAGS = (); }; };
+		A58AD39C1D3FBE7B00088600 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = A58AD3951D3FBE7B00088600 /* 3.png */; settings = {ASSET_TAGS = (); }; };
+		A58AD39D1D3FBE7B00088600 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = A58AD3961D3FBE7B00088600 /* back.png */; settings = {ASSET_TAGS = (); }; };
+		A58AD39E1D3FBE7B00088600 /* build.png in Resources */ = {isa = PBXBuildFile; fileRef = A58AD3971D3FBE7B00088600 /* build.png */; settings = {ASSET_TAGS = (); }; };
+		A58AD39F1D3FBE7B00088600 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = A58AD3981D3FBE7B00088600 /* menu.png */; settings = {ASSET_TAGS = (); }; };
+		A58AD3A01D3FBE7B00088600 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = A58AD3991D3FBE7B00088600 /* pause.png */; settings = {ASSET_TAGS = (); }; };
+		A58AD3A31D3FBEC300088600 /* EscapeFail.wav in Resources */ = {isa = PBXBuildFile; fileRef = A58AD3A11D3FBEC300088600 /* EscapeFail.wav */; settings = {ASSET_TAGS = (); }; };
+		A58AD3A41D3FBEC300088600 /* main.wav in Resources */ = {isa = PBXBuildFile; fileRef = A58AD3A21D3FBEC300088600 /* main.wav */; settings = {ASSET_TAGS = (); }; };
 		A5DE08AF1D3657F200036A63 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5DE08AE1D3657F200036A63 /* GoogleMobileAds.framework */; };
 		A5F4F76E1D366D1800E376F6 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F4F76D1D366D1800E376F6 /* libz.tbd */; };
 		A5F4F7701D366E8000E376F6 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F4F76F1D366E8000E376F6 /* CoreBluetooth.framework */; };
@@ -112,16 +113,17 @@
 		84FD1D291AA3C3AF008B656F /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		84FD1D2A1AA3C3AF008B656F /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		9FB9A7536090ACBE6F97B056 /* Pods-EscapeGame.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EscapeGame.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EscapeGame/Pods-EscapeGame.debug.xcconfig"; sourceTree = "<group>"; };
-		A58AD38D1D3FB35B00088600 /* main.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = main.wav; path = ../../../Desktop/main.wav; sourceTree = "<group>"; };
 		A58AD38F1D3FBB3100088600 /* shape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shape.png; sourceTree = "<group>"; };
 		A58AD3911D3FBB8500088600 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		A5D3CA801D36913A0005CB4E /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 1.png; path = ../../../Desktop/1.png; sourceTree = "<group>"; };
-		A5D3CA821D36919A0005CB4E /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 2.png; path = ../../../Desktop/2.png; sourceTree = "<group>"; };
-		A5D3CA841D3697640005CB4E /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 3.png; path = ../../../Desktop/3.png; sourceTree = "<group>"; };
-		A5D3CA861D3825710005CB4E /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pause.png; path = ../../../Desktop/pause.png; sourceTree = "<group>"; };
-		A5D534FE1D3F9F6F009A2E39 /* EscapeFail.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = EscapeFail.wav; path = ../../../Desktop/Downloads/EscapeFail.wav; sourceTree = "<group>"; };
-		A5DBF7EC1D3D1D7F00A8A522 /* b27fdfb4f3e2bc5bd38d21b93b25dead.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = b27fdfb4f3e2bc5bd38d21b93b25dead.png; path = ../../../Desktop/b27fdfb4f3e2bc5bd38d21b93b25dead.png; sourceTree = "<group>"; };
-		A5DE08AC1D3594FF00036A63 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back.png; path = Images/back.png; sourceTree = SOURCE_ROOT; };
+		A58AD3931D3FBE7B00088600 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		A58AD3941D3FBE7B00088600 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
+		A58AD3951D3FBE7B00088600 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
+		A58AD3961D3FBE7B00088600 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
+		A58AD3971D3FBE7B00088600 /* build.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = build.png; sourceTree = "<group>"; };
+		A58AD3981D3FBE7B00088600 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
+		A58AD3991D3FBE7B00088600 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
+		A58AD3A11D3FBEC300088600 /* EscapeFail.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = EscapeFail.wav; sourceTree = "<group>"; };
+		A58AD3A21D3FBEC300088600 /* main.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = main.wav; sourceTree = "<group>"; };
 		A5DE08AE1D3657F200036A63 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = ../../Desktop/GoogleMobileAds.framework; sourceTree = "<group>"; };
 		A5F4F76D1D366D1800E376F6 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		A5F4F76F1D366E8000E376F6 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
@@ -200,8 +202,8 @@
 		847DCA151AADA2E200152965 /* EscapeSound */ = {
 			isa = PBXGroup;
 			children = (
-				A58AD38D1D3FB35B00088600 /* main.wav */,
-				A5D534FE1D3F9F6F009A2E39 /* EscapeFail.wav */,
+				A58AD3A11D3FBEC300088600 /* EscapeFail.wav */,
+				A58AD3A21D3FBEC300088600 /* main.wav */,
 			);
 			name = EscapeSound;
 			path = EscapeGame/EscapeSound;
@@ -283,13 +285,14 @@
 		84E961111A7D264C00E3312D /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				A58AD3931D3FBE7B00088600 /* 1.png */,
+				A58AD3941D3FBE7B00088600 /* 2.png */,
+				A58AD3951D3FBE7B00088600 /* 3.png */,
+				A58AD3961D3FBE7B00088600 /* back.png */,
+				A58AD3971D3FBE7B00088600 /* build.png */,
+				A58AD3981D3FBE7B00088600 /* menu.png */,
+				A58AD3991D3FBE7B00088600 /* pause.png */,
 				A58AD38F1D3FBB3100088600 /* shape.png */,
-				A5DBF7EC1D3D1D7F00A8A522 /* b27fdfb4f3e2bc5bd38d21b93b25dead.png */,
-				A5D3CA861D3825710005CB4E /* pause.png */,
-				A5D3CA841D3697640005CB4E /* 3.png */,
-				A5D3CA821D36919A0005CB4E /* 2.png */,
-				A5D3CA801D36913A0005CB4E /* 1.png */,
-				A5DE08AC1D3594FF00036A63 /* back.png */,
 				84E6B5C51AA1F2C1007DAD72 /* maskForBasket.png */,
 				84CEB5911A95269A0040B95F /* heroBreath.png */,
 				84CEB5891A951E0A0040B95F /* heroStand.png */,
@@ -397,23 +400,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				84B9FFB91A950D1E0067236A /* rope3.png in Resources */,
-				A5D3CA871D3825710005CB4E /* pause.png in Resources */,
+				A58AD3A31D3FBEC300088600 /* EscapeFail.wav in Resources */,
 				84B9FFBD1A9513DC0067236A /* hero.png in Resources */,
 				A58AD3921D3FBB8500088600 /* GameScene.sks in Resources */,
-				A5D3CA851D3697640005CB4E /* 3.png in Resources */,
-				A5D3CA831D36919A0005CB4E /* 2.png in Resources */,
 				84CEB5921A95269A0040B95F /* heroBreath.png in Resources */,
+				A58AD3A41D3FBEC300088600 /* main.wav in Resources */,
 				8412DE531AA4E7DA0089610F /* Main.storyboard in Resources */,
 				84E960F91A7D1D4100E3312D /* Images.xcassets in Resources */,
+				A58AD39B1D3FBE7B00088600 /* 2.png in Resources */,
+				A58AD39A1D3FBE7B00088600 /* 1.png in Resources */,
+				A58AD39C1D3FBE7B00088600 /* 3.png in Resources */,
 				84CEB58C1A951E0A0040B95F /* heroStand.png in Resources */,
-				A5D3CA811D36913A0005CB4E /* 1.png in Resources */,
+				A58AD3A01D3FBE7B00088600 /* pause.png in Resources */,
 				A58AD3901D3FBB3100088600 /* shape.png in Resources */,
-				A5DE08AD1D3594FF00036A63 /* back.png in Resources */,
+				A58AD39D1D3FBE7B00088600 /* back.png in Resources */,
 				84E6B5C61AA1F2C1007DAD72 /* maskForBasket.png in Resources */,
-				A5DBF7ED1D3D1D7F00A8A522 /* b27fdfb4f3e2bc5bd38d21b93b25dead.png in Resources */,
 				84B9FFBF1A95181A0067236A /* build2.png in Resources */,
-				A58AD38E1D3FB35B00088600 /* main.wav in Resources */,
-				A5D534FF1D3F9F6F009A2E39 /* EscapeFail.wav in Resources */,
+				A58AD39E1D3FBE7B00088600 /* build.png in Resources */,
+				A58AD39F1D3FBE7B00088600 /* menu.png in Resources */,
 				84CEB58E1A951E0A0040B95F /* heroJump.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
