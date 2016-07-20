@@ -136,6 +136,9 @@ class Hero : SKSpriteNode
     
     func jump(target: CGPoint)
     {
+        if (scene == nil){
+            return
+        }
         if self.physicsBody!.velocity.length() < 0.1         {
             
             (scene as! GameScene?)?.sound(.Jump)

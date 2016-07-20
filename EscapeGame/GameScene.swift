@@ -112,18 +112,23 @@ var isRestarted : Bool = false
         view.showsPhysics = false
         physicsWorld.gravity = CGVectorMake(0, -14.8)
         score = SKLabelNode(fontNamed: "Hiragino Kaku Gothic ProN W3")
-        score.position = CGPointMake(CGRectGetMidX(playableArea), CGRectGetMaxY(playableArea) - 200)
-       
+        score.position = CGPointMake(CGRectGetMidX(playableArea), CGRectGetMaxY(playableArea) - 320)
+        
         score.fontSize = _scoreFontSize
         score.text = " "
         self.delegate = nil
         score.fontColor = UIColor.blackColor()
         addChild(score)
+        assert(hero.physicsBody != nil)
+        assert(hero.basket.physicsBody != nil)
         physicsWorld.addJoint(SKPhysicsJointFixed.jointWithBodyA(hero.physicsBody!, bodyB: hero.basket.physicsBody!, anchor: CGPointZero))
+        assert(hero.physicsBody != nil)
+        assert(hero.basket.physicsBody != nil)
     }
     
     func prepareScene()
     {
+        _countOfBuilds = 0;
         let maxAspectRatio : CGFloat = 16/9;
         let maximumHeight = size.width / maxAspectRatio
         let margin = (size.height - maximumHeight) / 2
@@ -223,8 +228,6 @@ var isRestarted : Bool = false
     
         let fixJoint = SKPhysicsJointFixed.jointWithBodyA(backgroundLayer.physicsBody!, bodyB: build.physicsBody!, anchor: CGPointZero)
         physicsWorld.addJoint(fixJoint)
-        print(build.size.height);
-
 
     }
     
@@ -329,7 +332,7 @@ var isRestarted : Bool = false
         }
         
         if chain.parent != nil{
-        chain.updateState()
+            chain.updateState()
         }
     }
     
@@ -360,9 +363,9 @@ var isRestarted : Bool = false
             
             if spawnChainOneTime
             {
-            restartChain()
-            increaseScore()
-            spawnChainOneTime = false
+                restartChain()
+                increaseScore()
+                spawnChainOneTime = false
             }
             if contact.bodyA.categoryBitMask == PhysicsCategory.Hero
             {

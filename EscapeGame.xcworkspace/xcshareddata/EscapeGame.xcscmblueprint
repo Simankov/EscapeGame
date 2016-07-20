@@ -1,0 +1,156 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "D5346B8EBC6ABFAB628812573555CCD898D20E0F",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "999D2B244F4BEADDDD09CD5EE2574031B24F399A" : 0,
+    "A698FCA6D3191810D18CE470F6A4FA2E03B727FB" : 0,
+    "EAB0720AC0491EAEA46DBE5D94B6942417734548" : 0,
+    "0DBCB5BF30B1918BB193FE3FABF5A01424B24016" : 0,
+    "E7A02587A547595149CF86C0EBDB9860F0B6C999" : 0,
+    "4CF44D1A8A7DDF050A90A556DECBC1E119D63AE5" : 0,
+    "D5346B8EBC6ABFAB628812573555CCD898D20E0F" : 0,
+    "52029122B5BBFB91B393EC96F6D84F7C81F9F191" : 0,
+    "3F8012DB8278C2C550CD56F92548D5049BC62F09" : 0,
+    "917334F59893EBD87714E5D8703B1F3AE47154F0" : 0,
+    "6B5EA38954E0885A6899D949117E94A70098F1AB" : 0,
+    "C861FC00CEE0F6A6BE81FCFF6785FAA78C58EBB3" : 0,
+    "ECFF97C7085E758E76254953D5CFA588773A129F" : 0,
+    "67620B5EFA902936DF04070AF595B76AB0333747" : 0,
+    "BADA5BBA47957E79D23EEC2252C812D67AB5A5CA" : 0,
+    "4DDCFFD91B41F00326AD14553BD66CFD366ABD91" : 0,
+    "FAF40D7FD305BB7D5BE5F87AE969BD7D31922D57" : 0,
+    "8A15A8EA0B3D0B497C4883425BC74DF995224BB3" : 0,
+    "29913E7A486F1896C3E0CC9FE851CF6B5BD5FB37" : 0,
+    "2FE140B36B7D26140DC8D5E5C639DC5900EFCF35" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "A56A2651-B921-4FE0-A85F-2E1F1FE1D529",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "999D2B244F4BEADDDD09CD5EE2574031B24F399A" : "Desktop\/Documents\/Gorillas\/External\/Pearl\/External\/cocos2d-iphone\/external\/Chipmunk\/",
+    "A698FCA6D3191810D18CE470F6A4FA2E03B727FB" : "Desktop\/Documents\/Gorillas\/",
+    "EAB0720AC0491EAEA46DBE5D94B6942417734548" : "Desktop\/Documents\/SwiftWeather\/",
+    "0DBCB5BF30B1918BB193FE3FABF5A01424B24016" : "Desktop\/Documents\/Checklists\/",
+    "E7A02587A547595149CF86C0EBDB9860F0B6C999" : "Desktop\/Documents\/spritekit-ropes\/",
+    "4CF44D1A8A7DDF050A90A556DECBC1E119D63AE5" : "Desktop\/Univ\/",
+    "D5346B8EBC6ABFAB628812573555CCD898D20E0F" : "escape",
+    "52029122B5BBFB91B393EC96F6D84F7C81F9F191" : "Desktop\/Documents\/Gorillas\/External\/Pearl\/External\/cocos2d-iphone\/",
+    "3F8012DB8278C2C550CD56F92548D5049BC62F09" : "Desktop\/Documents\/Gorillas\/External\/Pearl\/External\/cocos2d-iphone\/tests\/cocos2d-js-tests\/",
+    "917334F59893EBD87714E5D8703B1F3AE47154F0" : "Desktop\/Documents\/Gorillas\/External\/Pearl\/External\/iOSPorts\/",
+    "6B5EA38954E0885A6899D949117E94A70098F1AB" : "Desktop\/Documents\/serverhouse\/",
+    "C861FC00CEE0F6A6BE81FCFF6785FAA78C58EBB3" : "Desktop\/Documents\/SwiftyJSON\/",
+    "ECFF97C7085E758E76254953D5CFA588773A129F" : "Desktop\/Documents\/Gorillas\/External\/Pearl\/External\/cocos2d-iphone\/external\/CCBReader\/",
+    "67620B5EFA902936DF04070AF595B76AB0333747" : "Desktop\/Documents\/Alamofire\/",
+    "BADA5BBA47957E79D23EEC2252C812D67AB5A5CA" : "Desktop\/Documents\/Gorillas\/External\/Pearl\/External\/TouchJSON\/",
+    "4DDCFFD91B41F00326AD14553BD66CFD366ABD91" : "Desktop\/Documents\/Gorillas\/External\/Pearl\/",
+    "FAF40D7FD305BB7D5BE5F87AE969BD7D31922D57" : "Desktop\/Documents\/Gorillas\/External\/Pearl\/External\/ASIHttpRequest\/",
+    "8A15A8EA0B3D0B497C4883425BC74DF995224BB3" : "Desktop\/Documents\/Gorillas\/External\/Pearl\/External\/jrswizzle\/",
+    "29913E7A486F1896C3E0CC9FE851CF6B5BD5FB37" : "Desktop\/Documents\/HackerNews\/",
+    "2FE140B36B7D26140DC8D5E5C639DC5900EFCF35" : "Desktop\/Documents\/Gorillas\/External\/Pearl\/External\/uicolor-utilities\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "EscapeGame",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "EscapeGame.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/slmkarta_\/checklist.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0DBCB5BF30B1918BB193FE3FABF5A01424B24016"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/amitburst\/HackerNews.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "29913E7A486F1896C3E0CC9FE851CF6B5BD5FB37"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "git:\/\/github.com\/lhunath\/uicolor-utilities.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2FE140B36B7D26140DC8D5E5C639DC5900EFCF35"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "git:\/\/github.com\/cocos2d\/cocos2d-js-tests.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3F8012DB8278C2C550CD56F92548D5049BC62F09"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Simankov\/LanguageLearning.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4CF44D1A8A7DDF050A90A556DECBC1E119D63AE5"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "git:\/\/github.com\/Lyndir\/Pearl.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4DDCFFD91B41F00326AD14553BD66CFD366ABD91"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "git:\/\/github.com\/lhunath\/cocos2d-iphone.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "52029122B5BBFB91B393EC96F6D84F7C81F9F191"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Alamofire\/Alamofire.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "67620B5EFA902936DF04070AF595B76AB0333747"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/pmpu\/serverhouse.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6B5EA38954E0885A6899D949117E94A70098F1AB"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "git:\/\/github.com\/jonmarimba\/jrswizzle.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8A15A8EA0B3D0B497C4883425BC74DF995224BB3"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "git:\/\/github.com\/lhunath\/iOSPorts.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "917334F59893EBD87714E5D8703B1F3AE47154F0"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "git:\/\/github.com\/slembcke\/Chipmunk-Physics.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "999D2B244F4BEADDDD09CD5EE2574031B24F399A"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Lyndir\/Gorillas.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A698FCA6D3191810D18CE470F6A4FA2E03B727FB"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "git:\/\/github.com\/TouchCode\/TouchJSON.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "BADA5BBA47957E79D23EEC2252C812D67AB5A5CA"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/SwiftyJSON\/SwiftyJSON.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C861FC00CEE0F6A6BE81FCFF6785FAA78C58EBB3"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "ssh:\/\/bitbucket.org\/slmkarta_\/escape.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D5346B8EBC6ABFAB628812573555CCD898D20E0F"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/mraty\/spritekit-ropes.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E7A02587A547595149CF86C0EBDB9860F0B6C999"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/JakeLin\/SwiftWeather.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "EAB0720AC0491EAEA46DBE5D94B6942417734548"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "git:\/\/github.com\/cocos2d\/CCBReader.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "ECFF97C7085E758E76254953D5CFA588773A129F"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "git:\/\/github.com\/pokeb\/asi-http-request.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "FAF40D7FD305BB7D5BE5F87AE969BD7D31922D57"
+    }
+  ]
+}

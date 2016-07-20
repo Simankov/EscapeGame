@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-let _maxHeightBuild: CGFloat  = 800
+let _maxHeightBuild: CGFloat  = 700
 let _minHeightBuild : CGFloat = 260
 let _maxWidthBuild: CGFloat  = 600
 let _minWidthBuild: CGFloat =  256

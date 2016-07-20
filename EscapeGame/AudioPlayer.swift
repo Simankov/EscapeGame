@@ -50,7 +50,7 @@ class AudioPlayer: NSObject, AVAudioPlayerDelegate
     
     private var audioSets: [[TypeOfMusic: String?]] = [
         [.Background: "backgroundMusic.wav", .Jump: "jump.wav", .Fail: "lose.wav", .Menu : nil],
-        [.Background: "EscapeMain.mp3", .Jump: nil, .Fail: "EscapeFail.mp3", .Menu : "EscapeMenu.mp3"]
+        [.Background: "EscapeMain.mp3", .Jump: nil, .Fail: "EscapeFail.wav", .Menu : "EscapeMenu.mp3"]
     ]
     private var currentSet = 1
     private var currentType: TypeOfMusic = .Menu

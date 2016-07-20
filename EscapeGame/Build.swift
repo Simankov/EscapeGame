@@ -22,7 +22,6 @@ var _countOfBuilds = 0;
 
 class Build: SKSpriteNode
  {
-     var antenna : SKSpriteNode = SKSpriteNode(imageNamed: "antenna")
      var number: Int = 0
  init()
   {

@@ -167,9 +167,11 @@ class Chain : SKNode, AVAudioPlayerDelegate{
     
     func getInScene(point: CGPoint) -> CGPoint
     {
-      
+        if let scene = scene {
         let pointInScene =  (scene as! GameScene).convertPoint(point, fromNode: self)
         return pointInScene
+        }
+        return CGPoint();
     }
 
     

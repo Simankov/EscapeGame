@@ -13,6 +13,7 @@ import UIKit
 protocol restartGameDelegate: class
 {
    func   gameRestarted()
+    func menuPressed()
 }
 
 class MenuViewController: UIViewController, viewEndGameDelegate, restartGameDelegate {
@@ -33,11 +34,13 @@ class MenuViewController: UIViewController, viewEndGameDelegate, restartGameDele
     
     func gameRestarted() {
         
-        gameViewController = nil
-        gameViewController = self.storyboard!.instantiateViewControllerWithIdentifier("GameViewController") as? GameViewController
+            gameViewController = self.storyboard!.instantiateViewControllerWithIdentifier("GameViewController") as? GameViewController
         gameViewController?.delegate = self
-       
-        endGameViewController?.view.window?.rootViewController = gameViewController
+//        gameViewController?.resetViewController()
+        navigationController?.dismissViewControllerAnimated(false, completion: nil)
+        self.presentViewController(self.gameViewController!, animated: false, completion: nil)
+//        UIApplication.sharedApplication().windows[0].rootViewController = gameViewController!
+        
         audioPlayer.play(.Background)
     }
 
@@ -45,9 +48,10 @@ class MenuViewController: UIViewController, viewEndGameDelegate, restartGameDele
         
         
         
-        endGameViewController = self.storyboard!.instantiateViewControllerWithIdentifier("EndGameViewController") as? EndGameViewController
+        endGameViewController = self.storyboard!.instantiateViewControllerWithIdentifier("EndGameViewControllerv2") as? EndGameViewController
         endGameViewController?.delegate = self
-        gameViewController?.view.window?.rootViewController = endGameViewController
+        endGameViewController?.gameVC = gameViewController
+        gameViewController?.presentViewController(endGameViewController!, animated: false, completion: nil)
         audioPlayer.play(.Menu)
         
        
@@ -55,13 +59,19 @@ class MenuViewController: UIViewController, viewEndGameDelegate, restartGameDele
       
     }
     
+    func menuPressed() {
+        navigationController?.dismissViewControllerAnimated(false, completion: nil)
+    }
+    
+    func gameResumed(){
+        gameViewController?.resumeGame();
+    }
+    
     @IBAction func startNewGame()
     {
         gameViewController = self.storyboard!.instantiateViewControllerWithIdentifier("GameViewController") as? GameViewController
-        parent = self
-        gameViewController!.delegate = self
-        
-        self.view.window?.rootViewController = gameViewController
+        gameViewController?.delegate = self
+        self.presentViewController(gameViewController!, animated: false, completion: nil)
         audioPlayer.play(.Background)
     }
     
