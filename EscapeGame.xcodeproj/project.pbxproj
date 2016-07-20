@@ -42,7 +42,7 @@
 		A58AD3A01D3FBE7B00088600 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = A58AD3991D3FBE7B00088600 /* pause.png */; settings = {ASSET_TAGS = (); }; };
 		A58AD3A31D3FBEC300088600 /* EscapeFail.wav in Resources */ = {isa = PBXBuildFile; fileRef = A58AD3A11D3FBEC300088600 /* EscapeFail.wav */; settings = {ASSET_TAGS = (); }; };
 		A58AD3A41D3FBEC300088600 /* main.wav in Resources */ = {isa = PBXBuildFile; fileRef = A58AD3A21D3FBEC300088600 /* main.wav */; settings = {ASSET_TAGS = (); }; };
-		A5DE08AF1D3657F200036A63 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5DE08AE1D3657F200036A63 /* GoogleMobileAds.framework */; };
+		A5D68A3F1D403423009DD962 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5D68A3E1D403423009DD962 /* GoogleMobileAds.framework */; settings = {ASSET_TAGS = (); }; };
 		A5F4F76E1D366D1800E376F6 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F4F76D1D366D1800E376F6 /* libz.tbd */; };
 		A5F4F7701D366E8000E376F6 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F4F76F1D366E8000E376F6 /* CoreBluetooth.framework */; };
 		A5F4F7721D366E8600E376F6 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F4F7711D366E8600E376F6 /* MediaPlayer.framework */; };
@@ -124,7 +124,7 @@
 		A58AD3991D3FBE7B00088600 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
 		A58AD3A11D3FBEC300088600 /* EscapeFail.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = EscapeFail.wav; sourceTree = "<group>"; };
 		A58AD3A21D3FBEC300088600 /* main.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = main.wav; sourceTree = "<group>"; };
-		A5DE08AE1D3657F200036A63 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = ../../Desktop/GoogleMobileAds.framework; sourceTree = "<group>"; };
+		A5D68A3E1D403423009DD962 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		A5F4F76D1D366D1800E376F6 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		A5F4F76F1D366E8000E376F6 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		A5F4F7711D366E8600E376F6 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
@@ -161,8 +161,8 @@
 				A5F4F7721D366E8600E376F6 /* MediaPlayer.framework in Frameworks */,
 				A5F4F7701D366E8000E376F6 /* CoreBluetooth.framework in Frameworks */,
 				A5F4F76E1D366D1800E376F6 /* libz.tbd in Frameworks */,
-				A5DE08AF1D3657F200036A63 /* GoogleMobileAds.framework in Frameworks */,
 				84042D0A1AA369CE006BCE23 /* AVFoundation.framework in Frameworks */,
+				A5D68A3F1D403423009DD962 /* GoogleMobileAds.framework in Frameworks */,
 				F629A3B699CFBEDFC7427C60 /* libPods-EscapeGame.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -235,6 +235,7 @@
 		84E960EA1A7D1D4000E3312D /* EscapeGame */ = {
 			isa = PBXGroup;
 			children = (
+				A5D68A3E1D403423009DD962 /* GoogleMobileAds.framework */,
 				84E961111A7D264C00E3312D /* Images */,
 				84E960ED1A7D1D4000E3312D /* AppDelegate.swift */,
 				849628E71A86259300131520 /* Chain.swift */,
@@ -242,7 +243,6 @@
 				84E6B5C71AA21DE2007DAD72 /* Constants.swift */,
 				849628E31A8602ED00131520 /* Hero.swift */,
 				847DCA1E1AADA7C700152965 /* AudioPlayer.swift */,
-				A5DE08AE1D3657F200036A63 /* GoogleMobileAds.framework */,
 				840D4E0C1A838EAF00B639CC /* Build.swift */,
 				84FD1D281AA3C3AF008B656F /* GameViewController.swift */,
 				8450F5001AA50F92000F8402 /* EndGameViewController.swift */,
@@ -616,6 +616,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/sergey/Desktop,
+					"$(PROJECT_DIR)/EscapeGame",
 				);
 				INFOPLIST_FILE = EscapeGame/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -632,6 +633,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/sergey/Desktop,
+					"$(PROJECT_DIR)/EscapeGame",
 				);
 				INFOPLIST_FILE = EscapeGame/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
