@@ -50,12 +50,12 @@ class AudioPlayer: NSObject, AVAudioPlayerDelegate
     
     private var audioSets: [[TypeOfMusic: String?]] = [
         [.Background: "backgroundMusic.wav", .Jump: "jump.wav", .Fail: "lose.wav", .Menu : nil],
-        [.Background: "EscapeMain.mp3", .Jump: nil, .Fail: "EscapeFail.wav", .Menu : "EscapeMenu.mp3"]
+        [.Background: "main.wav", .Jump: nil, .Fail: "EscapeFail.wav", .Menu : "main.wav"]
     ]
     private var currentSet = 1
-    private var currentType: TypeOfMusic = .Menu
+    private var currentType: TypeOfMusic = .Background
     
-    private func audioPlayerDidFinishPlaying(player: AVAudioPlayer!, successfully flag: Bool) {
+    @objc internal func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
         switch(currentType)
         {
         case .Background, .Menu:
@@ -73,6 +73,10 @@ class AudioPlayer: NSObject, AVAudioPlayerDelegate
         }
         if ((type == TypeOfMusic.Fail || type == TypeOfMusic.Jump) && (!isEffectsEnabled)){
             return;
+        }
+        if (player != nil && player.currentTime > 0){
+            player.play();
+            return
         }
         let currentAudioSet = audioSets[currentSet]
         
@@ -118,7 +122,7 @@ class AudioPlayer: NSObject, AVAudioPlayerDelegate
     func musicSwitched(){
         if (isPlaying()){
             isMusicEnabled = false;
-            stop();
+            player.pause();
         } else {
             isMusicEnabled = true;
             play();

@@ -52,7 +52,6 @@ class GameViewController: UIViewController, viewEndGameDelegate {
         scene.viewDelegate = self
         /* Set the scale mode to scale to fit the window */
         scene.scaleMode = .AspectFill
-        audioPlayer.play(.Background)
         skView.presentScene(scene)
 
     }

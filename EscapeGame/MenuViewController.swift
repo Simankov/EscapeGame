@@ -29,7 +29,7 @@ class MenuViewController: UIViewController, viewEndGameDelegate, restartGameDele
     
     override func viewDidLoad() {
         super.viewDidLoad();
-        audioPlayer.play(.Menu)
+        audioPlayer.play(.Background)
     }
     
     func gameRestarted() {
@@ -52,7 +52,6 @@ class MenuViewController: UIViewController, viewEndGameDelegate, restartGameDele
         endGameViewController?.delegate = self
         endGameViewController?.gameVC = gameViewController
         gameViewController?.presentViewController(endGameViewController!, animated: false, completion: nil)
-        audioPlayer.play(.Menu)
         
        
         
@@ -72,7 +71,7 @@ class MenuViewController: UIViewController, viewEndGameDelegate, restartGameDele
         gameViewController = self.storyboard!.instantiateViewControllerWithIdentifier("GameViewController") as? GameViewController
         gameViewController?.delegate = self
         self.presentViewController(gameViewController!, animated: false, completion: nil)
-        audioPlayer.play(.Background)
+        
     }
     
     @IBAction func settingButtonEnabled()

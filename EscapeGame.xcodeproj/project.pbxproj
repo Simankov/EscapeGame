@@ -8,31 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		84042D0A1AA369CE006BCE23 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84042D091AA369CE006BCE23 /* AVFoundation.framework */; };
-		840D4E0B1A82D1C600B639CC /* shape.png in Resources */ = {isa = PBXBuildFile; fileRef = 840D4E0A1A82D1C600B639CC /* shape.png */; };
 		840D4E0D1A838EAF00B639CC /* Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840D4E0C1A838EAF00B639CC /* Build.swift */; };
 		8412DE531AA4E7DA0089610F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8412DE511AA4E7DA0089610F /* Main.storyboard */; };
 		842E8E221A87B10E0082E95B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842E8E211A87B10E0082E95B /* Extensions.swift */; };
 		8450F5011AA50F92000F8402 /* EndGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8450F5001AA50F92000F8402 /* EndGameViewController.swift */; };
-		847DCA1A1AADA2E200152965 /* EscapeMain.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 847DCA171AADA2E200152965 /* EscapeMain.mp3 */; };
-		847DCA1B1AADA2E200152965 /* EscapeMenu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 847DCA181AADA2E200152965 /* EscapeMenu.mp3 */; };
 		847DCA1F1AADA7C700152965 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847DCA1E1AADA7C700152965 /* AudioPlayer.swift */; };
 		849628E41A8602ED00131520 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849628E31A8602ED00131520 /* Hero.swift */; };
 		849628E81A86259300131520 /* Chain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849628E71A86259300131520 /* Chain.swift */; };
-		849A8E891AA45D4D008495F6 /* buttonReset.png in Resources */ = {isa = PBXBuildFile; fileRef = 849A8E881AA45D4D008495F6 /* buttonReset.png */; };
-		849A8E8B1AA45FC8008495F6 /* menuButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 849A8E8A1AA45FC8008495F6 /* menuButton.png */; };
 		84B9FFB91A950D1E0067236A /* rope3.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B9FFB71A950D1E0067236A /* rope3.png */; };
 		84B9FFBD1A9513DC0067236A /* hero.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B9FFBC1A9513DC0067236A /* hero.png */; };
 		84B9FFBF1A95181A0067236A /* build2.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B9FFBE1A95181A0067236A /* build2.png */; };
-		84C06E291AA373F100816DF9 /* backgroundMusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 84C06E251AA373F100816DF9 /* backgroundMusic.wav */; };
-		84C06E2A1AA373F100816DF9 /* jump.wav in Resources */ = {isa = PBXBuildFile; fileRef = 84C06E261AA373F100816DF9 /* jump.wav */; };
-		84C06E2C1AA373F100816DF9 /* menu.wav in Resources */ = {isa = PBXBuildFile; fileRef = 84C06E281AA373F100816DF9 /* menu.wav */; };
 		84CEB58C1A951E0A0040B95F /* heroStand.png in Resources */ = {isa = PBXBuildFile; fileRef = 84CEB5891A951E0A0040B95F /* heroStand.png */; };
 		84CEB58E1A951E0A0040B95F /* heroJump.png in Resources */ = {isa = PBXBuildFile; fileRef = 84CEB58B1A951E0A0040B95F /* heroJump.png */; };
 		84CEB5921A95269A0040B95F /* heroBreath.png in Resources */ = {isa = PBXBuildFile; fileRef = 84CEB5911A95269A0040B95F /* heroBreath.png */; };
 		84E6B5C61AA1F2C1007DAD72 /* maskForBasket.png in Resources */ = {isa = PBXBuildFile; fileRef = 84E6B5C51AA1F2C1007DAD72 /* maskForBasket.png */; };
 		84E6B5C81AA21DE2007DAD72 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E6B5C71AA21DE2007DAD72 /* Constants.swift */; };
 		84E960EE1A7D1D4000E3312D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E960ED1A7D1D4000E3312D /* AppDelegate.swift */; };
-		84E960F01A7D1D4000E3312D /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 84E960EF1A7D1D4000E3312D /* GameScene.sks */; };
 		84E960F21A7D1D4000E3312D /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E960F11A7D1D4000E3312D /* GameScene.swift */; };
 		84E960F91A7D1D4100E3312D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84E960F81A7D1D4100E3312D /* Images.xcassets */; };
 		84E961081A7D1D4100E3312D /* EscapeGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E961071A7D1D4100E3312D /* EscapeGameTests.swift */; };
@@ -40,12 +31,14 @@
 		84FD1D2D1AA3C3AF008B656F /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FD1D281AA3C3AF008B656F /* GameViewController.swift */; };
 		84FD1D2E1AA3C3AF008B656F /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FD1D291AA3C3AF008B656F /* MenuViewController.swift */; };
 		84FD1D2F1AA3C3AF008B656F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FD1D2A1AA3C3AF008B656F /* SettingsViewController.swift */; };
+		A58AD38E1D3FB35B00088600 /* main.wav in Resources */ = {isa = PBXBuildFile; fileRef = A58AD38D1D3FB35B00088600 /* main.wav */; settings = {ASSET_TAGS = (); }; };
+		A58AD3901D3FBB3100088600 /* shape.png in Resources */ = {isa = PBXBuildFile; fileRef = A58AD38F1D3FBB3100088600 /* shape.png */; settings = {ASSET_TAGS = (); }; };
+		A58AD3921D3FBB8500088600 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A58AD3911D3FBB8500088600 /* GameScene.sks */; settings = {ASSET_TAGS = (); }; };
 		A5D3CA811D36913A0005CB4E /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = A5D3CA801D36913A0005CB4E /* 1.png */; settings = {ASSET_TAGS = (); }; };
 		A5D3CA831D36919A0005CB4E /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = A5D3CA821D36919A0005CB4E /* 2.png */; settings = {ASSET_TAGS = (); }; };
 		A5D3CA851D3697640005CB4E /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = A5D3CA841D3697640005CB4E /* 3.png */; settings = {ASSET_TAGS = (); }; };
 		A5D3CA871D3825710005CB4E /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = A5D3CA861D3825710005CB4E /* pause.png */; settings = {ASSET_TAGS = (); }; };
 		A5D534FF1D3F9F6F009A2E39 /* EscapeFail.wav in Resources */ = {isa = PBXBuildFile; fileRef = A5D534FE1D3F9F6F009A2E39 /* EscapeFail.wav */; settings = {ASSET_TAGS = (); }; };
-		A5D857B41D395FF600795863 /* PauseGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D857B31D395FF600795863 /* PauseGameView.swift */; settings = {ASSET_TAGS = (); }; };
 		A5DBF7ED1D3D1D7F00A8A522 /* b27fdfb4f3e2bc5bd38d21b93b25dead.png in Resources */ = {isa = PBXBuildFile; fileRef = A5DBF7EC1D3D1D7F00A8A522 /* b27fdfb4f3e2bc5bd38d21b93b25dead.png */; settings = {ASSET_TAGS = (); }; };
 		A5DE08AD1D3594FF00036A63 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = A5DE08AC1D3594FF00036A63 /* back.png */; };
 		A5DE08AF1D3657F200036A63 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5DE08AE1D3657F200036A63 /* GoogleMobileAds.framework */; };
@@ -91,24 +84,16 @@
 /* Begin PBXFileReference section */
 		204987971BC81CAE48288C52 /* libPods-EscapeGame.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EscapeGame.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84042D091AA369CE006BCE23 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		840D4E0A1A82D1C600B639CC /* shape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shape.png; sourceTree = "<group>"; };
 		840D4E0C1A838EAF00B639CC /* Build.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Build.swift; sourceTree = "<group>"; };
 		8412DE521AA4E7DA0089610F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = EscapeGame/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		842E8E211A87B10E0082E95B /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = ../Extensions.swift; sourceTree = "<group>"; };
 		8450F5001AA50F92000F8402 /* EndGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndGameViewController.swift; sourceTree = "<group>"; };
-		847DCA171AADA2E200152965 /* EscapeMain.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = EscapeMain.mp3; sourceTree = "<group>"; };
-		847DCA181AADA2E200152965 /* EscapeMenu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = EscapeMenu.mp3; sourceTree = "<group>"; };
 		847DCA1E1AADA7C700152965 /* AudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		849628E31A8602ED00131520 /* Hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
 		849628E71A86259300131520 /* Chain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chain.swift; sourceTree = "<group>"; };
-		849A8E881AA45D4D008495F6 /* buttonReset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonReset.png; sourceTree = "<group>"; };
-		849A8E8A1AA45FC8008495F6 /* menuButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuButton.png; sourceTree = "<group>"; };
 		84B9FFB71A950D1E0067236A /* rope3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rope3.png; sourceTree = "<group>"; };
 		84B9FFBC1A9513DC0067236A /* hero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hero.png; sourceTree = "<group>"; };
 		84B9FFBE1A95181A0067236A /* build2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = build2.png; sourceTree = "<group>"; };
-		84C06E251AA373F100816DF9 /* backgroundMusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = backgroundMusic.wav; sourceTree = "<group>"; };
-		84C06E261AA373F100816DF9 /* jump.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = jump.wav; sourceTree = "<group>"; };
-		84C06E281AA373F100816DF9 /* menu.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = menu.wav; sourceTree = "<group>"; };
 		84CEB5891A951E0A0040B95F /* heroStand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heroStand.png; sourceTree = "<group>"; };
 		84CEB58B1A951E0A0040B95F /* heroJump.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heroJump.png; sourceTree = "<group>"; };
 		84CEB5911A95269A0040B95F /* heroBreath.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heroBreath.png; sourceTree = "<group>"; };
@@ -117,7 +102,6 @@
 		84E960E81A7D1D4000E3312D /* EscapeGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EscapeGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84E960EC1A7D1D4000E3312D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84E960ED1A7D1D4000E3312D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		84E960EF1A7D1D4000E3312D /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		84E960F11A7D1D4000E3312D /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		84E960F81A7D1D4100E3312D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		84E961011A7D1D4100E3312D /* EscapeGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EscapeGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,12 +112,14 @@
 		84FD1D291AA3C3AF008B656F /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		84FD1D2A1AA3C3AF008B656F /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		9FB9A7536090ACBE6F97B056 /* Pods-EscapeGame.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EscapeGame.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EscapeGame/Pods-EscapeGame.debug.xcconfig"; sourceTree = "<group>"; };
+		A58AD38D1D3FB35B00088600 /* main.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = main.wav; path = ../../../Desktop/main.wav; sourceTree = "<group>"; };
+		A58AD38F1D3FBB3100088600 /* shape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shape.png; sourceTree = "<group>"; };
+		A58AD3911D3FBB8500088600 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		A5D3CA801D36913A0005CB4E /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 1.png; path = ../../../Desktop/1.png; sourceTree = "<group>"; };
 		A5D3CA821D36919A0005CB4E /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 2.png; path = ../../../Desktop/2.png; sourceTree = "<group>"; };
 		A5D3CA841D3697640005CB4E /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 3.png; path = ../../../Desktop/3.png; sourceTree = "<group>"; };
 		A5D3CA861D3825710005CB4E /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pause.png; path = ../../../Desktop/pause.png; sourceTree = "<group>"; };
 		A5D534FE1D3F9F6F009A2E39 /* EscapeFail.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = EscapeFail.wav; path = ../../../Desktop/Downloads/EscapeFail.wav; sourceTree = "<group>"; };
-		A5D857B31D395FF600795863 /* PauseGameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PauseGameView.swift; sourceTree = "<group>"; };
 		A5DBF7EC1D3D1D7F00A8A522 /* b27fdfb4f3e2bc5bd38d21b93b25dead.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = b27fdfb4f3e2bc5bd38d21b93b25dead.png; path = ../../../Desktop/b27fdfb4f3e2bc5bd38d21b93b25dead.png; sourceTree = "<group>"; };
 		A5DE08AC1D3594FF00036A63 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back.png; path = Images/back.png; sourceTree = SOURCE_ROOT; };
 		A5DE08AE1D3657F200036A63 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = ../../Desktop/GoogleMobileAds.framework; sourceTree = "<group>"; };
@@ -214,23 +200,11 @@
 		847DCA151AADA2E200152965 /* EscapeSound */ = {
 			isa = PBXGroup;
 			children = (
+				A58AD38D1D3FB35B00088600 /* main.wav */,
 				A5D534FE1D3F9F6F009A2E39 /* EscapeFail.wav */,
-				847DCA171AADA2E200152965 /* EscapeMain.mp3 */,
-				847DCA181AADA2E200152965 /* EscapeMenu.mp3 */,
 			);
 			name = EscapeSound;
 			path = EscapeGame/EscapeSound;
-			sourceTree = "<group>";
-		};
-		84C06E241AA373F100816DF9 /* Music */ = {
-			isa = PBXGroup;
-			children = (
-				84C06E251AA373F100816DF9 /* backgroundMusic.wav */,
-				84C06E261AA373F100816DF9 /* jump.wav */,
-				84C06E281AA373F100816DF9 /* menu.wav */,
-			);
-			name = Music;
-			path = EscapeGame/Music;
 			sourceTree = "<group>";
 		};
 		84E960DF1A7D1D4000E3312D = {
@@ -238,7 +212,6 @@
 			children = (
 				847DCA151AADA2E200152965 /* EscapeSound */,
 				84FD1D261AA3C3AF008B656F /* Convertation.swift */,
-				84C06E241AA373F100816DF9 /* Music */,
 				84E960EA1A7D1D4000E3312D /* EscapeGame */,
 				84E961041A7D1D4100E3312D /* EscapeGameTests */,
 				84E960E91A7D1D4000E3312D /* Products */,
@@ -262,7 +235,6 @@
 			children = (
 				84E961111A7D264C00E3312D /* Images */,
 				84E960ED1A7D1D4000E3312D /* AppDelegate.swift */,
-				84E960EF1A7D1D4000E3312D /* GameScene.sks */,
 				849628E71A86259300131520 /* Chain.swift */,
 				84E960F11A7D1D4000E3312D /* GameScene.swift */,
 				84E6B5C71AA21DE2007DAD72 /* Constants.swift */,
@@ -271,7 +243,6 @@
 				A5DE08AE1D3657F200036A63 /* GoogleMobileAds.framework */,
 				840D4E0C1A838EAF00B639CC /* Build.swift */,
 				84FD1D281AA3C3AF008B656F /* GameViewController.swift */,
-				A5D857B31D395FF600795863 /* PauseGameView.swift */,
 				8450F5001AA50F92000F8402 /* EndGameViewController.swift */,
 				84FD1D291AA3C3AF008B656F /* MenuViewController.swift */,
 				84FD1D2A1AA3C3AF008B656F /* SettingsViewController.swift */,
@@ -279,6 +250,7 @@
 				8412DE511AA4E7DA0089610F /* Main.storyboard */,
 				84E960F81A7D1D4100E3312D /* Images.xcassets */,
 				84E960EB1A7D1D4000E3312D /* Supporting Files */,
+				A58AD3911D3FBB8500088600 /* GameScene.sks */,
 			);
 			path = EscapeGame;
 			sourceTree = "<group>";
@@ -311,14 +283,13 @@
 		84E961111A7D264C00E3312D /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				A58AD38F1D3FBB3100088600 /* shape.png */,
 				A5DBF7EC1D3D1D7F00A8A522 /* b27fdfb4f3e2bc5bd38d21b93b25dead.png */,
 				A5D3CA861D3825710005CB4E /* pause.png */,
 				A5D3CA841D3697640005CB4E /* 3.png */,
 				A5D3CA821D36919A0005CB4E /* 2.png */,
 				A5D3CA801D36913A0005CB4E /* 1.png */,
 				A5DE08AC1D3594FF00036A63 /* back.png */,
-				849A8E8A1AA45FC8008495F6 /* menuButton.png */,
-				849A8E881AA45D4D008495F6 /* buttonReset.png */,
 				84E6B5C51AA1F2C1007DAD72 /* maskForBasket.png */,
 				84CEB5911A95269A0040B95F /* heroBreath.png */,
 				84CEB5891A951E0A0040B95F /* heroStand.png */,
@@ -326,7 +297,6 @@
 				84B9FFBE1A95181A0067236A /* build2.png */,
 				84B9FFBC1A9513DC0067236A /* hero.png */,
 				84B9FFB71A950D1E0067236A /* rope3.png */,
-				840D4E0A1A82D1C600B639CC /* shape.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -427,30 +397,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				84B9FFB91A950D1E0067236A /* rope3.png in Resources */,
-				84C06E2A1AA373F100816DF9 /* jump.wav in Resources */,
 				A5D3CA871D3825710005CB4E /* pause.png in Resources */,
 				84B9FFBD1A9513DC0067236A /* hero.png in Resources */,
+				A58AD3921D3FBB8500088600 /* GameScene.sks in Resources */,
 				A5D3CA851D3697640005CB4E /* 3.png in Resources */,
-				840D4E0B1A82D1C600B639CC /* shape.png in Resources */,
 				A5D3CA831D36919A0005CB4E /* 2.png in Resources */,
 				84CEB5921A95269A0040B95F /* heroBreath.png in Resources */,
-				84C06E2C1AA373F100816DF9 /* menu.wav in Resources */,
 				8412DE531AA4E7DA0089610F /* Main.storyboard in Resources */,
-				847DCA1A1AADA2E200152965 /* EscapeMain.mp3 in Resources */,
 				84E960F91A7D1D4100E3312D /* Images.xcassets in Resources */,
-				84E960F01A7D1D4000E3312D /* GameScene.sks in Resources */,
 				84CEB58C1A951E0A0040B95F /* heroStand.png in Resources */,
 				A5D3CA811D36913A0005CB4E /* 1.png in Resources */,
+				A58AD3901D3FBB3100088600 /* shape.png in Resources */,
 				A5DE08AD1D3594FF00036A63 /* back.png in Resources */,
-				849A8E8B1AA45FC8008495F6 /* menuButton.png in Resources */,
-				849A8E891AA45D4D008495F6 /* buttonReset.png in Resources */,
 				84E6B5C61AA1F2C1007DAD72 /* maskForBasket.png in Resources */,
-				847DCA1B1AADA2E200152965 /* EscapeMenu.mp3 in Resources */,
 				A5DBF7ED1D3D1D7F00A8A522 /* b27fdfb4f3e2bc5bd38d21b93b25dead.png in Resources */,
 				84B9FFBF1A95181A0067236A /* build2.png in Resources */,
+				A58AD38E1D3FB35B00088600 /* main.wav in Resources */,
 				A5D534FF1D3F9F6F009A2E39 /* EscapeFail.wav in Resources */,
 				84CEB58E1A951E0A0040B95F /* heroJump.png in Resources */,
-				84C06E291AA373F100816DF9 /* backgroundMusic.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,7 +483,6 @@
 				8450F5011AA50F92000F8402 /* EndGameViewController.swift in Sources */,
 				84FD1D2B1AA3C3AF008B656F /* Convertation.swift in Sources */,
 				842E8E221A87B10E0082E95B /* Extensions.swift in Sources */,
-				A5D857B41D395FF600795863 /* PauseGameView.swift in Sources */,
 				84FD1D2E1AA3C3AF008B656F /* MenuViewController.swift in Sources */,
 				849628E81A86259300131520 /* Chain.swift in Sources */,
 				84E960EE1A7D1D4000E3312D /* AppDelegate.swift in Sources */,
