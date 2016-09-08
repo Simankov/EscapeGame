@@ -26,7 +26,6 @@
 		84E960EE1A7D1D4000E3312D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E960ED1A7D1D4000E3312D /* AppDelegate.swift */; };
 		84E960F21A7D1D4000E3312D /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E960F11A7D1D4000E3312D /* GameScene.swift */; };
 		84E960F91A7D1D4100E3312D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84E960F81A7D1D4100E3312D /* Images.xcassets */; };
-		84E961081A7D1D4100E3312D /* EscapeGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E961071A7D1D4100E3312D /* EscapeGameTests.swift */; };
 		84FD1D2B1AA3C3AF008B656F /* Convertation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FD1D261AA3C3AF008B656F /* Convertation.swift */; };
 		84FD1D2D1AA3C3AF008B656F /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FD1D281AA3C3AF008B656F /* GameViewController.swift */; };
 		84FD1D2E1AA3C3AF008B656F /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FD1D291AA3C3AF008B656F /* MenuViewController.swift */; };
@@ -42,6 +41,8 @@
 		A58AD3A01D3FBE7B00088600 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = A58AD3991D3FBE7B00088600 /* pause.png */; settings = {ASSET_TAGS = (); }; };
 		A58AD3A31D3FBEC300088600 /* EscapeFail.wav in Resources */ = {isa = PBXBuildFile; fileRef = A58AD3A11D3FBEC300088600 /* EscapeFail.wav */; settings = {ASSET_TAGS = (); }; };
 		A58AD3A41D3FBEC300088600 /* main.wav in Resources */ = {isa = PBXBuildFile; fileRef = A58AD3A21D3FBEC300088600 /* main.wav */; settings = {ASSET_TAGS = (); }; };
+		A5D624C91D56315300BF45B1 /* EscapeGameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D624C81D56315300BF45B1 /* EscapeGameUITests.swift */; };
+		A5D624D51D56340000BF45B1 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D624D41D56340000BF45B1 /* SnapshotHelper.swift */; settings = {ASSET_TAGS = (); }; };
 		A5D68A3F1D403423009DD962 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5D68A3E1D403423009DD962 /* GoogleMobileAds.framework */; settings = {ASSET_TAGS = (); }; };
 		A5F4F76E1D366D1800E376F6 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F4F76D1D366D1800E376F6 /* libz.tbd */; };
 		A5F4F7701D366E8000E376F6 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F4F76F1D366E8000E376F6 /* CoreBluetooth.framework */; };
@@ -67,6 +68,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 84E960E71A7D1D4000E3312D;
 			remoteInfo = "Nitroglicerin!";
+		};
+		A5D624CB1D56315300BF45B1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84E960E01A7D1D4000E3312D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 84E960E71A7D1D4000E3312D;
+			remoteInfo = EscapeGame;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -107,7 +115,6 @@
 		84E960F81A7D1D4100E3312D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		84E961011A7D1D4100E3312D /* EscapeGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EscapeGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84E961061A7D1D4100E3312D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		84E961071A7D1D4100E3312D /* EscapeGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EscapeGameTests.swift; sourceTree = "<group>"; };
 		84FD1D261AA3C3AF008B656F /* Convertation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Convertation.swift; path = EscapeGame/Convertation.swift; sourceTree = "<group>"; };
 		84FD1D281AA3C3AF008B656F /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		84FD1D291AA3C3AF008B656F /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +131,10 @@
 		A58AD3991D3FBE7B00088600 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
 		A58AD3A11D3FBEC300088600 /* EscapeFail.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = EscapeFail.wav; sourceTree = "<group>"; };
 		A58AD3A21D3FBEC300088600 /* main.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = main.wav; sourceTree = "<group>"; };
+		A5D624C61D56315200BF45B1 /* EscapeGameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EscapeGameUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5D624C81D56315300BF45B1 /* EscapeGameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EscapeGameUITests.swift; sourceTree = "<group>"; };
+		A5D624CA1D56315300BF45B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5D624D41D56340000BF45B1 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		A5D68A3E1D403423009DD962 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		A5F4F76D1D366D1800E376F6 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		A5F4F76F1D366E8000E376F6 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
@@ -174,6 +185,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A5D624C31D56315200BF45B1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -215,7 +233,7 @@
 				847DCA151AADA2E200152965 /* EscapeSound */,
 				84FD1D261AA3C3AF008B656F /* Convertation.swift */,
 				84E960EA1A7D1D4000E3312D /* EscapeGame */,
-				84E961041A7D1D4100E3312D /* EscapeGameTests */,
+				A5D624C71D56315200BF45B1 /* EscapeGameUITests */,
 				84E960E91A7D1D4000E3312D /* Products */,
 				84042D091AA369CE006BCE23 /* AVFoundation.framework */,
 				CB870A364C1C83CDE638DCAA /* Pods */,
@@ -228,6 +246,7 @@
 			children = (
 				84E960E81A7D1D4000E3312D /* EscapeGame.app */,
 				84E961011A7D1D4100E3312D /* EscapeGameTests.xctest */,
+				A5D624C61D56315200BF45B1 /* EscapeGameUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -261,6 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				84E960EC1A7D1D4000E3312D /* Info.plist */,
+				84E961041A7D1D4100E3312D /* EscapeGameTests */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -268,11 +288,10 @@
 		84E961041A7D1D4100E3312D /* EscapeGameTests */ = {
 			isa = PBXGroup;
 			children = (
-				84E961071A7D1D4100E3312D /* EscapeGameTests.swift */,
 				84E961051A7D1D4100E3312D /* Supporting Files */,
 			);
 			path = EscapeGameTests;
-			sourceTree = "<group>";
+			sourceTree = SOURCE_ROOT;
 		};
 		84E961051A7D1D4100E3312D /* Supporting Files */ = {
 			isa = PBXGroup;
@@ -302,6 +321,16 @@
 				84B9FFB71A950D1E0067236A /* rope3.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		A5D624C71D56315200BF45B1 /* EscapeGameUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A5D624D41D56340000BF45B1 /* SnapshotHelper.swift */,
+				A5D624CA1D56315300BF45B1 /* Info.plist */,
+				A5D624C81D56315300BF45B1 /* EscapeGameUITests.swift */,
+			);
+			path = EscapeGameUITests;
 			sourceTree = "<group>";
 		};
 		CB870A364C1C83CDE638DCAA /* Pods */ = {
@@ -355,6 +384,24 @@
 			productReference = 84E961011A7D1D4100E3312D /* EscapeGameTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		A5D624C51D56315200BF45B1 /* EscapeGameUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A5D624CD1D56315300BF45B1 /* Build configuration list for PBXNativeTarget "EscapeGameUITests" */;
+			buildPhases = (
+				A5D624C21D56315200BF45B1 /* Sources */,
+				A5D624C31D56315200BF45B1 /* Frameworks */,
+				A5D624C41D56315200BF45B1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A5D624CC1D56315300BF45B1 /* PBXTargetDependency */,
+			);
+			name = EscapeGameUITests;
+			productName = EscapeGameUITests;
+			productReference = A5D624C61D56315200BF45B1 /* EscapeGameUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -371,6 +418,10 @@
 					};
 					84E961001A7D1D4100E3312D = {
 						CreatedOnToolsVersion = 6.2;
+						TestTargetID = 84E960E71A7D1D4000E3312D;
+					};
+					A5D624C51D56315200BF45B1 = {
+						CreatedOnToolsVersion = 7.0;
 						TestTargetID = 84E960E71A7D1D4000E3312D;
 					};
 				};
@@ -390,6 +441,7 @@
 			targets = (
 				84E960E71A7D1D4000E3312D /* EscapeGame */,
 				84E961001A7D1D4100E3312D /* EscapeGameTests */,
+				A5D624C51D56315200BF45B1 /* EscapeGameUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -423,6 +475,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		84E960FF1A7D1D4100E3312D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5D624C41D56315200BF45B1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -502,7 +561,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84E961081A7D1D4100E3312D /* EscapeGameTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5D624C21D56315200BF45B1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5D624C91D56315300BF45B1 /* EscapeGameUITests.swift in Sources */,
+				A5D624D51D56340000BF45B1 /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -513,6 +580,11 @@
 			isa = PBXTargetDependency;
 			target = 84E960E71A7D1D4000E3312D /* EscapeGame */;
 			targetProxy = 84E961021A7D1D4100E3312D /* PBXContainerItemProxy */;
+		};
+		A5D624CC1D56315300BF45B1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 84E960E71A7D1D4000E3312D /* EscapeGame */;
+			targetProxy = A5D624CB1D56315300BF45B1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -563,7 +635,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -600,7 +672,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -646,6 +718,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -657,6 +730,7 @@
 				INFOPLIST_FILE = EscapeGameTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EscapeGame.app/EscapeGame";
 			};
 			name = Debug;
@@ -665,6 +739,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -673,6 +748,35 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EscapeGame.app/EscapeGame";
+			};
+			name = Release;
+		};
+		A5D624CE1D56315300BF45B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = EscapeGameUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = d.EscapeGameUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = EscapeGame;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		A5D624CF1D56315300BF45B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = EscapeGameUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = d.EscapeGameUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = EscapeGame;
+				USES_XCTRUNNER = YES;
 			};
 			name = Release;
 		};
@@ -702,6 +806,15 @@
 			buildConfigurations = (
 				84E9610F1A7D1D4100E3312D /* Debug */,
 				84E961101A7D1D4100E3312D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A5D624CD1D56315300BF45B1 /* Build configuration list for PBXNativeTarget "EscapeGameUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A5D624CE1D56315300BF45B1 /* Debug */,
+				A5D624CF1D56315300BF45B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
