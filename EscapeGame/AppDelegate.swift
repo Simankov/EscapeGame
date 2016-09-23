@@ -21,6 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         Fabric.with([Crashlytics.self]);
+     
+        let defaultPrefsFile = NSBundle.mainBundle().URLForResource("Defaults", withExtension: "plist")
+        let defaultPrefs = NSDictionary(contentsOfURL: defaultPrefsFile!);
+        NSUserDefaults.standardUserDefaults().registerDefaults(defaultPrefs! as! [String : AnyObject]);
         return true
     }
   

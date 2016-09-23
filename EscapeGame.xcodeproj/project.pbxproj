@@ -44,6 +44,7 @@
 		A5D624C91D56315300BF45B1 /* EscapeGameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D624C81D56315300BF45B1 /* EscapeGameUITests.swift */; };
 		A5D624D51D56340000BF45B1 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D624D41D56340000BF45B1 /* SnapshotHelper.swift */; settings = {ASSET_TAGS = (); }; };
 		A5D68A3F1D403423009DD962 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5D68A3E1D403423009DD962 /* GoogleMobileAds.framework */; settings = {ASSET_TAGS = (); }; };
+		A5DE37AF1D95B18E005965EA /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5DE37AE1D95B18D005965EA /* Defaults.plist */; settings = {ASSET_TAGS = (); }; };
 		A5F4F76E1D366D1800E376F6 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F4F76D1D366D1800E376F6 /* libz.tbd */; };
 		A5F4F7701D366E8000E376F6 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F4F76F1D366E8000E376F6 /* CoreBluetooth.framework */; };
 		A5F4F7721D366E8600E376F6 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F4F7711D366E8600E376F6 /* MediaPlayer.framework */; };
@@ -136,6 +137,7 @@
 		A5D624CA1D56315300BF45B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5D624D41D56340000BF45B1 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		A5D68A3E1D403423009DD962 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
+		A5DE37AE1D95B18D005965EA /* Defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Defaults.plist; sourceTree = "<group>"; };
 		A5F4F76D1D366D1800E376F6 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		A5F4F76F1D366E8000E376F6 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		A5F4F7711D366E8600E376F6 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
@@ -272,6 +274,7 @@
 				84E960F81A7D1D4100E3312D /* Images.xcassets */,
 				84E960EB1A7D1D4000E3312D /* Supporting Files */,
 				A58AD3911D3FBB8500088600 /* GameScene.sks */,
+				A5DE37AE1D95B18D005965EA /* Defaults.plist */,
 			);
 			path = EscapeGame;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 				A58AD3A41D3FBEC300088600 /* main.wav in Resources */,
 				8412DE531AA4E7DA0089610F /* Main.storyboard in Resources */,
 				84E960F91A7D1D4100E3312D /* Images.xcassets in Resources */,
+				A5DE37AF1D95B18E005965EA /* Defaults.plist in Resources */,
 				A58AD39B1D3FBE7B00088600 /* 2.png in Resources */,
 				A58AD39A1D3FBE7B00088600 /* 1.png in Resources */,
 				A58AD39C1D3FBE7B00088600 /* 3.png in Resources */,

@@ -38,8 +38,8 @@ class GameViewController: UIViewController, viewEndGameDelegate {
         sceneVar = scene;
         // Configure the view.
         let skView = gameView as! SKView
-        skView.showsFPS = true
-        skView.showsNodeCount = true
+        skView.showsFPS = false
+        skView.showsNodeCount = false
         banner.layer.zPosition = 100;
         banner.adUnitID = "ca-app-pub-5388282998795388/1787706150"
         banner.rootViewController = self
