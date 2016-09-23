@@ -3,20 +3,26 @@
 <plist version="1.0">
 <dict>
 	<key>SchemeUserState</key>
-	<dict/>
+	<dict>
+		<key>Pods-EscapeGame.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-EscapeGameTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>84E960E71A7D1D4000E3312D</key>
+		<key>121E00D9E7AAD8CDA8A87EF2FD193BC7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>84E961001A7D1D4100E3312D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>A5D624C51D56315200BF45B1</key>
+		<key>8D5AE67FE97B23D9CB94CBA270C5D89D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -30,21 +30,21 @@
 		84FD1D2D1AA3C3AF008B656F /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FD1D281AA3C3AF008B656F /* GameViewController.swift */; };
 		84FD1D2E1AA3C3AF008B656F /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FD1D291AA3C3AF008B656F /* MenuViewController.swift */; };
 		84FD1D2F1AA3C3AF008B656F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FD1D2A1AA3C3AF008B656F /* SettingsViewController.swift */; };
-		A58AD3901D3FBB3100088600 /* shape.png in Resources */ = {isa = PBXBuildFile; fileRef = A58AD38F1D3FBB3100088600 /* shape.png */; settings = {ASSET_TAGS = (); }; };
-		A58AD3921D3FBB8500088600 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A58AD3911D3FBB8500088600 /* GameScene.sks */; settings = {ASSET_TAGS = (); }; };
-		A58AD39A1D3FBE7B00088600 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = A58AD3931D3FBE7B00088600 /* 1.png */; settings = {ASSET_TAGS = (); }; };
-		A58AD39B1D3FBE7B00088600 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = A58AD3941D3FBE7B00088600 /* 2.png */; settings = {ASSET_TAGS = (); }; };
-		A58AD39C1D3FBE7B00088600 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = A58AD3951D3FBE7B00088600 /* 3.png */; settings = {ASSET_TAGS = (); }; };
-		A58AD39D1D3FBE7B00088600 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = A58AD3961D3FBE7B00088600 /* back.png */; settings = {ASSET_TAGS = (); }; };
-		A58AD39E1D3FBE7B00088600 /* build.png in Resources */ = {isa = PBXBuildFile; fileRef = A58AD3971D3FBE7B00088600 /* build.png */; settings = {ASSET_TAGS = (); }; };
-		A58AD39F1D3FBE7B00088600 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = A58AD3981D3FBE7B00088600 /* menu.png */; settings = {ASSET_TAGS = (); }; };
-		A58AD3A01D3FBE7B00088600 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = A58AD3991D3FBE7B00088600 /* pause.png */; settings = {ASSET_TAGS = (); }; };
-		A58AD3A31D3FBEC300088600 /* EscapeFail.wav in Resources */ = {isa = PBXBuildFile; fileRef = A58AD3A11D3FBEC300088600 /* EscapeFail.wav */; settings = {ASSET_TAGS = (); }; };
-		A58AD3A41D3FBEC300088600 /* main.wav in Resources */ = {isa = PBXBuildFile; fileRef = A58AD3A21D3FBEC300088600 /* main.wav */; settings = {ASSET_TAGS = (); }; };
+		A58AD3901D3FBB3100088600 /* shape.png in Resources */ = {isa = PBXBuildFile; fileRef = A58AD38F1D3FBB3100088600 /* shape.png */; };
+		A58AD3921D3FBB8500088600 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A58AD3911D3FBB8500088600 /* GameScene.sks */; };
+		A58AD39A1D3FBE7B00088600 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = A58AD3931D3FBE7B00088600 /* 1.png */; };
+		A58AD39B1D3FBE7B00088600 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = A58AD3941D3FBE7B00088600 /* 2.png */; };
+		A58AD39C1D3FBE7B00088600 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = A58AD3951D3FBE7B00088600 /* 3.png */; };
+		A58AD39D1D3FBE7B00088600 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = A58AD3961D3FBE7B00088600 /* back.png */; };
+		A58AD39E1D3FBE7B00088600 /* build.png in Resources */ = {isa = PBXBuildFile; fileRef = A58AD3971D3FBE7B00088600 /* build.png */; };
+		A58AD39F1D3FBE7B00088600 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = A58AD3981D3FBE7B00088600 /* menu.png */; };
+		A58AD3A01D3FBE7B00088600 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = A58AD3991D3FBE7B00088600 /* pause.png */; };
+		A58AD3A31D3FBEC300088600 /* EscapeFail.wav in Resources */ = {isa = PBXBuildFile; fileRef = A58AD3A11D3FBEC300088600 /* EscapeFail.wav */; };
+		A58AD3A41D3FBEC300088600 /* main.wav in Resources */ = {isa = PBXBuildFile; fileRef = A58AD3A21D3FBEC300088600 /* main.wav */; };
 		A5D624C91D56315300BF45B1 /* EscapeGameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D624C81D56315300BF45B1 /* EscapeGameUITests.swift */; };
-		A5D624D51D56340000BF45B1 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D624D41D56340000BF45B1 /* SnapshotHelper.swift */; settings = {ASSET_TAGS = (); }; };
-		A5D68A3F1D403423009DD962 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5D68A3E1D403423009DD962 /* GoogleMobileAds.framework */; settings = {ASSET_TAGS = (); }; };
-		A5DE37AF1D95B18E005965EA /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5DE37AE1D95B18D005965EA /* Defaults.plist */; settings = {ASSET_TAGS = (); }; };
+		A5D624D51D56340000BF45B1 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D624D41D56340000BF45B1 /* SnapshotHelper.swift */; };
+		A5D68A3F1D403423009DD962 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5D68A3E1D403423009DD962 /* GoogleMobileAds.framework */; };
+		A5DE37AF1D95B18E005965EA /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5DE37AE1D95B18D005965EA /* Defaults.plist */; };
 		A5F4F76E1D366D1800E376F6 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F4F76D1D366D1800E376F6 /* libz.tbd */; };
 		A5F4F7701D366E8000E376F6 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F4F76F1D366E8000E376F6 /* CoreBluetooth.framework */; };
 		A5F4F7721D366E8600E376F6 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F4F7711D366E8600E376F6 /* MediaPlayer.framework */; };
@@ -418,6 +418,7 @@
 				TargetAttributes = {
 					84E960E71A7D1D4000E3312D = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = CE8FVT4JP6;
 					};
 					84E961001A7D1D4100E3312D = {
 						CreatedOnToolsVersion = 6.2;
@@ -689,6 +690,7 @@
 			baseConfigurationReference = 9FB9A7536090ACBE6F97B056 /* Pods-EscapeGame.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/sergey/Desktop,
@@ -697,6 +699,7 @@
 				INFOPLIST_FILE = EscapeGame/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = simankov.EscapeHero;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -707,6 +710,7 @@
 			baseConfigurationReference = F9A7A027EFB62988542DFB4A /* Pods-EscapeGame.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/sergey/Desktop,
@@ -715,6 +719,7 @@
 				INFOPLIST_FILE = EscapeGame/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = simankov.EscapeHero;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
