@@ -113,7 +113,7 @@
 		84E960EC1A7D1D4000E3312D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84E960ED1A7D1D4000E3312D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84E960F11A7D1D4000E3312D /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
-		84E960F81A7D1D4100E3312D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		84E960F81A7D1D4100E3312D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = EscapeGame/Images.xcassets; sourceTree = "<group>"; };
 		84E961011A7D1D4100E3312D /* EscapeGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EscapeGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84E961061A7D1D4100E3312D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84FD1D261AA3C3AF008B656F /* Convertation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Convertation.swift; path = EscapeGame/Convertation.swift; sourceTree = "<group>"; };
@@ -232,6 +232,7 @@
 		84E960DF1A7D1D4000E3312D = {
 			isa = PBXGroup;
 			children = (
+				84E960F81A7D1D4100E3312D /* Images.xcassets */,
 				847DCA151AADA2E200152965 /* EscapeSound */,
 				84FD1D261AA3C3AF008B656F /* Convertation.swift */,
 				84E960EA1A7D1D4000E3312D /* EscapeGame */,
@@ -271,7 +272,6 @@
 				84FD1D2A1AA3C3AF008B656F /* SettingsViewController.swift */,
 				842E8E211A87B10E0082E95B /* Extensions.swift */,
 				8412DE511AA4E7DA0089610F /* Main.storyboard */,
-				84E960F81A7D1D4100E3312D /* Images.xcassets */,
 				84E960EB1A7D1D4000E3312D /* Supporting Files */,
 				A58AD3911D3FBB8500088600 /* GameScene.sks */,
 				A5DE37AE1D95B18D005965EA /* Defaults.plist */,
@@ -690,6 +690,7 @@
 			baseConfigurationReference = 9FB9A7536090ACBE6F97B056 /* Pods-EscapeGame.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -697,7 +698,7 @@
 					"$(PROJECT_DIR)/EscapeGame",
 				);
 				INFOPLIST_FILE = EscapeGame/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = simankov.EscapeHero;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -710,6 +711,7 @@
 			baseConfigurationReference = F9A7A027EFB62988542DFB4A /* Pods-EscapeGame.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -717,8 +719,9 @@
 					"$(PROJECT_DIR)/EscapeGame",
 				);
 				INFOPLIST_FILE = EscapeGame/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = simankov.EscapeHero;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
